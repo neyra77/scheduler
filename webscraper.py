@@ -2,6 +2,8 @@ import urllib.request
 import requests
 import itertools
 import json
+import os
+import errno
 import re
 from collections import defaultdict
 from bs4 import BeautifulSoup
@@ -160,22 +162,35 @@ def parseTable(soup):
 				del_list.add((currCourse, section))	
 	
 			# TOMATO 
-			if currCourse == "MORF. SIST.CAR.RES.DIG.EXC.REP" and (section == "3D1" or section[1] != "D"):
-				del_list.add((currCourse, section))	
+			#if currCourse == "MORF. SIST.CAR.RES.DIG.EXC.REP" and (section == "3D1" or section[1] != "D"):
+			#	del_list.add((currCourse, section))	
 			#
+
+			if currCourse == "BIOQUÍMICA" and (section[1] != "H" and section[1] != "I"):
+				del_list.add((currCourse, section))	
+			
+
+
 			# Get the Time	
 			day = row[headerDict["DIA"]]
 			start_hour = row[headerDict["HORA INICIO"]]
 			end_hour = row[headerDict["HORA FIN"]]
 			date_str = day + start_hour + end_hour
-
+			
+			start_hour_int = int(start_hour[:2])
+			end_hour_int = int(end_hour[:2])
+			
 			#TOMATO
 			human_date_str = day + " " + start_hour + " - " + end_hour 
+			if start_hour_int < 8:
+				del_list.add((currCourse, section))
+			if end_hour_int > 21:
+				del_list.add((currCourse, section))
 		
 			#TOMATO	
 			#if day == "SAB" or day == "MAR" or day == "JUE" or day == "LUN":
-			if day == "SAB" or day == "MAR":
 			#if day == "SAB":
+			if day == "MAR":
 				del_list.add((currCourse, section))	
 			#TOMATO
 			#newst_hour = start_hour.replace(":", ".") 
@@ -272,17 +287,6 @@ def getrequestlist(catalog):
 	return numbers 
 
 
-# Compares two tuples dates to make sure there is no overlap
-def checkOverlap(tup1, tup2):
-	# NOTE: Assumes no incorrect data (hours are backwards)
-	if tup1[1] <= tup2[0] or tup1[0] >= tup2[1]:
-		return true
-
-	return false	
-
-
-
-
 #TODO: prob make a date a class
 #TODO: assumes that classes take whole hours (i.e no 30 min class start)
 #TODO: Use regex later too?
@@ -360,16 +364,23 @@ def findCombinations (request_list, catalog, courseDict, coursetimeMap):
 			viable_list.append(comb)
 			good_counter += 1	
 
-	total = 1
-	for res in res_list:
-		total *= len(res)
+	return (good_counter, bad_counter, viable_list)
 
 
-		
+# Print out the combinations human readable	                                                                        
+def printCombinations(good_counter, bad_counter, viable_list, catalog, coursetimeMap):
+	total = good_counter + bad_counter
 	print("\n\nBuscando combinaciones viables entre " + str(total) + " posibilidades...........")
-	#print("Condiciones: No clase [\'Martes\', \'Sabado\']")	
+        #print("Condiciones: No clase [\'Martes\', \'Sabado\']")	
 	print ("\nHorarios viables: " + str(good_counter))
 	print("Horarios NO viables: " + str(bad_counter))
+        
+	
+	dname = "results"
+	os.makedirs(os.path.dirname(dname), exist_ok=True)
+	#with open(filename, "w") as f:
+    	#	f.write("FOOBAR")
+
 
 	comb_counter = 1
 	for viable in viable_list: 
@@ -387,43 +398,32 @@ def findCombinations (request_list, catalog, courseDict, coursetimeMap):
 				courseName + " [" + grupo + 
 				"|" + seccion + "] -------------")
 			time = coursetimeMap[(courseName, secName)]
-			#time.sort()
 			for t in time: 
-				#output_str = t[0] + "  (" + t[1] + " , " + t[2] + ")"
 				output_str = t[1] + "\t" + t[0] + "\t"
 				spacer = "" if len(t[2]) > 2 else " " 
-				#output_str = t[1] + " " + spacer + t[2] + "\t   " + t[0]
 				print("\t\t{0}".format(output_str))
-
-
+	                                                                                              
+	                                                                                              
 			counter += 1
 		comb_counter += 1
 		print("\n")
 	print("\n")
-	                                                                        
+
  
 def main():
 	# Parses the html
 	url = '/mnt/c/Users/framo/OneDrive/Desktop/Control de eventos UCSUR.html'
+	#url = r'C:\Users\framo\OneDrive\Desktop\Control de eventos UCSUR.html'
 	#url = '/mnt/c/Users/framo/OneDrive/Desktop/Control de eventos UCSUR2'
 	soup = BeautifulSoup(open(url), "html.parser")
 	
 	(courseDict, coursetimeMap) = parseTable(soup)	
-
-	#for key in coursetimeMap.keys():
-	#	print( key)
-	#	print( coursetimeMap[key])
-	
-	# Prints the dictionary in nice version	
-	#printDict(courseDict)
-
 	catalog = list(enumerate(sorted(courseDict.keys())))	
 
 	print("Catalogo de cursos 2020-1:\n")
 	request_list = getrequestlist(catalog)
-	findCombinations (request_list, catalog, courseDict, coursetimeMap)
-	
-	#printDict(courseDict)
+	(good_counter, bad_counter, viable_list) = findCombinations (request_list, catalog, courseDict, coursetimeMap)
+	printCombinations(good_counter, bad_counter, viable_list, catalog, coursetimeMap) 
 
 
 if __name__ == '__main__':

@@ -1,4 +1,5 @@
 import urllib.request
+import shutil
 import requests
 import itertools
 import json
@@ -160,14 +161,35 @@ def parseTable(soup):
 			subsection = regex_search.group(2)
 			if subsection and (currCourse, mainsection) in del_list:
 				del_list.add((currCourse, section))	
-	
-			# TOMATO 
-			#if currCourse == "MORF. SIST.CAR.RES.DIG.EXC.REP" and (section == "3D1" or section[1] != "D"):
-			#	del_list.add((currCourse, section))	
-			#
 
-			if currCourse == "BIOQUÍMICA" and (section[1] != "H" and section[1] != "I"):
-				del_list.add((currCourse, section))	
+
+			#Ghian's	
+			# TOMATO 
+			#if currCourse == "MORF. SIST.CAR.RES.DIG.EXC.REP" and (section[1] != "D" and section[1] != "E"):
+			#if currCourse == "MORF. SIST.CAR.RES.DIG.EXC.REP" and not (section == "3E" or section == "3E1"): 
+			#	del_list.add((currCourse, section))	
+			
+			#if currCourse == "BIOQUÍMICA" and (section != "3B" and section != "3B2"):
+			#if currCourse == "BIOQUÍMICA" and (section[1] == "F"):
+			#	del_list.add((currCourse, section))	
+			
+			#if currCourse == "DESARROLLO Y CRECIMIENTO" and (section[1] == "E"):
+			#if currCourse == "DESARROLLO Y CRECIMIENTO" and (section != "E" and section != "3E1"): 
+			#	del_list.add((currCourse, section))	
+
+			#if currCourse == "CIENCIAS SOCIALES Y SALUD" and (section[1] != "F" and section[1] != "G" and section[1] != "E"):
+			#	del_list.add((currCourse, section))	
+			
+
+			#if currCourse == "ESTADÍSTICA GENERAL" and (section[1] != "T" and section[1] != "P"):
+			#if currCourse == "ESTADÍSTICA GENERAL" and (section != "4P" and section != "4P2"):
+			#	del_list.add((currCourse, section))	
+
+			#if currCourse == "REALIDAD NACIONAL" and (section[1] != "O" and section[1] != "N"):
+			#	del_list.add((currCourse, section))	
+			
+			#if currCourse == "HISTORIA DE LA MEDICINA" and (section[1] != "D" and section[1] != "E" and section[1] != "E"):
+			#	del_list.add((currCourse, section))	
 			
 
 
@@ -184,13 +206,13 @@ def parseTable(soup):
 			human_date_str = day + " " + start_hour + " - " + end_hour 
 			if start_hour_int < 8:
 				del_list.add((currCourse, section))
-			if end_hour_int > 21:
+			if end_hour_int > 22:
 				del_list.add((currCourse, section))
 		
 			#TOMATO	
 			#if day == "SAB" or day == "MAR" or day == "JUE" or day == "LUN":
+			if day == "MAR" or day == "SAB":
 			#if day == "SAB":
-			if day == "MAR":
 				del_list.add((currCourse, section))	
 			#TOMATO
 			#newst_hour = start_hour.replace(":", ".") 
@@ -367,7 +389,56 @@ def findCombinations (request_list, catalog, courseDict, coursetimeMap):
 	return (good_counter, bad_counter, viable_list)
 
 
-# Print out the combinations human readable	                                                                        
+
+
+
+TIME_PATTERN = re.compile('([a-zA-Z]{3})(\d{2}):(\d{2})-(\d{2}):(\d{2})')
+
+# Print human readable schedule
+def printSchedule(entry_counter, catalog, coursetuple, course_counter, coursetimeMap):
+	courseName = catalog[coursetuple[0]][1]
+	secName = coursetuple[1]
+	
+	regex_search = re.search(COMP_PATTERN, secName)
+	grupo = regex_search.group(1)
+	seccion = regex_search.group(2)
+		
+	print("\tCurso " + str(course_counter) + ".\t------------- " + 
+		courseName + " [" + grupo + 
+		"|" + seccion + "] -------------")
+	time = coursetimeMap[(courseName, secName)]
+
+	res_str = ""
+	for t in time: 
+		output_str = t[1] + "\t" + t[0] + "\t"
+		spacer = "" if len(t[2]) > 2 else " " 
+		print("\t\t{0}".format(output_str))
+
+		time_str = t[0].replace(" ", "")
+		
+		regex_search = re.search(TIME_PATTERN, time_str)
+
+		day_str = regex_search.group(1)
+		day_index = DAYS.index(day_str)
+		start_hour = regex_search.group(2)
+		start_min= regex_search.group(3)
+		end_hour = regex_search.group(4)
+		end_min = regex_search.group(5)
+
+		res_str += str(day_index + 1) + "\t"	
+		res_str += start_hour + "\t" 
+		res_str += start_min + "\t"  
+		res_str += end_hour + "\t"  
+		res_str += end_min + "\t" 
+		
+		course_str = courseName + grupo + seccion 
+		res_str += course_str.replace(" ", "") + "\n" 
+		#res_str +=   
+
+	return res_str 
+
+
+# Print out the combinations human readable	                              
 def printCombinations(good_counter, bad_counter, viable_list, catalog, coursetimeMap):
 	total = good_counter + bad_counter
 	print("\n\nBuscando combinaciones viables entre " + str(total) + " posibilidades...........")
@@ -375,36 +446,28 @@ def printCombinations(good_counter, bad_counter, viable_list, catalog, coursetim
 	print ("\nHorarios viables: " + str(good_counter))
 	print("Horarios NO viables: " + str(bad_counter))
         
-	
+	# Create the directory	
 	dname = "results"
-	os.makedirs(os.path.dirname(dname), exist_ok=True)
-	#with open(filename, "w") as f:
-    	#	f.write("FOOBAR")
-
+	if os.path.exists(dname):
+		shutil.rmtree(dname)	
+	os.makedirs(dname)
 
 	comb_counter = 1
-	for viable in viable_list: 
+	for viable_comb in viable_list: 
 		print("\n\nHorario Final: " + str(comb_counter) + "/" + str(good_counter))	
-		counter = 1
-		for c in viable:
-			courseName = catalog[c[0]][1]
-			secName = c[1]
-			
-			regex_search = re.search(COMP_PATTERN, secName)
-			grupo = regex_search.group(1)
-			seccion = regex_search.group(2)
-				
-			print("\tCurso " + str(counter) + ".\t------------- " + 
-				courseName + " [" + grupo + 
-				"|" + seccion + "] -------------")
-			time = coursetimeMap[(courseName, secName)]
-			for t in time: 
-				output_str = t[1] + "\t" + t[0] + "\t"
-				spacer = "" if len(t[2]) > 2 else " " 
-				print("\t\t{0}".format(output_str))
-	                                                                                              
-	                                                                                              
-			counter += 1
+		course_counter = 1
+
+		# Open a file
+		f_name = dname + "/schedule" + str(comb_counter) + "of" + str(good_counter)
+		f = open(f_name, "w+")		
+		data_string = ""
+		entry_counter = 1
+		for coursetuple in viable_comb:
+			data_string += printSchedule(entry_counter, catalog, coursetuple, course_counter, coursetimeMap)
+			f.write(data_string)
+			course_counter += 1
+		f.close()	
+
 		comb_counter += 1
 		print("\n")
 	print("\n")

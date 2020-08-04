@@ -1,0 +1,2922 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://horarios.cientifica.edu.pe/horarios -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<link rel="apple-touch-icon" sizes="76x76" href="https://horarios.cientifica.edu.pe/assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="https://horarios.cientifica.edu.pe/assets/img/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Control de eventos UCSUR</title>
+
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="viewport" content="width=device-width">
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="./Control de eventos UCSUR_files/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Animation library for notifications   -->
+    <link href="./Control de eventos UCSUR_files/animate.min.css" rel="stylesheet">
+
+    <!--  Paper Dashboard core CSS    -->
+    <link href="./Control de eventos UCSUR_files/paper-dashboard.css" rel="stylesheet">
+
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="./Control de eventos UCSUR_files/demo.css" rel="stylesheet">
+
+
+    <!--  Fonts and icons     -->
+    <link href="./Control de eventos UCSUR_files/font-awesome.min.css" rel="stylesheet">
+    <link href="./Control de eventos UCSUR_files/css" rel="stylesheet" type="text/css">
+    <link href="./Control de eventos UCSUR_files/themify-icons.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+   <link rel="stylesheet" href="./Control de eventos UCSUR_files/font-awesome.min(1).css">
+
+   <!-- archivos del proyecto -->
+   <link rel="stylesheet" href="./Control de eventos UCSUR_files/ajax.css">
+
+   <!--   Core JS Files   -->
+        <script type="text/javascript" async="" src="./Control de eventos UCSUR_files/analytics.js.descarga"></script><script src="./Control de eventos UCSUR_files/jquery-1.10.2.js.descarga" type="text/javascript"></script>
+        <script src="./Control de eventos UCSUR_files/bootstrap.min.js.descarga" type="text/javascript"></script>
+        
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async="" src="./Control de eventos UCSUR_files/js"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-145241754-1');
+        </script>
+</head>
+<body style="">
+
+<div class="wrapper">
+    <div class="sidebar" data-background-color="white" data-active-color="danger">
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="https://horarios.cientifica.edu.pe/" class="simple-text" target="_blank">
+                    <img id="logo-img" src="./Control de eventos UCSUR_files/ucsur.png" alt="" height="100%">
+                </a>
+            </div>
+
+            <ul class="nav" id="menu_lateral">
+               <!--  <li class="menu ">
+                    <a href="dashboard/">
+                        <i class="ti-home"></i>
+                        <p>Inicio</p>
+                    </a>
+                </li> -->
+
+                 <li class=" hide menu active">
+                    <a href="https://horarios.cientifica.edu.pe/inscripciones/">
+                        <i class="ti-calendar"></i>
+                        <p>Eventos</p>
+                    </a>
+                </li>
+
+                <li class=" hide menu ">
+                    <a href="https://horarios.cientifica.edu.pe/postular/">
+                        <i class="ti-panel"></i>
+                        <p>Postular</p>
+                    </a>
+                </li>
+            
+            </ul>
+    	</div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar bar1"></span>
+                        <span class="icon-bar bar2"></span>
+                        <span class="icon-bar bar3"></span>
+                    </button>
+                    
+                    <a class="navbar-brand" href="https://horarios.cientifica.edu.pe/horarios#">Horarios Pregrado 2020 - I (2204)</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                      
+						<li>
+                            <a href="https://horarios.cientifica.edu.pe/inscripciones/logout_incripciones">
+								<i class="fa fa-sign-out"></i>
+								<p>Cerrar Sesión</p>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+        
+
+        <div class="content">
+            <input type="hidden" id="ruta_base" value="https://horarios.cientifica.edu.pe/">
+            <div class="container-fluid">
+
+                <div id="div_carga">
+                    <img id="cargador" src="./Control de eventos UCSUR_files/loader.png">
+                </div>
+
+                
+
+<div class="row">
+  <div class="alert alert-warning col-sm-4" style="margin-left: 15px !important;">
+    <strong> Estimado estudiante: <br>
+  Usted podrá visualizar los cursos programados para su carrera por ciclo. Debes considerar que esta programación muestra los cursos de las diferentes mallas.</strong>
+  </div>
+</div>
+
+  <style type="text/css">
+  .tg  {border-collapse:collapse;border-spacing:0;}
+  .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+  .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+  .tg .tg-uo1u{background-color:#7ba1dd;color:#ffffff;border-color:inherit;text-align:center;vertical-align:middle;}
+  .tg .tg-haou{background-color:#7ba1dd;border-color:inherit;text-align:center;vertical-align:middle}
+  .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:middle}
+  .tg .tg-7r0r{background-color:#204491;color:#ffffff;border-color:#000000;text-align:center;vertical-align:middle}
+  .tg .tg-sckj{background-color:#204491;color:#ffffff;border-color:inherit;text-align:center;vertical-align:middle}
+  .special-span {
+    
+    display: inline-block;  
+    width: 85px; /* 80 / cos(45) - 40 cos (45) = 85 where 80 is the height of the cell, 40 the width of the cell and 45 the transform angle*/
+    text-align: left;
+    font-size: 14px;
+    color: #ffffff !important;
+      text-align: center;
+      font-weight: bolder;
+    
+  }
+  .ciclo-titulo {       
+    font-size: 20px;  
+  }
+  </style>
+  <table class="tg" style="undefined; width: 100%">
+  <colgroup>
+  <col style="width: 83px">
+  <col style="width: 207px">
+  <col style="width: 100px">
+  <col style="width: 102px">
+  <col style="width: 71px">
+  <col style="width: 180px">
+  <col style="width: 150px">
+  <col style="width: 89px">
+  <col style="width: 89px">
+  <col style="width: 401px">
+  <col style="width: 120px">
+  </colgroup>
+    <tbody><tr>
+      <th class="tg-7r0r">CICLO</th>
+      <th class="tg-sckj">CURSO</th>
+      <th class="tg-sckj">COMP</th>
+      <th class="tg-sckj">SECCION</th>
+      <th class="tg-sckj">DIA</th>      
+      <th class="tg-sckj">AULA</th>
+      <th class="tg-sckj">FECHA INICIO</th>
+      <th class="tg-sckj">HORA INICIO</th>
+      <th class="tg-sckj">HORA FIN</th>
+      <th class="tg-sckj">PROFESOR</th>
+      <th class="tg-7r0r">TIPO</th>
+    </tr><tr>
+                  <td valign="middle" class="tg-haou" rowspan="144"><span class="special-span ciclo-titulo">III</span></td>
+                    <td valign="middle" class="tg-c3ow" rowspan="21">DESARROLLO Y CRECIMIENTO</td>
+                    <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3A</td>
+                    <td class="tg-c3ow">MIE</td>
+                    
+                    <td class="tg-c3ow">UV08_103 / AULA J-103</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow">HERNANDEZ BACA,GABRIELA EDINA</td>
+                    <td valign="middle" class="tg-uo1u" rowspan="21"><span class="special-span">OBLIGATORIO</span></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3A1</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV01_203 / LAB. BIOLOGÍA 4</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">HERNANDEZ BACA,GABRIELA EDINA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3A2</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV01_203 / LAB. BIOLOGÍA 4</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">20:30</td>
+                    <td class="tg-c3ow">HERNANDEZ BACA,GABRIELA EDINA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3B</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV06_105 / AULA I-105</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow">PEREZ HERNANDEZ,GABRIEL ENRIQUE</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3B1</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV01_204 / LAB. BIOLOGÍA 3</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">PEREZ HERNANDEZ,GABRIEL ENRIQUE</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3B2</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV01_204 / LAB. BIOLOGÍA 3</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">20:30</td>
+                    <td class="tg-c3ow">PEREZ HERNANDEZ,GABRIEL ENRIQUE</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3C</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV06_106 / AULA I-106</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow">HERNANDEZ BACA,GABRIELA EDINA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3C1</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV01_203 / LAB. BIOLOGÍA 4</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">HERNANDEZ BACA,GABRIELA EDINA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3C2</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV01_203 / LAB. BIOLOGÍA 4</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">20:30</td>
+                    <td class="tg-c3ow">HERNANDEZ BACA,GABRIELA EDINA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3D</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV11_106 / AULA L-106</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow">PEREZ HERNANDEZ,GABRIEL ENRIQUE</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3D1</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV01_306 / LAB. BIOLOGÍA 5</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">PEREZ HERNANDEZ,GABRIEL ENRIQUE</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3D2</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV01_306 / LAB. BIOLOGÍA 5</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">20:30</td>
+                    <td class="tg-c3ow">PEREZ HERNANDEZ,GABRIEL ENRIQUE</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3E</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV06_105 / AULA I-105</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow">FERNANDEZ CARAVEDO,PABLO ALFONSO</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3E1</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV01_102 / LAB. BIOLOGÍA 1</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">FERNANDEZ CARAVEDO,PABLO ALFONSO</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3E2</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV01_102 / LAB. BIOLOGÍA 1</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">20:30</td>
+                    <td class="tg-c3ow">FERNANDEZ CARAVEDO,PABLO ALFONSO</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3F</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV12_203 / AULA M-203</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow">PEREZ HERNANDEZ,GABRIEL ENRIQUE</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3F1</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV01_203 / LAB. BIOLOGÍA 4</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">PEREZ HERNANDEZ,GABRIEL ENRIQUE</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3F2</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV01_203 / LAB. BIOLOGÍA 4</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">20:30</td>
+                    <td class="tg-c3ow">PEREZ HERNANDEZ,GABRIEL ENRIQUE</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3G</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV13_208 / AULA N-208</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow">HERNANDEZ BACA,GABRIELA EDINA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3G1</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV01_306 / LAB. BIOLOGÍA 5</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">HERNANDEZ BACA,GABRIELA EDINA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3G2</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV01_306 / LAB. BIOLOGÍA 5</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">20:30</td>
+                    <td class="tg-c3ow">HERNANDEZ BACA,GABRIELA EDINA</td>
+                    </tr><tr>
+                    <td valign="middle" class="tg-c3ow" rowspan="52">BIOQUÍMICA</td>
+                    <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3A</td>
+                    <td class="tg-c3ow">JUE</td>
+                    
+                    <td class="tg-c3ow">UV12_201 / AULA M-201</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">16:00</td>
+                    <td class="tg-c3ow"></td>
+                     <td valign="middle" class="tg-uo1u" rowspan="52"><span class="special-span">OBLIGATORIO</span></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3A</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV11_202 / AULA L-202</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">13:10</td>
+                    <td class="tg-c3ow">15:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3A1</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV11_205 / AULA L-205</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">13:10</td>
+                    <td class="tg-c3ow">15:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3A1</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV01_205 / LAB.QUÍMICA 4</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">21:15</td>
+                    <td class="tg-c3ow">SALAZAR SANCHEZ,JUAN ALBERTO | SALAZAR SANCHEZ,JUAN ALBERTO | SALAZAR SANCHEZ,JUAN ALBERTO | SALAZAR</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3A2</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV11_205CO / AULA L-205CO</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">13:10</td>
+                    <td class="tg-c3ow">15:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3A2</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV01_213 / LAB. BROMATOLOGÍA Y QUIMICA V</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">13:10</td>
+                    <td class="tg-c3ow">15:00</td>
+                    <td class="tg-c3ow">SALAZAR SANCHEZ,JUAN ALBERTO | SALAZAR SANCHEZ,JUAN ALBERTO | SALAZAR SANCHEZ,JUAN ALBERTO | SALAZAR</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3B</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV13_201 / AULA N-201</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">22:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3B1</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV01_205 / LAB.QUÍMICA 4</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">10:10</td>
+                    <td class="tg-c3ow">12:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3B1</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV11_207 / AULA L-207</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">20:30</td>
+                    <td class="tg-c3ow">22:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3B2</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV01_213 / LAB. BROMATOLOGÍA Y QUIMICA V</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">12:10</td>
+                    <td class="tg-c3ow">14:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3B2</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV11_207CO / AULA L-207CO</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">20:30</td>
+                    <td class="tg-c3ow">22:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3C</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV13_208 / AULA N-208</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">18:10</td>
+                    <td class="tg-c3ow">20:30</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3C1</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV08_103 / AULA J-103</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">13:10</td>
+                    <td class="tg-c3ow">15:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3C1</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV01_113 / LAB. QUÍMICA 1</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3C2</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV08_103CO / AULA J-103CO</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">13:10</td>
+                    <td class="tg-c3ow">15:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3C2</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV01_206 / LAB. QUÍMICA 3</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">16:10</td>
+                    <td class="tg-c3ow">18:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3D</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV11_204 / AULA L-204</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">22:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3D1</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV08_107 / AULA J-107</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3D1</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV01_113 / LAB. QUÍMICA 1</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">20:30</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3D2</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV01_205 / LAB.QUÍMICA 4</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3D2</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV08_107CO / AULA J-107CO</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3E</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV12_203 / AULA M-203</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">22:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3E1</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV01_206 / LAB. QUÍMICA 3</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">18:10</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3E1</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV11_108 / AULA L-108</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">07:10</td>
+                    <td class="tg-c3ow">09:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3E2</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV01_206 / LAB. QUÍMICA 3</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">21:15</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3E2</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV11_108CO / AULA L-108CO</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">07:10</td>
+                    <td class="tg-c3ow">09:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3F</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV11_106 / AULA L-106</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3F</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV11_207 / AULA L-207</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">16:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3F1</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV01_213 / LAB. BROMATOLOGÍA Y QUIMICA V</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">20:30</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3F1</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV08_104 / AULA J-104</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3F2</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV01_205 / LAB.QUÍMICA 4</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3F2</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV08_104CO / AULA J-104CO</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3G</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV11_206 / AULA L-206</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">20:30</td>
+                    <td class="tg-c3ow">22:45</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3G1</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV13_203 / AULA N-203</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">18:10</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3G1</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV01_205 / LAB.QUÍMICA 4</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">21:15</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3G2</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV01_113 / LAB. QUÍMICA 1</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">16:10</td>
+                    <td class="tg-c3ow">18:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3G2</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV13_203CO / AULA N-203CO</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">18:10</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3H</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV12_201 / AULA M-201</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3H1</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV11_103 / AULA L-103</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3H1</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV01_213 / LAB. BROMATOLOGÍA Y QUIMICA V</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3H2</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV11_103CO / AULA L-103CO</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3H2</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV01_213 / LAB. BROMATOLOGÍA Y QUIMICA V</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3I</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV11_211 / AULA L-211</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">12:10</td>
+                    <td class="tg-c3ow">15:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3I1</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV11_204 / AULA L-204</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">21:15</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3I1</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV01_206 / LAB. QUÍMICA 3</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">18:10</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3I2</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV11_204CO / AULA L-204CO</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">21:15</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3I2</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV01_206 / LAB. QUÍMICA 3</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">21:15</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">2J</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV06_204 / AULA I-204</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">20:30</td>
+                    <td class="tg-c3ow">22:45</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">2J1</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV06_106 / AULA I-106</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">18:10</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">NAVARRO,MARIA DEL PILAR | NAVARRO,MARIA DEL PILAR | NAVARRO,MARIA DEL PILAR | NAVARRO,MARIA DEL PILA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">2J1</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV01_112 / LAB. QUÍMICA 2</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">21:15</td>
+                    <td class="tg-c3ow">NAVARRO,MARIA DEL PILAR | NAVARRO,MARIA DEL PILAR | NAVARRO,MARIA DEL PILAR | NAVARRO,MARIA DEL PILA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">2J2</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV01_113 / LAB. QUÍMICA 1</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">20:30</td>
+                    <td class="tg-c3ow">NAVARRO,MARIA DEL PILAR | NAVARRO,MARIA DEL PILAR | NAVARRO,MARIA DEL PILAR | NAVARRO,MARIA DEL PILA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">2J2</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV06_106CO / AULA I-106CO</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">18:10</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">NAVARRO,MARIA DEL PILAR | NAVARRO,MARIA DEL PILAR | NAVARRO,MARIA DEL PILAR | NAVARRO,MARIA DEL PILA</td>
+                    </tr><tr>
+                    <td valign="middle" class="tg-c3ow" rowspan="2">CIENCIAS SOCIALES Y SALUD</td>
+                    <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3A</td>
+                    <td class="tg-c3ow">MAR</td>
+                    
+                    <td class="tg-c3ow">UV09_209 / AULA K-209</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow">CALSIN PACOMPIA,WILLMER</td>
+                     <td valign="middle" class="tg-uo1u" rowspan="2"><span class="special-span">OBLIGATORIO</span></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">SEM</td>
+                    <td class="tg-c3ow">3A1</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV09_209 / AULA K-209</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">CALSIN PACOMPIA,WILLMER</td>
+                    </tr><tr>
+                    <td valign="middle" class="tg-c3ow" rowspan="14">CIENCIAS SOCIALES Y SALUD</td>
+                    <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3A</td>
+                    <td class="tg-c3ow">LUN</td>
+                    
+                    <td class="tg-c3ow">UV06_106 / AULA I-106</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">.</td>
+                     <td valign="middle" class="tg-uo1u" rowspan="14"><span class="special-span">OBLIGATORIO</span></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3A1</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV06_106 / AULA I-106</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">21:15</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3B</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV06_106 / AULA I-106</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3B1</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV06_106 / AULA I-106</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">21:15</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3C</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV08_102 / AULA J-102</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3C1</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV08_102 / AULA J-102</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">21:15</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3D</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV11_104 / AULA L-104</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">07:10</td>
+                    <td class="tg-c3ow">08:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3D1</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV11_104 / AULA L-104</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">08:10</td>
+                    <td class="tg-c3ow">10:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3E</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV06_105 / AULA I-105</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">10:10</td>
+                    <td class="tg-c3ow">11:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3E1</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV06_105 / AULA I-105</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">11:10</td>
+                    <td class="tg-c3ow">13:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3F</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV11_107 / AULA L-107</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">LOPEZ MARQUEZ,JORGE LUIS</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3F1</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV11_107 / AULA L-107</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">21:15</td>
+                    <td class="tg-c3ow">LOPEZ MARQUEZ,JORGE LUIS</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3G</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV08_104 / AULA J-104</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3G1</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV08_104 / AULA J-104</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">21:15</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr><tr>
+                    <td valign="middle" class="tg-c3ow" rowspan="55">MORF. SIST.CAR.RES.DIG.EXC.REP</td>
+                    <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3A</td>
+                    <td class="tg-c3ow">LUN</td>
+                    
+                    <td class="tg-c3ow">UV09_109 / AULA K-109</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">07:10</td>
+                    <td class="tg-c3ow">08:00</td>
+                    <td class="tg-c3ow"></td>
+                     <td valign="middle" class="tg-uo1u" rowspan="55"><span class="special-span">OBLIGATORIO</span></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3A</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV06_105 / AULA I-105</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">12:10</td>
+                    <td class="tg-c3ow">13:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3A</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV08_104 / AULA J-104</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">13:10</td>
+                    <td class="tg-c3ow">14:00</td>
+                    <td class="tg-c3ow">ZAMORA GONZALES,LUIS MIGUEL | ZAMORA GONZALES,LUIS MIGUEL</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3A1</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV01_103 / LAB. BIOLOGÍA 2</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">07:10</td>
+                    <td class="tg-c3ow">09:00</td>
+                    <td class="tg-c3ow">ZAMORA GONZALES,LUIS MIGUEL | ZAMORA GONZALES,LUIS MIGUEL</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3A1</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV09_109 / AULA K-109</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">08:10</td>
+                    <td class="tg-c3ow">09:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3A1</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV01_104 / LAB. ANATOMÍA HUMANA 1</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">14:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3A1</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV01_305 / LAB. FISIOLOGÍA 2</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">07:10</td>
+                    <td class="tg-c3ow">09:00</td>
+                    <td class="tg-c3ow">VARGAS SORIANO,JOSE ARTURO | VARGAS SORIANO,JOSE ARTURO</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3A2</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV01_306 / LAB. BIOLOGÍA 5</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">09:10</td>
+                    <td class="tg-c3ow">11:00</td>
+                    <td class="tg-c3ow">ZAMORA GONZALES,LUIS MIGUEL | ZAMORA GONZALES,LUIS MIGUEL</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3A2</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV09_109CO / AULA K-109CO</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">08:10</td>
+                    <td class="tg-c3ow">09:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3A2</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV01_104 / LAB. ANATOMÍA HUMANA 1</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3A2</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV01_305 / LAB. FISIOLOGÍA 2</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">09:10</td>
+                    <td class="tg-c3ow">11:00</td>
+                    <td class="tg-c3ow">VARGAS SORIANO,JOSE ARTURO | VARGAS SORIANO,JOSE ARTURO</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3B</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV06_203 / AULA I-203</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">16:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3B</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV12_203 / AULA M-203</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">07:10</td>
+                    <td class="tg-c3ow">08:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3B</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV12_203 / AULA M-203</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">08:10</td>
+                    <td class="tg-c3ow">09:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3B1</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV01_304 / LAB. FISIOLOGÍA 1</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">09:10</td>
+                    <td class="tg-c3ow">11:00</td>
+                    <td class="tg-c3ow">VARGAS SORIANO,JOSE ARTURO | VARGAS SORIANO,JOSE ARTURO</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3B1</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV13_208 / AULA N-208</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">18:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3B1</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV01_105 / LAB. ANATOMIA HUMANA 2</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">14:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3B1</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV01_306 / LAB. BIOLOGÍA 5</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">07:10</td>
+                    <td class="tg-c3ow">09:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3B2</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV01_304 / LAB. FISIOLOGÍA 1</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">07:10</td>
+                    <td class="tg-c3ow">09:00</td>
+                    <td class="tg-c3ow">VARGAS SORIANO,JOSE ARTURO | VARGAS SORIANO,JOSE ARTURO</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3B2</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV13_208CO / AULA N-208CO</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">18:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3B2</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV01_105 / LAB. ANATOMIA HUMANA 2</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3B2</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV01_203 / LAB. BIOLOGÍA 4</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">09:10</td>
+                    <td class="tg-c3ow">11:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3C</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV13_202 / AULA N-202</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">12:10</td>
+                    <td class="tg-c3ow">13:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3C</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV12_201 / AULA M-201</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">07:10</td>
+                    <td class="tg-c3ow">08:00</td>
+                    <td class="tg-c3ow">SAMANEZ URRUNAGA,MARIA CAROLINA | SAMANEZ URRUNAGA,MARIA CAROLINA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3C</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV12_201 / AULA M-201</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">08:10</td>
+                    <td class="tg-c3ow">09:00</td>
+                    <td class="tg-c3ow">SAMANEZ URRUNAGA,MARIA CAROLINA | SAMANEZ URRUNAGA,MARIA CAROLINA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3C1</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV01_304 / LAB. FISIOLOGÍA 1</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">11:10</td>
+                    <td class="tg-c3ow">13:00</td>
+                    <td class="tg-c3ow">VARGAS SORIANO,JOSE ARTURO | VARGAS SORIANO,JOSE ARTURO</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3C1</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV13_202 / AULA N-202</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">13:10</td>
+                    <td class="tg-c3ow">14:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3C1</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV01_104 / LAB. ANATOMÍA HUMANA 1</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">14:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3C1</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV01_306 / LAB. BIOLOGÍA 5</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">07:10</td>
+                    <td class="tg-c3ow">09:00</td>
+                    <td class="tg-c3ow">ZAMORA GONZALES,LUIS MIGUEL | ZAMORA GONZALES,LUIS MIGUEL</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3C2</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV01_304 / LAB. FISIOLOGÍA 1</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">13:10</td>
+                    <td class="tg-c3ow">15:00</td>
+                    <td class="tg-c3ow">VARGAS SORIANO,JOSE ARTURO | VARGAS SORIANO,JOSE ARTURO</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3C2</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV13_202CO / AULA N-202CO</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">13:10</td>
+                    <td class="tg-c3ow">14:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3C2</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV01_104 / LAB. ANATOMÍA HUMANA 1</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3C2</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV01_101 / LAB. MICROBIOLOGIA 1</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">09:10</td>
+                    <td class="tg-c3ow">11:00</td>
+                    <td class="tg-c3ow">ZAMORA GONZALES,LUIS MIGUEL | ZAMORA GONZALES,LUIS MIGUEL</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3D</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV12_203 / AULA M-203</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">08:10</td>
+                    <td class="tg-c3ow">09:00</td>
+                    <td class="tg-c3ow">TAPIA ALEJOS,LENIN BRUMEL | TAPIA ALEJOS,LENIN BRUMEL</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3D</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV13_202 / AULA N-202</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">14:10</td>
+                    <td class="tg-c3ow">15:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3D</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV12_201 / AULA M-201</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">11:10</td>
+                    <td class="tg-c3ow">12:00</td>
+                    <td class="tg-c3ow">SAMANEZ URRUNAGA,MARIA CAROLINA | SAMANEZ URRUNAGA,MARIA CAROLINA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3D1</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV01_204 / LAB. BIOLOGÍA 3</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">11:10</td>
+                    <td class="tg-c3ow">13:00</td>
+                    <td class="tg-c3ow">ZAMORA GONZALES,LUIS MIGUEL | ZAMORA GONZALES,LUIS MIGUEL</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3D1</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV13_202 / AULA N-202</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">16:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3D1</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV01_305 / LAB. FISIOLOGÍA 2</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">07:10</td>
+                    <td class="tg-c3ow">09:00</td>
+                    <td class="tg-c3ow">VARGAS SORIANO,JOSE ARTURO | VARGAS SORIANO,JOSE ARTURO</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3D1</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV01_105 / LAB. ANATOMIA HUMANA 2</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">14:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3D2</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV01_204 / LAB. BIOLOGÍA 3</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">13:10</td>
+                    <td class="tg-c3ow">15:00</td>
+                    <td class="tg-c3ow">ZAMORA GONZALES,LUIS MIGUEL | ZAMORA GONZALES,LUIS MIGUEL</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3D2</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV13_202CO / AULA N-202CO</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">16:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3D2</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV01_305 / LAB. FISIOLOGÍA 2</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">09:10</td>
+                    <td class="tg-c3ow">11:00</td>
+                    <td class="tg-c3ow">VARGAS SORIANO,JOSE ARTURO | VARGAS SORIANO,JOSE ARTURO</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3D2</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV01_105 / LAB. ANATOMIA HUMANA 2</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3E</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV06_105 / AULA I-105</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">13:10</td>
+                    <td class="tg-c3ow">14:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3E</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV11_101 / AULA L-101</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">14:10</td>
+                    <td class="tg-c3ow">15:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">3E</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV11_202 / AULA L-202</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">09:10</td>
+                    <td class="tg-c3ow">10:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3E1</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV01_306 / LAB. BIOLOGÍA 5</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">07:10</td>
+                    <td class="tg-c3ow">09:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3E1</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV01_104 / LAB. ANATOMÍA HUMANA 1</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">07:10</td>
+                    <td class="tg-c3ow">10:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3E1</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV06_105 / AULA I-105</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">14:10</td>
+                    <td class="tg-c3ow">15:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3E1</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV01_305 / LAB. FISIOLOGÍA 2</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">11:10</td>
+                    <td class="tg-c3ow">13:00</td>
+                    <td class="tg-c3ow">VARGAS SORIANO,JOSE ARTURO | VARGAS SORIANO,JOSE ARTURO</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3E2</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV01_201 / LAB. MICROBIOLOGÍA 2</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">09:10</td>
+                    <td class="tg-c3ow">11:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3E2</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV01_104 / LAB. ANATOMÍA HUMANA 1</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">10:10</td>
+                    <td class="tg-c3ow">13:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3E2</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV06_105CO / AULA I-105</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">14:10</td>
+                    <td class="tg-c3ow">15:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">3E2</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV01_305 / LAB. FISIOLOGÍA 2</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">13:10</td>
+                    <td class="tg-c3ow">15:00</td>
+                    <td class="tg-c3ow">VARGAS SORIANO,JOSE ARTURO | VARGAS SORIANO,JOSE ARTURO</td>
+                    </tr>
+  </tbody></table>
+  <br><br>
+  
+  <style type="text/css">
+  .tg  {border-collapse:collapse;border-spacing:0;}
+  .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+  .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+  .tg .tg-uo1u{background-color:#7ba1dd;color:#ffffff;border-color:inherit;text-align:center;vertical-align:middle;}
+  .tg .tg-haou{background-color:#7ba1dd;border-color:inherit;text-align:center;vertical-align:middle}
+  .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:middle}
+  .tg .tg-7r0r{background-color:#204491;color:#ffffff;border-color:#000000;text-align:center;vertical-align:middle}
+  .tg .tg-sckj{background-color:#204491;color:#ffffff;border-color:inherit;text-align:center;vertical-align:middle}
+  .special-span {
+    
+    display: inline-block;  
+    width: 85px; /* 80 / cos(45) - 40 cos (45) = 85 where 80 is the height of the cell, 40 the width of the cell and 45 the transform angle*/
+    text-align: left;
+    font-size: 14px;
+    color: #ffffff !important;
+      text-align: center;
+      font-weight: bolder;
+    
+  }
+  .ciclo-titulo {       
+    font-size: 20px;  
+  }
+  </style>
+  <table class="tg" style="undefined; width: 100%">
+  <colgroup>
+  <col style="width: 83px">
+  <col style="width: 207px">
+  <col style="width: 100px">
+  <col style="width: 102px">
+  <col style="width: 71px">
+  <col style="width: 180px">
+  <col style="width: 150px">
+  <col style="width: 89px">
+  <col style="width: 89px">
+  <col style="width: 401px">
+  <col style="width: 120px">
+  </colgroup>
+    <tbody><tr>
+      <th class="tg-7r0r">CICLO</th>
+      <th class="tg-sckj">CURSO</th>
+      <th class="tg-sckj">COMP</th>
+      <th class="tg-sckj">SECCION</th>
+      <th class="tg-sckj">DIA</th>      
+      <th class="tg-sckj">AULA</th>
+      <th class="tg-sckj">FECHA INICIO</th>
+      <th class="tg-sckj">HORA INICIO</th>
+      <th class="tg-sckj">HORA FIN</th>
+      <th class="tg-sckj">PROFESOR</th>
+      <th class="tg-7r0r">TIPO</th>
+    </tr><tr>
+                  <td valign="middle" class="tg-haou" rowspan="174"><span class="special-span ciclo-titulo">IV</span></td>
+                    <td valign="middle" class="tg-c3ow" rowspan="30">GENÉTICA</td>
+                    <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">4A</td>
+                    <td class="tg-c3ow">MIE</td>
+                    
+                    <td class="tg-c3ow">UV11_207 / AULA L-207</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">12:10</td>
+                    <td class="tg-c3ow">14:00</td>
+                    <td class="tg-c3ow"></td>
+                    <td valign="middle" class="tg-uo1u" rowspan="30"><span class="special-span">OBLIGATORIO</span></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4A1</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV11_208 / AULA L-208</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">14:10</td>
+                    <td class="tg-c3ow">16:00</td>
+                    <td class="tg-c3ow">MALPARTIDA GARAY,KATTHERINE | MALPARTIDA GARAY,KATTHERINE</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4A1</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV09_210 / AULA K-210</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4A2</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV11_208CO / AULA L-208CO</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">14:10</td>
+                    <td class="tg-c3ow">16:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4A2</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV09_202 / AULA K-202</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">4B</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV12_201 / AULA M-201</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">07:10</td>
+                    <td class="tg-c3ow">09:00</td>
+                    <td class="tg-c3ow">SALAS ASENCIOS,RAMSES | SALAS ASENCIOS,RAMSES</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4B1</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV12_201 / AULA M-201</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">09:10</td>
+                    <td class="tg-c3ow">11:00</td>
+                    <td class="tg-c3ow">SALAS ASENCIOS,RAMSES | SALAS ASENCIOS,RAMSES</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4B1</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV08_204 / LAB. DE CÓMPUTO J-204</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">10:10</td>
+                    <td class="tg-c3ow">12:00</td>
+                    <td class="tg-c3ow">MALPARTIDA GARAY,KATTHERINE | MALPARTIDA GARAY,KATTHERINE</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4B2</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV12_201CO / AULA M-201CO</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">09:10</td>
+                    <td class="tg-c3ow">11:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4B2</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV08_204 / LAB. DE CÓMPUTO J-204</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">12:10</td>
+                    <td class="tg-c3ow">14:00</td>
+                    <td class="tg-c3ow">MALPARTIDA GARAY,KATTHERINE | MALPARTIDA GARAY,KATTHERINE</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">4C</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV13_205 / AULA N-205</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">07:10</td>
+                    <td class="tg-c3ow">09:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4C1</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV08_201 / LAB. DE CÓMPUTO J-201</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">11:10</td>
+                    <td class="tg-c3ow">13:00</td>
+                    <td class="tg-c3ow">MALPARTIDA GARAY,KATTHERINE | MALPARTIDA GARAY,KATTHERINE</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4C1</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV13_205 / AULA N-205</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">09:10</td>
+                    <td class="tg-c3ow">11:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4C2</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV08_202 / LAB. DE CÓMPUTO J-202</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">13:10</td>
+                    <td class="tg-c3ow">15:00</td>
+                    <td class="tg-c3ow">MALPARTIDA GARAY,KATTHERINE | MALPARTIDA GARAY,KATTHERINE</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4C2</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV13_205CO / AULA N-205CO</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">09:10</td>
+                    <td class="tg-c3ow">11:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">4D</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV11_107 / AULA L-107</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">11:10</td>
+                    <td class="tg-c3ow">13:00</td>
+                    <td class="tg-c3ow">SALAS ASENCIOS,RAMSES | SALAS ASENCIOS,RAMSES</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4D1</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV11_107 / AULA L-107</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">13:10</td>
+                    <td class="tg-c3ow">15:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4D1</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV08_201 / LAB. DE CÓMPUTO J-201</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">07:10</td>
+                    <td class="tg-c3ow">09:00</td>
+                    <td class="tg-c3ow">MALPARTIDA GARAY,KATTHERINE | MALPARTIDA GARAY,KATTHERINE</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4D2</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV11_107CO / AULA L-107CO</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">13:10</td>
+                    <td class="tg-c3ow">15:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4D2</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV08_201 / LAB. DE CÓMPUTO J-201</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">09:10</td>
+                    <td class="tg-c3ow">11:00</td>
+                    <td class="tg-c3ow">MALPARTIDA GARAY,KATTHERINE | MALPARTIDA GARAY,KATTHERINE</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">4E</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV13_202 / AULA N-202</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">07:10</td>
+                    <td class="tg-c3ow">09:00</td>
+                    <td class="tg-c3ow">SALAS ASENCIOS,RAMSES | SALAS ASENCIOS,RAMSES</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4E1</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV08_206 / LAB. DE CÓMPUTO J-206</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">07:10</td>
+                    <td class="tg-c3ow">09:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4E1</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV13_202 / AULA N-202</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">09:10</td>
+                    <td class="tg-c3ow">11:00</td>
+                    <td class="tg-c3ow">SALAS ASENCIOS,RAMSES | SALAS ASENCIOS,RAMSES</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4E2</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV08_202 / LAB. DE CÓMPUTO J-202</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">09:10</td>
+                    <td class="tg-c3ow">11:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4E2</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV13_202CO / AULA N-202CO</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">09:10</td>
+                    <td class="tg-c3ow">11:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">4F</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV11_104 / AULA L-104</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">11:10</td>
+                    <td class="tg-c3ow">13:00</td>
+                    <td class="tg-c3ow">SALAS ASENCIOS,RAMSES | SALAS ASENCIOS,RAMSES</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4F1</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV08_204 / LAB. DE CÓMPUTO J-204</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">07:10</td>
+                    <td class="tg-c3ow">09:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4F1</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV11_104 / AULA L-104</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">13:10</td>
+                    <td class="tg-c3ow">15:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4F2</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV08_204 / LAB. DE CÓMPUTO J-204</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">09:10</td>
+                    <td class="tg-c3ow">11:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">4F2</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV11_104CO / AULA L-104CO</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">13:10</td>
+                    <td class="tg-c3ow">15:00</td>
+                    <td class="tg-c3ow"></td>
+                    </tr>
+  </tbody></table>
+  <br><br>
+  
+  <style type="text/css">
+  .tg  {border-collapse:collapse;border-spacing:0;}
+  .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+  .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+  .tg .tg-uo1u{background-color:#7ba1dd;color:#ffffff;border-color:inherit;text-align:center;vertical-align:middle;}
+  .tg .tg-haou{background-color:#7ba1dd;border-color:inherit;text-align:center;vertical-align:middle}
+  .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:middle}
+  .tg .tg-7r0r{background-color:#204491;color:#ffffff;border-color:#000000;text-align:center;vertical-align:middle}
+  .tg .tg-sckj{background-color:#204491;color:#ffffff;border-color:inherit;text-align:center;vertical-align:middle}
+  .special-span {
+    
+    display: inline-block;  
+    width: 85px; /* 80 / cos(45) - 40 cos (45) = 85 where 80 is the height of the cell, 40 the width of the cell and 45 the transform angle*/
+    text-align: left;
+    font-size: 14px;
+    color: #ffffff !important;
+      text-align: center;
+      font-weight: bolder;
+    
+  }
+  .ciclo-titulo {       
+    font-size: 20px;  
+  }
+  </style>
+  <table class="tg" style="undefined; width: 100%">
+  <colgroup>
+  <col style="width: 83px">
+  <col style="width: 207px">
+  <col style="width: 100px">
+  <col style="width: 102px">
+  <col style="width: 71px">
+  <col style="width: 180px">
+  <col style="width: 150px">
+  <col style="width: 89px">
+  <col style="width: 89px">
+  <col style="width: 401px">
+  <col style="width: 120px">
+  </colgroup>
+    <tbody><tr>
+      <th class="tg-7r0r">CICLO</th>
+      <th class="tg-sckj">CURSO</th>
+      <th class="tg-sckj">COMP</th>
+      <th class="tg-sckj">SECCION</th>
+      <th class="tg-sckj">DIA</th>      
+      <th class="tg-sckj">AULA</th>
+      <th class="tg-sckj">FECHA INICIO</th>
+      <th class="tg-sckj">HORA INICIO</th>
+      <th class="tg-sckj">HORA FIN</th>
+      <th class="tg-sckj">PROFESOR</th>
+      <th class="tg-7r0r">TIPO</th>
+    </tr><tr>
+                  <td valign="middle" class="tg-haou" rowspan="25"><span class="special-span ciclo-titulo">X</span></td>
+                    <td valign="middle" class="tg-c3ow" rowspan="16">MEDICINA LEGAL</td>
+                    <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">10A</td>
+                    <td class="tg-c3ow">JUE</td>
+                    
+                    <td class="tg-c3ow">UP01_201 / AULA 201_CANTUARIAS 385</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">16:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow">QUISPE GUERRERO,JOSHIMAR | QUISPE GUERRERO,JOSHIMAR | QUISPE GUERRERO,JOSHIMAR</td>
+                    <td valign="middle" class="tg-uo1u" rowspan="16"><span class="special-span">OBLIGATORIO</span></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">10A1</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UC20_101 / División Clínico Forense</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">08:10</td>
+                    <td class="tg-c3ow">10:00</td>
+                    <td class="tg-c3ow">MIÑANO ROBLES,JUAN ANGEL | MIÑANO ROBLES,JUAN ANGEL | MIÑANO ROBLES,JUAN ANGEL</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">10A2</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UC20_101 / División Clínico Forense</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">10:10</td>
+                    <td class="tg-c3ow">12:00</td>
+                    <td class="tg-c3ow">MIÑANO ROBLES,JUAN ANGEL | MIÑANO ROBLES,JUAN ANGEL | MIÑANO ROBLES,JUAN ANGEL</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">10A3</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UC20_101 / División Clínico Forense</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">12:10</td>
+                    <td class="tg-c3ow">14:00</td>
+                    <td class="tg-c3ow">MIÑANO ROBLES,JUAN ANGEL | MIÑANO ROBLES,JUAN ANGEL | MIÑANO ROBLES,JUAN ANGEL</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">10B</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UP01_201 / AULA 201_CANTUARIAS 385</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">18:00</td>
+                    <td class="tg-c3ow">QUISPE GUERRERO,JOSHIMAR | QUISPE GUERRERO,JOSHIMAR | QUISPE GUERRERO,JOSHIMAR</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">10B1</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UC20_101 / División Clínico Forense</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">14:10</td>
+                    <td class="tg-c3ow">16:00</td>
+                    <td class="tg-c3ow">QUISPE GUERRERO,JOSHIMAR | QUISPE GUERRERO,JOSHIMAR | QUISPE GUERRERO,JOSHIMAR</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">10B2</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UC20_101 / División Clínico Forense</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">16:10</td>
+                    <td class="tg-c3ow">18:00</td>
+                    <td class="tg-c3ow">QUISPE GUERRERO,JOSHIMAR | QUISPE GUERRERO,JOSHIMAR | QUISPE GUERRERO,JOSHIMAR</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">10B3</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UC20_101 / División Clínico Forense</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">18:10</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">QUISPE GUERRERO,JOSHIMAR | QUISPE GUERRERO,JOSHIMAR | QUISPE GUERRERO,JOSHIMAR</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">10C</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UP01_202 / AULA 202_CANTUARIAS 385</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">16:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow">YOVERA SANDOVAL,SEGUNDO NARCIZO | YOVERA SANDOVAL,SEGUNDO NARCIZO | YOVERA SANDOVAL,SEGUNDO NARCIZO</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">10C1</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UG02_101 / MORGUE CENTRAL DE LIMA</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">08:10</td>
+                    <td class="tg-c3ow">10:00</td>
+                    <td class="tg-c3ow">FERNANDES TAVARES,SONIA MARIA | FERNANDES TAVARES,SONIA MARIA | FERNANDES TAVARES,SONIA MARIA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">10C2</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UG02_101 / MORGUE CENTRAL DE LIMA</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">10:10</td>
+                    <td class="tg-c3ow">12:00</td>
+                    <td class="tg-c3ow">NAVARRO ROMERO,KATIA | NAVARRO ROMERO,KATIA | NAVARRO ROMERO,KATIA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">10C3</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UG02_101 / MORGUE CENTRAL DE LIMA</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">12:10</td>
+                    <td class="tg-c3ow">14:00</td>
+                    <td class="tg-c3ow">NAVARRO ROMERO,KATIA | NAVARRO ROMERO,KATIA | NAVARRO ROMERO,KATIA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">10D</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UP01_202 / AULA 202_CANTUARIAS 385</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">18:00</td>
+                    <td class="tg-c3ow">YOVERA SANDOVAL,SEGUNDO NARCIZO | YOVERA SANDOVAL,SEGUNDO NARCIZO | YOVERA SANDOVAL,SEGUNDO NARCIZO</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">10D1</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UG02_101 / MORGUE CENTRAL DE LIMA</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">14:10</td>
+                    <td class="tg-c3ow">16:00</td>
+                    <td class="tg-c3ow">MARIN HINOJOSA,LUZ LILIANA | MARIN HINOJOSA,LUZ LILIANA | MARIN HINOJOSA,LUZ LILIANA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">10D2</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UG02_101 / MORGUE CENTRAL DE LIMA</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">16:10</td>
+                    <td class="tg-c3ow">18:00</td>
+                    <td class="tg-c3ow">MARIN HINOJOSA,LUZ LILIANA | MARIN HINOJOSA,LUZ LILIANA | MARIN HINOJOSA,LUZ LILIANA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">10D3</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UG02_101 / MORGUE CENTRAL DE LIMA</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">18:10</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">MARIN HINOJOSA,LUZ LILIANA | MARIN HINOJOSA,LUZ LILIANA | MARIN HINOJOSA,LUZ LILIANA</td>
+                    </tr><tr>
+                    <td valign="middle" class="tg-c3ow" rowspan="9">INGLÉS</td>
+                    <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">10A</td>
+                    <td class="tg-c3ow">JUE</td>
+                    
+                    <td class="tg-c3ow">UV13_206 / AULA N-206</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">14:10</td>
+                    <td class="tg-c3ow">16:00</td>
+                    <td class="tg-c3ow">CALDERON GUERRERO,MARIA YRMA</td>
+                     <td valign="middle" class="tg-uo1u" rowspan="9"><span class="special-span">OBLIGATORIO</span></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">10B</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV13_201 / AULA N-201</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">09:10</td>
+                    <td class="tg-c3ow">11:00</td>
+                    <td class="tg-c3ow">CALDERON GUERRERO,MARIA YRMA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">10C</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV13_201 / AULA N-201</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">16:10</td>
+                    <td class="tg-c3ow">18:00</td>
+                    <td class="tg-c3ow">CALDERON GUERRERO,MARIA YRMA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">10D</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV13_204 / AULA N-204</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">14:10</td>
+                    <td class="tg-c3ow">16:00</td>
+                    <td class="tg-c3ow">ARNAO OJEDA,ERICKA ELENA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">10E</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV13_201 / AULA N-201</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">13:10</td>
+                    <td class="tg-c3ow">15:00</td>
+                    <td class="tg-c3ow">ARNAO OJEDA,ERICKA ELENA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">10F</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV12_203 / AULA M-203</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">CALDERON GUERRERO,MARIA YRMA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">8G</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UP01_203 / AULA 203_CANTUARIAS 385</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">8H</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV13_204 / AULA N-204</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">16:10</td>
+                    <td class="tg-c3ow">18:00</td>
+                    <td class="tg-c3ow">ARNAO OJEDA,ERICKA ELENA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">10I</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV12_201 / AULA M-201</td>
+                    <td class="tg-c3ow">2020-03-19</td>
+                    <td class="tg-c3ow">11:10</td>
+                    <td class="tg-c3ow">13:00</td>
+                    <td class="tg-c3ow">CALDERON GUERRERO,MARIA YRMA</td>
+                    </tr>
+  </tbody></table>
+  <br><br>
+  
+  <style type="text/css">
+  .tg  {border-collapse:collapse;border-spacing:0;}
+  .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+  .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+  .tg .tg-uo1u{background-color:#7ba1dd;color:#ffffff;border-color:inherit;text-align:center;vertical-align:middle;}
+  .tg .tg-haou{background-color:#7ba1dd;border-color:inherit;text-align:center;vertical-align:middle}
+  .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:middle}
+  .tg .tg-7r0r{background-color:#204491;color:#ffffff;border-color:#000000;text-align:center;vertical-align:middle}
+  .tg .tg-sckj{background-color:#204491;color:#ffffff;border-color:inherit;text-align:center;vertical-align:middle}
+  .special-span {
+    
+    display: inline-block;  
+    width: 85px; /* 80 / cos(45) - 40 cos (45) = 85 where 80 is the height of the cell, 40 the width of the cell and 45 the transform angle*/
+    text-align: left;
+    font-size: 14px;
+    color: #ffffff !important;
+      text-align: center;
+      font-weight: bolder;
+    
+  }
+  .ciclo-titulo {       
+    font-size: 20px;  
+  }
+  </style>
+  <table class="tg" style="undefined; width: 100%">
+  <colgroup>
+  <col style="width: 83px">
+  <col style="width: 207px">
+  <col style="width: 100px">
+  <col style="width: 102px">
+  <col style="width: 71px">
+  <col style="width: 180px">
+  <col style="width: 150px">
+  <col style="width: 89px">
+  <col style="width: 89px">
+  <col style="width: 401px">
+  <col style="width: 120px">
+  </colgroup>
+    <tbody><tr>
+      <th class="tg-7r0r">CICLO</th>
+      <th class="tg-sckj">CURSO</th>
+      <th class="tg-sckj">COMP</th>
+      <th class="tg-sckj">SECCION</th>
+      <th class="tg-sckj">DIA</th>      
+      <th class="tg-sckj">AULA</th>
+      <th class="tg-sckj">FECHA INICIO</th>
+      <th class="tg-sckj">HORA INICIO</th>
+      <th class="tg-sckj">HORA FIN</th>
+      <th class="tg-sckj">PROFESOR</th>
+      <th class="tg-7r0r">TIPO</th>
+    </tr><tr>
+                  <td valign="middle" class="tg-haou" rowspan="21"><span class="special-span ciclo-titulo">XI</span></td>
+                    <td valign="middle" class="tg-c3ow" rowspan="6">SEMIN D TESIS EN MEDICIN HUMAN</td>
+                    <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">11A</td>
+                    <td class="tg-c3ow">MAR</td>
+                    
+                    <td class="tg-c3ow">UV11_108 / AULA L-108</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">16:00</td>
+                    <td class="tg-c3ow">.</td>
+                    <td valign="middle" class="tg-uo1u" rowspan="6"><span class="special-span">OBLIGATORIO</span></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">SEM</td>
+                    <td class="tg-c3ow">11A1</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV11_108 / AULA L-108</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">16:10</td>
+                    <td class="tg-c3ow">18:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">11B</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV11_206 / AULA L-206</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">14:10</td>
+                    <td class="tg-c3ow">15:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">SEM</td>
+                    <td class="tg-c3ow">11B1</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV11_206 / AULA L-206</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">11C</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV11_206 / AULA L-206</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">18:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">SEM</td>
+                    <td class="tg-c3ow">11C1</td>
+                    <td class="tg-c3ow">SAB</td>
+                   
+                    <td class="tg-c3ow">UV11_206 / AULA L-206</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">18:10</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr><tr>
+                    <td valign="middle" class="tg-c3ow" rowspan="13">CASOS CLÍNICOS I</td>
+                    <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">11A</td>
+                    <td class="tg-c3ow">LUN</td>
+                    
+                    <td class="tg-c3ow">UV13_207 / AULA N-207</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">16:00</td>
+                    <td class="tg-c3ow">.</td>
+                     <td valign="middle" class="tg-uo1u" rowspan="13"><span class="special-span">OBLIGATORIO</span></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">11A</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV13_207 / AULA N-207</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">16:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">SEM</td>
+                    <td class="tg-c3ow">11A1</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV13_207 / AULA N-207</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">16:10</td>
+                    <td class="tg-c3ow">18:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">SEM</td>
+                    <td class="tg-c3ow">11A1</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV13_207 / AULA N-207</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">16:10</td>
+                    <td class="tg-c3ow">18:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">11B</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV08_107 / AULA J-107</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">16:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">11B</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV11_202 / AULA L-202</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">16:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">SEM</td>
+                    <td class="tg-c3ow">11B1</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV08_107 / AULA J-107</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">SEM</td>
+                    <td class="tg-c3ow">11B1</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV11_202 / AULA L-202</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">16:10</td>
+                    <td class="tg-c3ow">18:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">11C</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV13_205 / AULA N-205</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">16:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">11C</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV11_203 / AULA L-203</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">15:10</td>
+                    <td class="tg-c3ow">16:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">SEM</td>
+                    <td class="tg-c3ow">11C1</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV13_205 / AULA N-205</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">16:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">SEM</td>
+                    <td class="tg-c3ow">11C1</td>
+                    <td class="tg-c3ow">LUN</td>
+                   
+                    <td class="tg-c3ow">UV13_201 / AULA N-201</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">18:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">SEM</td>
+                    <td class="tg-c3ow">11C1</td>
+                    <td class="tg-c3ow">VIE</td>
+                   
+                    <td class="tg-c3ow">UV11_203 / AULA L-203</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">16:10</td>
+                    <td class="tg-c3ow">18:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr><tr>
+                    <td valign="middle" class="tg-c3ow" rowspan="1">EXTERNADO EN CIRUGÍA</td>
+                    <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">11A</td>
+                    <td class="tg-c3ow">JUE</td>
+                    
+                    <td class="tg-c3ow">UEXT_001 / CAMPO</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">08:10</td>
+                    <td class="tg-c3ow">14:00</td>
+                    <td class="tg-c3ow"></td>
+                     <td valign="middle" class="tg-uo1u" rowspan="1"><span class="special-span">OBLIGATORIO</span></td>
+                    </tr><tr>
+                    <td valign="middle" class="tg-c3ow" rowspan="1">EXTERN EN GINECOLO Y OBSTETRIC</td>
+                    <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">11A</td>
+                    <td class="tg-c3ow">VIE</td>
+                    
+                    <td class="tg-c3ow">UEXT_001 / CAMPO</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">08:10</td>
+                    <td class="tg-c3ow">14:00</td>
+                    <td class="tg-c3ow"></td>
+                     <td valign="middle" class="tg-uo1u" rowspan="1"><span class="special-span">OBLIGATORIO</span></td>
+                    </tr>
+  </tbody></table>
+  <br><br>
+  
+  <style type="text/css">
+  .tg  {border-collapse:collapse;border-spacing:0;}
+  .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+  .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+  .tg .tg-uo1u{background-color:#7ba1dd;color:#ffffff;border-color:inherit;text-align:center;vertical-align:middle;}
+  .tg .tg-haou{background-color:#7ba1dd;border-color:inherit;text-align:center;vertical-align:middle}
+  .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:middle}
+  .tg .tg-7r0r{background-color:#204491;color:#ffffff;border-color:#000000;text-align:center;vertical-align:middle}
+  .tg .tg-sckj{background-color:#204491;color:#ffffff;border-color:inherit;text-align:center;vertical-align:middle}
+  .special-span {
+    
+    display: inline-block;  
+    width: 85px; /* 80 / cos(45) - 40 cos (45) = 85 where 80 is the height of the cell, 40 the width of the cell and 45 the transform angle*/
+    text-align: left;
+    font-size: 14px;
+    color: #ffffff !important;
+      text-align: center;
+      font-weight: bolder;
+    
+  }
+  .ciclo-titulo {       
+    font-size: 20px;  
+  }
+  </style>
+  <table class="tg" style="undefined; width: 100%">
+  <colgroup>
+  <col style="width: 83px">
+  <col style="width: 207px">
+  <col style="width: 100px">
+  <col style="width: 102px">
+  <col style="width: 71px">
+  <col style="width: 180px">
+  <col style="width: 150px">
+  <col style="width: 89px">
+  <col style="width: 89px">
+  <col style="width: 401px">
+  <col style="width: 120px">
+  </colgroup>
+    <tbody><tr>
+      <th class="tg-7r0r">CICLO</th>
+      <th class="tg-sckj">CURSO</th>
+      <th class="tg-sckj">COMP</th>
+      <th class="tg-sckj">SECCION</th>
+      <th class="tg-sckj">DIA</th>      
+      <th class="tg-sckj">AULA</th>
+      <th class="tg-sckj">FECHA INICIO</th>
+      <th class="tg-sckj">HORA INICIO</th>
+      <th class="tg-sckj">HORA FIN</th>
+      <th class="tg-sckj">PROFESOR</th>
+      <th class="tg-7r0r">TIPO</th>
+    </tr><tr>
+                  <td valign="middle" class="tg-haou" rowspan="21"><span class="special-span ciclo-titulo">XII</span></td>
+                    <td valign="middle" class="tg-c3ow" rowspan="6">GERENCIA EN SALUD</td>
+                    <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">12A</td>
+                    <td class="tg-c3ow">MIE</td>
+                    
+                    <td class="tg-c3ow">UV13_204 / AULA N-204</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">16:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow">BEDOYA RIVADENEIRA,CARMEN FLOR | BEDOYA RIVADENEIRA,CARMEN FLOR</td>
+                    <td valign="middle" class="tg-uo1u" rowspan="6"><span class="special-span">OBLIGATORIO</span></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">12A1</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV13_204 / AULA N-204</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">BEDOYA RIVADENEIRA,CARMEN FLOR | BEDOYA RIVADENEIRA,CARMEN FLOR</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">12B</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV11_202 / AULA L-202</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">12B1</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV11_202 / AULA L-202</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">21:15</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">12C</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV11_205 / AULA L-205</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow"></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">12C1</td>
+                    <td class="tg-c3ow">MIE</td>
+                   
+                    <td class="tg-c3ow">UV11_205 / AULA L-205</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">21:15</td>
+                    <td class="tg-c3ow"></td>
+                    </tr><tr>
+                    <td valign="middle" class="tg-c3ow" rowspan="12">CASOS CLÍNICOS II</td>
+                    <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">12A</td>
+                    <td class="tg-c3ow">JUE</td>
+                    
+                    <td class="tg-c3ow">UV12_201 / AULA M-201</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">16:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow">.</td>
+                     <td valign="middle" class="tg-uo1u" rowspan="12"><span class="special-span">OBLIGATORIO</span></td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">12A</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV12_201 / AULA M-201</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">16:10</td>
+                    <td class="tg-c3ow">17:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">SEM</td>
+                    <td class="tg-c3ow">12A1</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV12_201 / AULA M-201</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">SEM</td>
+                    <td class="tg-c3ow">12A1</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV12_201 / AULA M-201</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">17:10</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">12B</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV12_201 / AULA M-201</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">LOYOLA GARCIA FRIAS,LUIS FELIPE FRANSCISCO</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">12B</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV12_201 / AULA M-201</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">LOYOLA GARCIA FRIAS,LUIS FELIPE FRANSCISCO</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">SEM</td>
+                    <td class="tg-c3ow">12B1</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV12_201 / AULA M-201</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">21:15</td>
+                    <td class="tg-c3ow">LOYOLA GARCIA FRIAS,LUIS FELIPE FRANSCISCO</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">SEM</td>
+                    <td class="tg-c3ow">12B1</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV12_201 / AULA M-201</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">21:15</td>
+                    <td class="tg-c3ow">LOYOLA GARCIA FRIAS,LUIS FELIPE FRANSCISCO</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">12C</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV12_202 / AULA M-202</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">TEO</td>
+                    <td class="tg-c3ow">12C</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV12_202 / AULA M-202</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">19:00</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">ALARCON LOAYZA,KARIM ULDA</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">SEM</td>
+                    <td class="tg-c3ow">12C1</td>
+                    <td class="tg-c3ow">JUE</td>
+                   
+                    <td class="tg-c3ow">UV12_202 / AULA M-202</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">21:15</td>
+                    <td class="tg-c3ow">.</td>
+                    </tr> <tr>
+                  <td class="tg-c3ow">SEM</td>
+                    <td class="tg-c3ow">12C1</td>
+                    <td class="tg-c3ow">MAR</td>
+                   
+                    <td class="tg-c3ow">UV12_202 / AULA M-202</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">19:45</td>
+                    <td class="tg-c3ow">21:15</td>
+                    <td class="tg-c3ow">ALARCON LOAYZA,KARIM ULDA</td>
+                    </tr><tr>
+                    <td valign="middle" class="tg-c3ow" rowspan="1">EXTERNADO EN MEDICINA</td>
+                    <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">11A</td>
+                    <td class="tg-c3ow">MAR</td>
+                    
+                    <td class="tg-c3ow">UEXT_001 / CAMPO</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">08:10</td>
+                    <td class="tg-c3ow">14:00</td>
+                    <td class="tg-c3ow"></td>
+                     <td valign="middle" class="tg-uo1u" rowspan="1"><span class="special-span">OBLIGATORIO</span></td>
+                    </tr><tr>
+                    <td valign="middle" class="tg-c3ow" rowspan="1">EXTERNADO EN PEDIATRIA</td>
+                    <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">11A</td>
+                    <td class="tg-c3ow">LUN</td>
+                    
+                    <td class="tg-c3ow">UEXT_001 / CAMPO</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">08:10</td>
+                    <td class="tg-c3ow">14:00</td>
+                    <td class="tg-c3ow"></td>
+                     <td valign="middle" class="tg-uo1u" rowspan="1"><span class="special-span">OBLIGATORIO</span></td>
+                    </tr><tr>
+                    <td valign="middle" class="tg-c3ow" rowspan="1">EXTERNADO EN EMERGENCIAS</td>
+                    <td class="tg-c3ow">PRA</td>
+                    <td class="tg-c3ow">11A</td>
+                    <td class="tg-c3ow">MIE</td>
+                    
+                    <td class="tg-c3ow">UEXT_001 / CAMPO</td>
+                    <td class="tg-c3ow">2020-03-16</td>
+                    <td class="tg-c3ow">08:10</td>
+                    <td class="tg-c3ow">14:00</td>
+                    <td class="tg-c3ow"></td>
+                     <td valign="middle" class="tg-uo1u" rowspan="1"><span class="special-span">OBLIGATORIO</span></td>
+                    </tr>
+  </tbody></table>
+  <br><br>
+  
+
+                
+            </div>
+        </div>
+    </div>
+
+
+        <footer class="footer">
+            <div class="container-fluid">
+                
+                <div class="copyright pull-right">
+                    Grupo Educad © <script>document.write(new Date().getFullYear())</script>2020, Todos los Derechos Reservados. <!-- made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Creative Tim</a> -->
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+
+
+
+    
+
+	<!--  Checkbox, Radio & Switch Plugins -->
+	<script src="./Control de eventos UCSUR_files/bootstrap-checkbox-radio.js.descarga"></script>
+
+	<!--  Charts Plugin -->
+	<script src="./Control de eventos UCSUR_files/chartist.min.js.descarga"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="./Control de eventos UCSUR_files/bootstrap-notify.js.descarga"></script>
+
+    <!--  Google Maps Plugin    -->
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script> -->
+
+    <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
+	<script src="./Control de eventos UCSUR_files/paper-dashboard.js.descarga"></script>
+
+    <!-- propias del proyecto-->
+    <script src="./Control de eventos UCSUR_files/bloqueo.js.descarga"></script>
+
+	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+	<!-- <script src="assets/js/demo.js"></script> -->
+
+	<script type="text/javascript">
+
+    $(document).ready(function(){
+
+         // elementos de la lista
+          var menues = $(".nav li"); 
+
+          // manejador de click sobre todos los elementos
+          menues.click(function() {
+             // eliminamos active de todos los elementos
+             menues.removeClass("active");
+             // activamos el elemento clicado.
+             $(this).addClass("active");
+          });
+    });
+
+	</script>
+
+
+</body></html>

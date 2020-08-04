@@ -211,8 +211,8 @@ def parseTable(soup):
 		
 			#TOMATO	
 			#if day == "SAB" or day == "MAR" or day == "JUE" or day == "LUN":
-			if day == "MAR" or day == "SAB":
-			#if day == "SAB":
+			#if day == "LUN" 
+			if day == "VIE" or day == "SAB":
 				del_list.add((currCourse, section))	
 			#TOMATO
 			#newst_hour = start_hour.replace(":", ".") 

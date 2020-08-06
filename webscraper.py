@@ -127,9 +127,12 @@ def parseTable(soup):
 	# We have a list of courses -> dict
 	courses = getCourseNames(soup)
 
+	#TODO: don't need this block, couse courseDict is empty apparently here
 	#Printing coursedict	
-	for key in courseDict.keys():
-		courseDict[key].printCourseInfo()
+	#print("hey")
+	#for key in courseDict.keys():
+	#	courseDict[key].printCourseInfo()
+	#print("hey2")
 
 	# For each table get the info
 	for table in tables:

@@ -2,7 +2,7 @@
 import os
 import matplotlib.pyplot as plt
 rooms=['LUNES','MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES', 'SABADO']
-colors=['pink', 'lightgreen', 'lightblue', 'wheat', 'lightgrey', 'turquoise']
+colors=['pink', 'lightgreen', 'lightblue', 'wheat', 'lightgrey', 'turquoise', 'yellow']
 
 #input_files=['data1.txt']
 #input_files=['schedule1of6']
@@ -47,7 +47,7 @@ for input_file in input_files:
 
 	# plot event
         #plt.fill_between([room, room+0.96], [start, start], [end,end], color=colors[int(data[0]-1)], edgecolor='k', linewidth=0.5)
-        plt.fill_between([room, room+0.96], [start, start], [end,end], color=colors[courseList.index(event)], edgecolor='k', linewidth=0.5)
+        plt.fill_between([room, room+0.96], [start, start], [end,end], color=colors[courseList.index(event)-1], edgecolor='k', linewidth=0.5)
         # plot beginning time & end time
         #plt.text(room+0.02, start+0.05 ,'{0}:{1:0>2}'.format(int(data[1]),int(data[2])), va='top', fontsize=7)
         

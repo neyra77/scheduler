@@ -10,11 +10,7 @@ Given a saved HTML file, the steps it takes are:
 """
 from htmlParser import parseHTML 
 
-def scrapeHTMLFile(htmlFile):
-	"""
-	Return a BeautifulSoup Object of the HTML for easier parsing 
-	"""
-	return BeautifulSoup(open(htmlFile), "html.parser")
+def printCatalogue(courseList):
 
 def main():
 	#htmlFile = '/mnt/c/Users/framo/OneDrive/Desktop/Control de eventos UCSUR.html'
@@ -22,10 +18,24 @@ def main():
 
 	""" (1). Scrape, return a list of courses """
 	courseList = parseHTML(htmlFile)
+	""" (2). Print catalogue & get User requests """
+	printCatalogue(courseList)
 
 
+
+
+
+
+	#_printCourseList(courseList)
+
+
+
+
+
+def _printCourseList(cl):
+	"helper function for debugging"
 	print("$$$$$$$$")
-	for c in courseList:
+	for c in cl:
 		print(c)
 
 

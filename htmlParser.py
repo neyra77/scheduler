@@ -15,9 +15,9 @@ The functions for pruning.
 """
 
 from bs4 import BeautifulSoup
-from course import Course
-from course import Section
-from timeHandler import TimeObj
+from util import Course
+from util import Section
+from util import TimeObj
 from collections import defaultdict
 import re
 import constants
@@ -53,40 +53,36 @@ def getRawCourseList(semesterHTMLList):
 
 
 
+def printSectionsDict(sd):
+	if len(sd) == 0:
+		print("Dictionary EMpty")
+	else:
+		for k in sd:
+			print(sd[k])
+
 
 #Fills section dictionary for each rawSectiong(i.e. row)
 def parseRawSection(sectionsDict, rs):
 	sid = rs.findSID()
 	timeObj = rs.createTimeObj() 
-	
+
 	if rs.isTheory():
-		# Create new only if doesn't exist 
 		if sid not in sectionsDict:
-			labs = defaultdict(str) 
-			section = Section(sid, timeObj, labs)
+			#TODO: look at constructor with NONE if(pacman.py has some) 
+			section = Section(sid, [], defaultdict(list))
 			sectionsDict[sid] = section
-		# Otherwise just update it	
-		else:
-			if not sectionsDict[sid].getSID():
-				sectionsDict[sid].sid = sid
-			else: 
-				# TODO: Update Time Obj
-				sectionsDict[sid].theoryTime += timeObj 
+		
+		# Update the sid if necessary 
+		if not sectionsDict[sid].getSID():
+			sectionsDict[sid].sid = sid
 
-	else:
+		# Update Time
+		sectionsDict[sid].theoryTimes.append(timeObj)
+
+
+	else:	
 		labID = rs.getFullID()
-
-		if not sectionsDict[sid].getLabs():
-			sectionsDict[sid].labs = defaultdict(str)
-
-		if labID in sectionsDict[sid].getLabs():
-			#TODO: Update Time Obj
-			sectionsDict[sid].getLabs()[labID] += timeObj 
-			pass
-		else:
-			#TODO Put the TimeObj
-			sectionsDict[sid].getLabs()[labID] = timeObj 
-
+		sectionsDict[sid].getLabs()[labID].append(timeObj)
 
 
 def fillSections(rawCourse):
@@ -98,9 +94,6 @@ def fillSections(rawCourse):
 	for rs in rawSections:
 		parseRawSection(sectionsDict, rs)
 
-	#for s in sectionsDict:
-	#	print(sectionsDict[s])
-	#	print()
 	return sectionsDict
 
 
@@ -110,7 +103,7 @@ class RawSection:
 	with methods to extract necessary info
 	to create a Section
 	"""
-	TYPE_PATTERN = re.compile(constants.TYPE_REGEX)
+	_TYPE_PATTERN = re.compile(constants.TYPE_REGEX)
 
 
 	def __init__(self, columns):
@@ -138,7 +131,7 @@ class RawSection:
 	def findSID(self):
 		sid = self.columns[constants.SECTION_INDEX]
 		if not self.isTheory():
-			regex_search = re.search(self.TYPE_PATTERN, sid)
+			regex_search = re.search(self._TYPE_PATTERN, sid)
 			sid = regex_search.group(1)
 		return sid
 	

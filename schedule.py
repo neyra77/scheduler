@@ -229,6 +229,7 @@ def printSchedules(courseDict, resultTuple):
 def main():
 	#htmlFile = '/mnt/c/Users/framo/OneDrive/Desktop/Control de eventos UCSUR.html'
 	htmlFile = '/mnt/c/Users/framo/OneDrive/Desktop/Alumno.html'
+	#htmlFile = '/mnt/c/Users/framo/OneDrive/Desktop/AlumnoOrig.html'
 
 	""" (1). Scrape, return a list of courses """
 	courseDict = parseHTML(htmlFile)

@@ -210,6 +210,7 @@ def parseHTML(htmlFile):
 	Main Control loop of function
 	"""
 	soup = scrapeHTMLFile(htmlFile)
+
 	prunedSoup = prune(soup)
 	semesterHTMLList = splitSemesters(prunedSoup)
 	rawCourseList = getRawCourseList(semesterHTMLList)

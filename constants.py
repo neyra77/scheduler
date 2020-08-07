@@ -28,6 +28,8 @@ LAB = "PRA"
 
 # REGEX Expressions:
 TYPE_REGEX = '(\d+[a-zA-Z]+)(.*)'
+CID_REGEX = 'Curso:(.+?)-.*'
+
 
 
 

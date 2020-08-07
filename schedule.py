@@ -116,9 +116,6 @@ def findViableSchedules(requestList, catalog, courseDict):
 		else:
 			badCounter += 1
 
-
-	#TODO: remove
-	print("\n\nPossible: %s \t Good: %s \t Bad: %s\n"%(possibleCounter, goodCounter, badCounter))
 	return (goodCounter, badCounter, viable)	
 
 
@@ -136,6 +133,10 @@ DAYS = ["LUN", "MAR", "MIE", "JUE", "VIE", "SAB"]
 # Print human readable schedule
 def getSchedString(courseDict, coursetuple, course_counter):
 	(cid, sid, labid) = coursetuple
+
+	# Section might not have labtimes
+	if not labid:
+		labid = ""
 	
 	print("\tCurso " + str(course_counter) + ".\t------------- " +
 		cid + " [" + sid +
@@ -157,7 +158,7 @@ def getSchedString(courseDict, coursetuple, course_counter):
 		(day, startTime, endTime) = to.dateTuple 
 		print("\t\tTEO\t%s %s - %s"%(day, startTime, endTime))
 		resStr += getFileSched(day, startTime, endTime) 
-		courseStr = cid + sid + labid
+		courseStr = cid + sid + "(TEO)"
 		resStr += courseStr.replace(" ", "") + "\n"
 				
 	
@@ -166,7 +167,7 @@ def getSchedString(courseDict, coursetuple, course_counter):
 		(day, startTime, endTime) = lt.dateTuple 
 		print("\t\tPRA\t%s %s - %s"%(day, startTime, endTime))
 		resStr += getFileSched(day, startTime, endTime) 
-		courseStr = cid + sid + labid
+		courseStr = cid + labid + "(PRA)"
 		resStr += courseStr.replace(" ", "") + "\n"
 
 	return resStr 
@@ -192,7 +193,7 @@ def printSchedules(courseDict, resultTuple):
 	
 	#TODO: revise everything after this, I have just copied 
 	for v in viable:
-		if counter >= MAXTOPRINT: break
+		if counter > MAXTOPRINT: break
 		
 		print("\n\nHorario Final: " + str(counter) + "/" + str(goodCounter))
 		course_counter = 1
@@ -210,7 +211,18 @@ def printSchedules(courseDict, resultTuple):
 		counter += 1
 		print("\n")
 	print("\n")
+
+	# Write ellipsis if there are more courses
+	if counter < total:
+		print("\t\t\t\t\t--------- %s mas horarios viables-----------\n\n\n\n\n"%
+			(str(goodCounter-counter)))
+
 		
+#class UserConstraint:
+#	"""
+#	Class to hold info for user required constraints 		
+#	"""
+#	def __init__(self, 	
 
 	
 
@@ -227,14 +239,14 @@ def main():
 	requestList = getRequestList(catalog)
 	#_printCourseDict(courseDict)		
 
+	""" (2b). Implement user constraints on schedule """
+	#TODO: eventually, rn just hack something otgether just like last time
+
 	""" (3). Get the viable schedules """
 	resultTuple = findViableSchedules(requestList, catalog, courseDict)
 
 	""" (4). Printing top (n) schedules + Store into File """
 	printSchedules(courseDict, resultTuple)	
- 
-		
-
 
 
 def _printCourseDict(cl):

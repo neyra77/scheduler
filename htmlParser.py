@@ -61,6 +61,7 @@ def printSectionsDict(sd):
 			print(sd[k])
 
 
+
 #Fills section dictionary for each rawSectiong(i.e. row)
 def parseRawSection(sectionsDict, rs):
 	sid = rs.findSID()
@@ -83,6 +84,8 @@ def parseRawSection(sectionsDict, rs):
 	else:	
 		labID = rs.getFullID()
 		sectionsDict[sid].getLabs()[labID].append(timeObj)
+
+
 
 
 def fillSections(rawCourse):
@@ -148,6 +151,8 @@ class RawCourse:
 	with methods to extract the necessary info
 	to create a Course object.  
 	"""
+	_CID_PATTERN = re.compile(constants.CID_REGEX)
+
 	def __init__(self, html):
 		self.html = html
 
@@ -157,7 +162,11 @@ class RawCourse:
 	def findCID(self):
 		fulltag = self.html.find(constants.CN_TAG
 			, {'class': constants.CN_CLASS})
-		return fulltag.text
+		text = fulltag.text
+		regexSearch = re.search(self._CID_PATTERN, text)
+		cid = regexSearch.group(1)	
+
+		return cid
 
 	# Might need to fix this
 	def findSemester(self):

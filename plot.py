@@ -1,8 +1,12 @@
 #coding: utf-8
 import os
 import matplotlib.pyplot as plt
+from shutil import rmtree
+
 rooms=['LUNES','MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES', 'SABADO']
-colors=['pink', 'lightgreen', 'lightblue', 'wheat', 'lightgrey', 'turquoise', 'yellow']
+colors=['pink', 'lightgreen', 'lightblue', 'wheat', 'lightgrey', 
+	'turquoise', 'antiquewhite', 'aliceblue', 'lightsalmon', 'tomato',
+	'firebrick', 'lemonchiffon']
 
 #input_files=['data1.txt']
 #input_files=['schedule1of6']
@@ -17,8 +21,10 @@ for f in os.listdir(dirname):
 
 print(input_files)
 
-
-
+dname = "images"
+if os.path.exists(dname):
+    rmtree(dname)
+os.makedirs(dname)
 
 #for input_file, day_label in zip(input_files, day_labels):
 for input_file in input_files: 
@@ -77,8 +83,9 @@ for input_file in input_files:
     #plt.show()
     #input("Press enter to continue")
     #plt.savefig('{0}.png'.format(day_label), dpi=200)
+    
     save_name = input_file + ".png"
-    plt.savefig(save_name, dpi=200)
+    plt.savefig(dname + "/" + save_name, dpi=200)
     print("Saved: " + save_name)
 
 

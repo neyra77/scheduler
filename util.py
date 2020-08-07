@@ -33,7 +33,7 @@ class Course:
 	def getSemester(self):
 		return self.semester
 	
-	def getsections(self):
+	def getSections(self):
 		return self.sections 
 
 	def __str__(self):
@@ -95,13 +95,23 @@ class TimeObj:
 	The TimeObj is basically just a tuple (start5min, end5min)
 	"""
 	def __init__(self, dateTuple):
+		self.dateTuple = dateTuple
 		self._day = dateTuple[0]
 		self._startTime = dateTuple[1]
 		self._endTime = dateTuple[2]
 		self._timeInterval = self._transformDateStr()
 
+	def getTimeInterval(self):
+		return self._timeInterval
+
 	def getDay(self):
 		return self._day
+	
+	def getStartTime(self):
+		return self._startTime
+	
+	def getEndTime(self):
+		return self._endTime
 	
 	def _transformDateStr(self):
 		dayBonus = DAYS.index(self._day) * 24 * 60 / 5

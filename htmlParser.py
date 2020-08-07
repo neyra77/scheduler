@@ -177,8 +177,8 @@ class RawCourse:
 
 
 
-def getCourseList(htmlCourseList):
-	courseList = []
+def getCourseDict(htmlCourseList):
+	courseList = defaultdict(Course)
 	
 	# For each course
 	for rc in htmlCourseList:
@@ -187,7 +187,7 @@ def getCourseList(htmlCourseList):
 		sections = fillSections(rc)
 		
 		course = Course(courseID, semester, sections)
-		courseList.append(course)	
+		courseList[courseID] = course
 	
 		#NOTE: take this out when 	
 		#break
@@ -205,7 +205,7 @@ def parseHTML(htmlFile):
 	semesterHTMLList = splitSemesters(prunedSoup)
 	rawCourseList = getRawCourseList(semesterHTMLList)
 	
-	courseList = getCourseList(rawCourseList) 
+	courseList = getCourseDict(rawCourseList) 
 	return courseList
 
 

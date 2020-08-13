@@ -1,0 +1,159 @@
+.PTPNWinModal {
+	border: none;
+	border-radius: 0.07em;
+}
+
+.PTNotifyWinLocation {
+	top: 0em;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+
+	font-size: 11pt; 
+	-webkit-transition: width 1s; -moz-transition: width 1s; -ms-transition: width 1s; transition: width 1s;
+}
+
+
+.PTPNWinModal {
+	position: fixed;
+	top: 2.8em;
+	bottom: 0em;
+	right: -28.3em;
+
+	-webkit-transition:-webkit-transform 1s; -moz-transition:-moz-transform 1s; -ms-transition:-ms-transform 1s; transition:transform 1s;
+
+	
+
+}
+
+.PTPNWinModal.slidein_full {
+	-webkit-transform:translateX(-28.3em); -moz-transform:translateX(-28.3em); -ms-transform:translateX(-28.3em); transform:translateX(-28.3em);
+
+}
+
+
+html[dir="rtl"] .PTPNWinModal.slidein_full {
+	-webkit-transform:translateX(28.3em); -moz-transform:translateX(28.3em); -ms-transform:translateX(28.3em); transform:translateX(28.3em); 
+}
+
+.PTPNWinModal.slidein {
+
+	-webkit-transform:translateX(-30.3em); -moz-transform:translateX(-30.3em); -ms-transform:translateX(-30.3em); transform:translateX(-30.3em); 
+
+}
+
+
+html[dir="rtl"] .PTPNWinModal.slidein {
+	-webkit-transform:translateX(30.3em); -moz-transform:translateX(30.3em); -ms-transform:translateX(30.3em); transform:translateX(30.3em);
+}
+
+.PTPNWinModal iframe {
+
+	width: 26.3em;
+	height: 28.3em;
+}
+
+.phone .PTPNWinModal {
+	font-size: 0.77em;
+	top: 3.6em;
+
+}
+
+.phone .PTPNWinModal iframe {
+	
+	width: 26.3em;
+	height: 100%;
+}
+
+.ptpnarrow
+{
+	height: 100%;
+}
+
+ .psNotifyWin .ps_arrow_top
+{
+top: 0em;
+right: 5.7em;
+-webkit-transform: rotate(-45deg);
+-moz-transform: rotate(-45deg);
+-ms-transform: rotate(-45deg);
+transform: rotate(-45deg); 
+border-bottom: none;
+display: none;
+content: "\00a0";
+border-top: solid #6c6c6c;
+background-color: white;
+height: 1.02325em;
+width: 1.02325em;
+-webkit-transform-origin: left top;
+-moz-transform-origin: left top;
+-ms-transform-origin: left top;
+transform-origin: left top;
+border-right-color: #6c6c6c;
+border-right-style: solid;
+border-right-width: 1px;
+border-top-color: #6c6c6c;
+border-top-style: solid;
+border-top-width: 1px;
+margin-left: initial;
+position: absolute;
+z-index: -1;
+border-width: 1px;
+
+}
+
+
+:root[dir="rtl"] .psNotifyWin .ps_arrow_top
+{
+-webkit-transform:rotate(45deg); -moz-transform:rotate(45deg); -ms-transform:rotate(45deg); transform:rotate(45deg); 
+}
+
+
+.fade-out {
+         opacity:0;
+         background-color: rgba(255, 255, 255, 0);
+     }
+     .fade-in {
+         opacity:1;
+         background-color: rgba(255, 255, 255, 1);
+     }
+
+
+.PTPNWinModalClassic{
+
+border: 1px solid #6C6C6C;
+border-radius: 8px;
+border-top-width:0px;
+position: relative;
+top: 2.9em;
+}
+
+.psc_badge-text
+{
+  position:relative;
+}
+
+.ps-textClassic
+{
+
+background: none repeat scroll 0 0 #DD0000;
+    border: 2px solid #FFFFFF;
+    border-radius: 1em;
+    color: #FFFFFF;
+    font-size: 0.7em;
+    left: 50%;
+    margin: 0;
+    min-width: 0;
+    padding: 0.01em;
+    padding-right:0.4em; 
+    padding-left:0.3em; 
+    position: absolute;
+    text-align: center;
+    text-shadow: none;
+    top: 0.5em;
+}
+
+.psc_badge-hide .ps-text
+{
+	display:none;
+}

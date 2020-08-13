@@ -13,7 +13,6 @@ from itertools import product
 from collections import defaultdict#NOTE: remember right now code is not super clean
 
 import os
-import sys
 from shutil import rmtree 
 
 def makeCatalog(courseDict):
@@ -50,127 +49,21 @@ def findAllSchedComb(requestList, catalog, courseDict):
 	#Create a list of (cid, sid, labid) for each course
 	#TODO: maybe make a courseMap so that only numbers are stored not the entire cid  
 	cids = [catalog[cn][1] for cn in requestList]
-	#print(cids)
-	
-
-	# List for closed section in the request courses
-	closed = []
-	cOpen = []
-                                                                                   
+	                                                                                   
 	for cid in cids:
 		courseCombinations = []
-		sections = courseDict[cid].sections
+		sections = courseDict[cid].getSections()	
 		for sid in sections:
 			section = sections[sid]	
 			# Course may not have Lab
-			#NOTE: being modified
-			if not section.labs: 
+			if not section.getLabs(): 
 				courseCombinations.append((cid, sid, None))
-			for labid in section.labs:
-				#NOTE: example of how to EXCLUDE
-				#if not ((cid == " TERAPEUTICA " and labid == "9A1") or\
-				#		(cid == " TERAPEUTICA " and labid == "9C1")):
-				#	courseCombinations.append((cid, sid, labid))	
-		
-				#NOTE: example of how to only INCLUDE these 
-				#if not ((cid == cids[3] and labid != "2G2") and\
-				#		(cid == cids[3] and labid != "2H2") and\
-				#		(cid == cids[3] and labid != "2I1") and\
-				#		(cid == cids[3] and labid != "2B2")):
-				#	courseCombinations.append((cid, sid, labid))	
-			
-				#NOTE: how to EXCLUDE(PsiCol 6D)  and INCLUDE (TERAP 9A1)  
-				#if not ((cid == " PSICOL APLICADA A LA MEDICINA " and labid == "9A1") or\
-				#		(cid == " TERAPEUTICA " and labid != "9A1")):
-				#	courseCombinations.append((cid, sid, labid))	
-			 	#" ATENCIÓN PRIMARIA DE SALUD "
-				#" PARASITOLOGÍA "
-				#" MORFOFISIOLOGÍA DEL SIS. NERVI "	
-			 	#" MICROBIOLOGÍA E INMUNOLOGÍA "
-
-				#INCLUDE => Exclude
-				if not (	
-						# NOTE: only consider these
-						(((cid == cids[0] and labid != "3G1") and\
-						(cid == cids[0] and labid != "3G2")) or\
-						#((cid == cids[1] and labid != "4E2") and\
-						#(cid == cids[1] and labid != "4E1")) or\
-						((cid == cids[1] and labid != "4G1") and\
-						(cid == cids[1] and labid != "4H1") and\
-						(cid == cids[1] and labid != "4H2")) or\
-						((cid == cids[3] and labid != "4C2") and\
-						(cid == cids[3] and labid != "4D2") and\
-						(cid == cids[3] and labid != "4E1") and\
-						(cid == cids[3] and labid != "4E2"))) or\
-						#NOTE: Exclude beyond this point
-						((cid == cids[2] and labid == "4B1") or\
-						(cid == cids[2] and labid == "4C1") or\
-						(cid == cids[2] and labid == "4C2") or\
-						(cid == cids[2] and labid == "4D1") or\
-						(cid == cids[2] and labid == "4F1") or\
-						(cid == cids[2] and labid == "4F2") or\
-						(cid == cids[4] and labid == "4B1") or\
-						(cid == cids[4] and labid == "4C2") or\
-						(cid == cids[4] and labid == "4D1"))):
-						#(cid == cids[4] and labid == "4A1") or\
-						#(cid == cids[4] and labid == "4B1") or\
-						#(cid == cids[4] and labid == "4C1") or\
-						#(cid == cids[4] and labid == "4C2") or\
-						#(cid == cids[4] and labid == "4D1") or\
-						#(cid == cids[4] and labid == "4D2") or\
-						#(cid == cids[4] and labid == "4F1") or\
-						#(cid == cids[4] and labid == "4F2"))):
-						#(cid == cids[3] and labid == "4B1") or\
-						#(cid == cids[3] and labid == "4F1") or\
-						#(cid == cids[3] and labid == "4C1") or\
-						#(cid == cids[3] and labid == "4C2") or\
-						#(cid == cids[4] and labid == "4A1") or\
-						#(cid == cids[4] and labid == "4A2") or\
-						#(cid == cids[4] and labid == "4B1") or\
-						#(cid == cids[4] and labid == "4D1") or\
-						#(cid == cids[5] and labid == "4C1") or\
-						#(cid == cids[5] and labid == "4D1") or\
-						#(cid == cids[5] and labid == "4D2") or\
-						#(cid == cids[5] and labid == "4F1") or\
-						#(cid == cids[5] and labid == "4F2")):
-					courseCombinations.append((cid, sid, labid))
-					cOpen.append("%s %s" %(cid, labid)) 	
-
-				else:
-					closed.append("%s %s" %(cid, labid))
-					
-                                #courseCombinations.append((cid, sid, labid))	
-
-
-	
-			#	#INCLUDE and exclude	
-			#	if not (((cid == " FISIOPATOLOGÍA " and labid != "4C1") and\
-			#			(cid == " FISIOPATOLOGÍA " and labid != "4C2")) or\
-			#		((cid == " MORFOFISIOLOGÍA DEL SIS. NERVI " and labid == "4B1") or\
-					       #(cid == " MORFOFISIOLOGÍA DEL SIS. NERVI " and labid == "4A1"))):
-					#courseCombinations.append((cid, sid, labid))
-				#courseCombinations.append((cid, sid, labid))	
-
-
-				#if not ((cid == " MICROBIOLOGÍA E INMUNOLOGÍA " and labid == "4C1") or\
-                                #		(cid == " MICROBIOLOGÍA E INMUNOLOGÍA " and labid == "4C2")):
-                                #	courseCombinations.append((cid, sid, labid))	
-                                #courseCombinations.append((cid, sid, labid))	
-
+			for labid in section.getLabs():
+				courseCombinations.append((cid, sid, labid))	
 		results.append(courseCombinations)	
-
-	print("\n\n$$$$$$$$$$$$$$$$$$$$  Cerradas $$$$$$$$$$$$$$$$$$$$$")
-	closed.sort()
-	for p in closed:
-		print(p)
-
-	print("\n\n$$$$$$$$$$$$$$$$$$$$  Abiertas $$$$$$$$$$$$$$$$$$$$$")
-	cOpen.sort()
-	for p in cOpen:
-		print(p)
-                                        
+	                                                                                  	
 	# itertools.product	
-	all_combinations = list(product(*results))
+	all_combinations = list(product(*results))	
 	return all_combinations
 
 
@@ -178,14 +71,14 @@ def getTimeIntervals(courseDict, sched):
 	timeIntervals = []
 	for period in sched:
 		course = courseDict[period[0]]
-		section = course.sections[period[1]]
+		section = course.getSections()[period[1]]
 		for to in section.theoryTimes:
-			ti = to._timeInterval
+			ti = to.getTimeInterval()
 			timeIntervals.append(ti)
 
-		labs = section.labs[period[2]]
+		labs = section.getLabs()[period[2]]
 		for lab in labs:
-			ti = lab._timeInterval
+			ti = lab.getTimeInterval()
 			timeIntervals.append(ti)
 
 	return timeIntervals
@@ -199,8 +92,7 @@ def tiIntersects(schedTI):
 		prev = schedTI[i-1]
 		cur = schedTI[i]
 		if cur[0] < prev[1]:
-			intersects = True	
-			break
+			return True
 	return intersects	
 
 
@@ -215,7 +107,7 @@ def startsBefore(schedTI, hour):
 	return False
 
 
-def endsAfter(schedTI, hour):
+def endsBefore(schedTI, hour):
 	for ti in schedTI:
 		endHour = ti[1] % 288
 		if endHour > (hour * 12):
@@ -224,10 +116,10 @@ def endsAfter(schedTI, hour):
 
 
 def tempHasBadDay(schedTI):
-	#for ti in schedTI:
+	for ti in schedTI:
 		#Monday
-	#	if ti[0] < 288:
-	#		return True 
+		#if ti[0] < 288:
+		#	return True 
 		##TUE
 		#if ti[0] > 288 and ti[0] < 576:
 		#	return True 
@@ -235,14 +127,14 @@ def tempHasBadDay(schedTI):
 		#if ti[0] > 576 and ti[0] < 864:
 		#	return True 
 		##THU
-		#if ti[0] > 864 and ti[0] < 1152:
-		#	return True 
+		if ti[0] > 864 and ti[0] < 1152:
+			return True 
 		#FRI
 		#if ti[0] > 1152 and ti[0] < 1440:
 		#	return True 
 		#SAT
-		#if ti[0] >1440 and ti[0] < 1728:
-			#return True 
+		if ti[0] >1440 and ti[0] < 1728:
+			return True 
 
 	return False
 
@@ -257,19 +149,19 @@ def findDaysWithout(schedTI):
 	daysWithout = []
 	for d in dayIndexSet: 
 		if d not in days:
-			daysWithout.append(DAYS[d])	
+			daysWithout.append(DAYS.indexof(d))	
 
 	return " ".join(daysWithout) 
 
 
 
-def printDaysWithoutDict(missingDaysDict):
+def printDaysWithoutDict(daysWithoutDict):
 	print("\nHorarios posibles con 'n' dias de clase:")
 	tracker = defaultdict(int)
-
-	for dw in missingDaysDict:
-		ndays = len(DAYS) - int(len(dw)/3) 
-		tracker[ndays] += missingDaysDict[dw]
+	
+	for dw in daysWithoutDict:
+		ndays = len(DAYS) - len(dw)	
+		tracker[ndays] += daysWithoutDict[dw]
 
 	resList = []
 	for d in range(6, -1, -1):
@@ -280,24 +172,6 @@ def printDaysWithoutDict(missingDaysDict):
 			res += str(tracker[d]) 
 		print(res)
 
-	#print("\n# Horarios sin dia:")
-	#for d in missingDaysDict:
-	#	print("\t%s\t: %s"%(d, missingDaysDict[d]))
-
-	print("\n# Total de Horarios con dias:\n")
-	for d in missingDaysDict:
-		dayList = d.split()
-		#TODO: print out day if in dayList else leave a space
-		weekStr = "\t"
-		for day in DAYS:
-			if day not in dayList:
-				weekStr += day
-			else:
-				weekStr += "---"
-			weekStr += "|"
-		weekStr += "    ->\t" + str(missingDaysDict[d]) + "\n"
-		print(weekStr)
- 
 
 def findViableSchedules(requestList, catalog, courseDict):
 	viable = []
@@ -308,17 +182,19 @@ def findViableSchedules(requestList, catalog, courseDict):
 
 
 	#NOTE: counts the  days this schedule doesn't have
-	missingDaysDict = defaultdict(int)
+	daysWithoutDict = defaultdict(int)
 	
 	#TODO: make this an item too instead of a tubple?	
 	for sched in possible:
 		#print(sched)
 		schedTI = getTimeIntervals(courseDict, sched) 
 		schedTI.sort(key=lambda tup:tup[0])
+		daysWithout = findDaysWithout(schedTI)
+		#print(daysWithout)
 	
 		if not tiIntersects(schedTI):
-			daysWithout = findDaysWithout(schedTI)
-			missingDaysDict[daysWithout] += 1	
+		#and not tempHasBadDay(schedTI) and not startsBefore(schedTI, 7):
+			daysWithoutDict[daysWithout] += 1	
 			if not tempHasBadDay(schedTI):
 				goodCounter += 1
 				viable.append(sched)
@@ -327,7 +203,9 @@ def findViableSchedules(requestList, catalog, courseDict):
 		else:
 			badCounter += 1
 
-	printDaysWithoutDict(missingDaysDict)	
+	printDaysWithoutDict(daysWithoutDict)	
+	print("\n\n\n")
+	print(daysWithoutDict)	
 	return (goodCounter, badCounter, viable)	
 
 
@@ -339,7 +217,6 @@ def getFileSched(day, startTime, endTime):
 	resStr += endTime[:2] + "\t"
 	resStr += endTime[3:] + "\t"
 	return resStr
-
 
 #TODO: packge this DAYS somewhere 
 DAYS = ["LUN", "MAR", "MIE", "JUE", "VIE", "SAB"]	
@@ -355,14 +232,14 @@ def getSchedString(courseDict, coursetuple, course_counter):
 		cid + " [" + sid +
 		"|" + labid + "] -------------")
 	
-	sections = courseDict[cid].sections
+	sections = courseDict[cid].getSections()	
 	section = sections[sid]	
 	theoryTimes = []
 	for tt in section.theoryTimes:
 		theoryTimes.append(tt)
 
 	labTimes = []
-	labs = section.labs[labid]
+	labs = section.getLabs()[labid]
 	for lto in labs:
 		labTimes.append(lto)
 
@@ -391,6 +268,7 @@ def printSchedules(courseDict, resultTuple):
 	(goodCounter, badCounter, viable) = resultTuple
 	total = goodCounter + badCounter
 	print("\n\nBuscando combinaciones viables entre " + str(total) + " posibilidades...........")
+	#print("Condiciones: No clase [\'Martes\', \'Sabado\']")
 	print ("\nHorarios viables: " + str(goodCounter))
 	print("Horarios NO viables: " + str(badCounter))
 	
@@ -400,7 +278,7 @@ def printSchedules(courseDict, resultTuple):
 		rmtree(dname) #shutil.rmtree
 	os.makedirs(dname)
 	
-	MAXTOPRINT = 10000
+	MAXTOPRINT = 1000
 	counter = 1
 	
 	#TODO: revise everything after this, I have just copied 
@@ -426,25 +304,27 @@ def printSchedules(courseDict, resultTuple):
 
 	# Write ellipsis if there are more courses
 	if counter < goodCounter:
-		print("\t\t\t\t\t--------- %s horarios mas -----------\n\n\n\n\n"%
+		print("\t\t\t\t\t--------- %s mas horarios viables-----------\n\n\n\n\n"%
 			(str(goodCounter-counter + 1)))
 
 		
 
 def main():
-	# User inputs HTML file as option
-	htmlFile = os.getcwd() + "/" + sys.argv[1] 
+	#htmlFile = '/mnt/c/Users/framo/OneDrive/Desktop/AlumnoOrig.html'
+	htmlFile = '/mnt/c/Users/framo/OneDrive/Desktop/Alumno.html'
+	#htmlFile = '/mnt/c/Users/framo/OneDrive/Desktop/ghian.html'
+	#htmlFile = '/mnt/c/Users/framo/OneDrive/Desktop/miguel.html'
+	#htmlFile = '/mnt/c/Users/framo/OneDrive/Desktop/H-T.html'
+	#htmlFile = '/mnt/c/Users/framo/OneDrive/Desktop/Danitza.html'
 
-
-	
 	""" (1). Scrape, return a list of courses """
 	courseDict = parseHTML(htmlFile)
-	#_printCourseDict(courseDict)
 	
 	""" (2). Print catalogue & get User requests """
 	catalog = makeCatalog(courseDict)
 	printCatalog(catalog)
 	requestList = getRequestList(catalog)
+	#_printCourseDict(courseDict)		
 
 	""" (2b). Implement user constraints on schedule """
 	#TODO: eventually, rn just hack something otgether just like last time
@@ -456,10 +336,12 @@ def main():
 	printSchedules(courseDict, resultTuple)	
 
 
-# helper function for debugging"
 def _printCourseDict(cl):
+	"helper function for debugging"
+	print("$$$$$$$$")
 	for c in cl:
 		print(cl[c])
+
 
 if __name__ == '__main__':
 	main()

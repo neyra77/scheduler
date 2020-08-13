@@ -1,0 +1,633 @@
+
+
+
+
+
+
+
+
+var ptHover = function(element,mouseOverFunc,mouseOutFunc,hoverCfg) {
+
+ if (!element || !mouseOverFunc || !mouseOutFunc) { return };  var cfg = {
+ threshold: 7, 
+ compareWait: 300, 
+ mouseOutWait: 0, 
+ isFldr : true
+ };  if (hoverCfg) {
+ cfg.threshold = hoverCfg.threshold; cfg.compareWait = hoverCfg.compareWait; cfg.mouseOutWait = hoverCfg.mouseOutWait; cfg.isFldr = hoverCfg.isFldr; }
+
+ cfg.onMouseOver = mouseOverFunc; cfg.onMouseOut = mouseOutFunc;   var mouseCurrX, mouseCurrY, mousePrevX, mousePrevY;  var getMousePos = function(e) {
+ mouseCurrX = e.pageX; mouseCurrY = e.pageY; };  var compareMousePos = function(e,hoverEl) {
+
+ hoverEl.hoverTimer = clearTimeout(hoverEl.hoverTimer);  if ((Math.abs(mousePrevX - mouseCurrX) + Math.abs(mousePrevY - mouseCurrY)) < cfg.threshold) {
+
+ ptEvent.remove(hoverEl,"mousemove",getMousePos);  hoverEl.hoverState = true;  return cfg.onMouseOver.apply(hoverEl,[e]); } else {
+ 
+ mousePrevX = mouseCurrX;  mousePrevY = mouseCurrY;  hoverEl.hoverTimer = setTimeout(function(){compareMousePos(e,hoverEl);},cfg.compareWait); }
+ }; var clearMouseOutProps = function(hoverEl) {
+ hoverEl.hoverTimer = clearTimeout(hoverEl.hoverTimer); hoverEl.hoverState = false; };  var mouseOutDelay = function(e,hoverEl) {
+
+ 
+ 
+ 
+ 
+ if (!cfg.isFldr || pthNav.isOverNav || (pthNav.iframe && 
+ !pthNav.isOverIframe) || !pthNav.isNavOpen) {
+ clearMouseOutProps(hoverEl);  return cfg.onMouseOut.apply(hoverEl,[e]); }
+ };  var hoverHandler = function(e) {
+
+ 
+ var parent = e.relatedTarget; while (parent && parent != this) { 
+ try { 
+ parent = parent.parentNode;  } catch(e) { 
+ parent = this;  }
+ }
+
+ if (parent == this) { return false; }
+
+ 
+ 
+ var event = {}; var options;  for (var name in e) {
+ options = e[name]; if (options != "undefined") {
+  event[name] = e[name]; }
+  }
+
+ var hoverEl = this;  if (hoverEl.hoverTimer) { 
+ hoverEl.hoverTimer = clearTimeout(hoverEl.hoverTimer);  }
+
+ 
+ if (e.type === "mouseover") {
+
+ 
+ mousePrevX = event.pageX; mousePrevY = event.pageY;  ptEvent.add(hoverEl,"mousemove",getMousePos);  if (!hoverEl.hoverState) { 
+ hoverEl.hoverTimer = setTimeout(function(){compareMousePos(event,hoverEl);},cfg.compareWait); }
+
+ 
+ } else {
+ ptEvent.remove(hoverEl,"mousemove",getMousePos);  if (hoverEl.hoverState) { 
+ hoverEl.hoverTimer = setTimeout(function(){mouseOutDelay(event,hoverEl);},cfg.mouseOutWait); }
+ }
+ };  if (element.events) {
+ if (element.events["mouseout"]) {
+ ptEvent.remove(element,"mouseout"); }
+ if (element.events["mouseover"]) {
+ ptEvent.remove(element,"mouseover"); }
+ }
+
+ ptEvent.add(element,"mouseover",hoverHandler); ptEvent.add(element,"mouseout",hoverHandler);  element.clearMouseOut = function () {
+ clearMouseOutProps(element); }
+}; var ptScrollable = function (cCfg) {
+ 
+ var cfg = {
+ isNav : true, 
+ 
+ viewStartEl : typeof pthNav !== "undefined" ? pthNav.container : null, 
+ container : null, 
+ scrollDistance : 36, 
+ bottomOffset : 5,  
+ sideOffset : 18,  
+  
+
+ 
+ showUpBtnStyle : "pthnavscrollupshow",
+ hideUpBtnStyle : "pthnavscrollup", 
+ showDownBtnStyle : "pthnavscrolldownshow",
+ hideDownBtnStyle : "pthnavscrolldown",
+ 
+ noBtnImgStyle : "pthnavnoscrollbtnimg",
+ shadowDownStyle : "pthnavshadowdown",
+ scrollFlyoutStyle : "pthnavflyoutscroll" 
+ }; var vs = {
+ firstTime : true,
+ viewHeight : 0, 
+ viewWidth : 0, 
+ viewTop : 0, 
+ downImgMinHeight : 0, 
+ shadowDivInitTop : 0, 
+ shadowDivInitLeft : 0, 
+ upImgHeight : 0, 
+ sInterval : null, 
+ IEquirksMode : browserInfoObj2.isIE && document.compatMode != "CSS1Compat", 
+
+ init : function () {
+
+ 
+ if (cCfg) {
+ 
+ cfg.viewStartEl = cCfg.viewStartEl; cfg.showUpBtnStyle = cCfg.showUpBtnStyle;  cfg.hideUpBtnStyle = cCfg.hideUpBtnStyle; cfg.showDownBtnStyle = cCfg.showDownBtnStyle; cfg.hideDownBtnStyle = cCfg.hideDownBtnStyle;  cfg.isNav = (typeof cCfg.isNav === "undefined") ? false : cCfg.isNav; cfg.container = (typeof cCfg.container === "undefined") ? null : cCfg.container; cfg.scrollDistance = (typeof cCfg.scrollDistance === "undefined") ? 18 : cCfg.scrollDistance; cfg.bottomOffset = (typeof cCfg.bottomOffset === "undefined") ? 5 : cCfg.bottomOffset; cfg.sideOffset = (typeof cCfg.sideOffset === "undefined") ? 18 : cCfg.sideOffset; cfg.noBtnImgStyle = (typeof cCfg.noBtnImgStyle === "undefined") ? "" : cCfg.noBtnImgStyle; cfg.shadowDownStyle = (typeof cCfg.shadownDownStyle === "undefined") ? "" : cCfg.shadownDownStyle; cfg.scrollFlyoutStyle = (typeof cCfg.scrollFlyoutStyle === "undefined") ? "" : cCfg.scrollFlyoutStyle; }
+
+ 
+ vs.setViewPort();  ptEvent.add(window,"resize",function() { vs.setViewPort(); }); },
+
+ 
+ setViewPort : function () {
+ this.viewHeight = ptUtil.winSize().height - cfg.bottomOffset; this.viewWidth = ptUtil.winSize().width - cfg.sideOffset; },
+
+ 
+ getPos : function (el) {
+
+ var x = y = 0;  var e = el; while (e) {
+ x += e.offsetLeft || 0; y += e.offsetTop || 0; e = e.offsetParent; }
+ return {x:x, y:y}; },
+
+ 
+ configure : function (ulElem,isFldr) {
+
+ if (!ulElem) { return; }
+
+ 
+ if (this.firstTime) {
+
+ this.firstTime = false;  this.downImgMinHeight = ptUtil.getNextSibling(ulElem.parentNode,
+ "div",cfg.hideDownBtnStyle).offsetHeight;   this.viewTop = this.getPos(cfg.viewStartEl).y + 
+ cfg.viewStartEl.offsetHeight + cfg.bottomOffset; if (cfg.isNav) {
+ this.shadowDivInitTop = ulElem.parentNode.parentNode.offsetTop; this.shadowDivInitLeft = ulElem.parentNode.parentNode.offsetLeft; if (isFldr) {
+ 
+ this.upImgHeight = ptUtil.getPrevSibling(
+ ulElem.parentNode,"div",
+ cfg.hideUpBtnStyle).offsetHeight; }
+ }
+ }
+
+ var scroll = false; var container;    if (cfg.isNav) {
+
+ 
+ container = ulElem.parentNode.parentNode.parentNode; } else {
+
+ 
+ if (!cfg.container) {
+ container = ulElem.parentNode; } else {
+ container = cfg.container; }
+ }
+ container.style.top = "";  var yTop, yHeight, downHeight, upHeight = 0;  if (typeof ulElem.sCfg !== "undefined") {
+ ulElem.style.position = "relative"; ulElem.style.top = 0; ulElem.parentNode.style.overflow = "visible"; ulElem.parentNode.style.height = "auto"; }
+
+ if (cfg.isNav && isFldr) {
+ yTop = this.getPos(container.parentNode).y; yHeight = container.parentNode.offsetHeight; downHeight = yTop + yHeight + ulElem.offsetHeight
+  + this.downImgMinHeight + this.shadowDivInitTop; } else {
+ yTop = this.getPos(ulElem).y; downHeight = yTop + ulElem.offsetHeight
+ + this.downImgMinHeight + this.shadowDivInitTop; }
+
+ if (downHeight > this.viewHeight) {
+
+ 
+ 
+ if (cfg.isNav && isFldr) {
+ upHeight = yTop - yHeight - ulElem.offsetHeight
+ - Math.abs(this.shadowDivInitTop)
+ - this.upImgHeight; if (upHeight < this.viewTop) {
+ scroll = true; }
+ 
+ } else {
+ scroll = true; }
+ }
+
+ if (!scroll) {
+
+ 
+ if (ulElem.sCfg) {
+
+ 
+ if (ulElem.sCfg.isScroll) {
+
+ 
+ ulElem.sCfg.isScroll = false;  ulElem.style.position = "relative"; ulElem.style.top = 0;  ulElem.parentNode.style.overflow = "visible"; ulElem.parentNode.style.height = "auto"; if (cfg.isNav && !isFldr) {
+
+ 
+ ulElem.sCfg.container.style.top = "100%";  ulElem.sCfg.shadowDiv.style.top = ""; ulElem.sCfg.shadowDiv.style.left = ""; }
+
+ 
+ ulElem.sCfg.upImg.className = "" + cfg.hideUpBtnStyle; ulElem.sCfg.downImg.className = "" + cfg.hideDownBtnStyle;  this.removeAllEvents(ulElem); this.removeAllEvents(ulElem.sCfg.upImg); this.removeAllEvents(ulElem.sCfg.downImg);    if (this.IEquirksMode) { 
+ ulElem.parentNode.style.zoom = 1; }
+
+ 
+ } else {
+
+ if (cfg.isNav ) {
+
+ if (isFldr) {
+ pthNav.fldr.setPosition(container,yTop,ulElem,
+ scroll,upHeight); } else {
+ 
+ ulElem.sCfg.container.style.top = "100%";  ulElem.sCfg.shadowDiv.style.top = ""; ulElem.sCfg.shadowDiv.style.left = "";  ulElem.sCfg.downImg.className = "" + cfg.hideDownBtnStyle; }
+ }
+ }
+
+ 
+ } else {
+
+ if (cfg.isNav) {
+
+ if (isFldr) {
+ pthNav.fldr.setPosition(container,yTop,ulElem,
+ scroll,upHeight); } else {
+
+ 
+ container.style.top = "100%";  ulElem.parentNode.parentNode.style.top = ""; ulElem.parentNode.parentNode.style.left = "";  var downImg = ptUtil.getNextSibling(ulElem.parentNode,"div",""); downImg.className = "" + cfg.hideDownBtnStyle
+
+ }
+ }
+ }
+ return;  }
+
+ 
+ 
+ 
+ if (!ulElem.sCfg) {
+
+ 
+ 
+ 
+ if (this.IEquirksMode) {
+ ulElem.parentNode.style.zoom = "normal"; }
+
+ 
+ ulElem.sCfg = {};    var sibling = ptUtil.getNextSibling(ulElem.parentNode,"div",""); ulElem.sCfg.downImg = sibling; sibling.scrollUl = ulElem;   sibling = ptUtil.getPrevSibling(ulElem.parentNode,"div",""); ulElem.sCfg.upImg = sibling; sibling.scrollUl = ulElem;   this.addEvents(ulElem); this.addEvents(ulElem.sCfg.downImg);  if (cfg.isNav) {
+
+ 
+ ulElem.sCfg.shadowDiv = ulElem.parentNode.parentNode;     sibling = ptUtil.getPrevSibling(ulElem.parentNode.parentNode,"div",cfg.scrollFlyoutStyle); ulElem.sCfg.scrollFlyout = sibling;  ulElem.sCfg.container = container; }
+ } else {
+
+ 
+ ulElem.style.top = 0; this.removeAllEvents(ulElem.sCfg.upImg); ulElem.sCfg.upImg.className = "" + cfg.hideUpBtnStyle; if (cfg.isNav) {
+
+ ulElem.sCfg.shadowDiv.style.top = ""; ulElem.sCfg.shadowDiv.style.left = ""; if (!isFldr) {
+ ulElem.sCfg.container.style.top = "100%"; }
+ }
+
+ 
+ 
+ if (!ulElem.sCfg.downImg.events) {
+ this.addEvents(ulElem.sCfg.downImg); }
+
+ if (!ulElem.events) {
+ this.addEvents(ulElem); }
+ }
+
+ ulElem.sCfg.isScroll = true; ulElem.sCfg.displayDown = true;  ulElem.style.position = "absolute";  ulElem.parentNode.style.overflow = "hidden";  ulElem.sCfg.downImg.className = "" + cfg.showDownBtnStyle;   if (cfg.isNav) {
+
+ 
+ ulElem.parentNode.style.height = Math.abs(this.viewHeight
+ - this.getPos(ulElem.parentNode).y
+ - ulElem.sCfg.downImg.offsetHeight
+ - Math.abs(this.shadowDivInitTop)) + "px"; if (isFldr) {
+ pthNav.fldr.setPosition(container,yTop,ulElem,scroll,
+ upHeighnt); }
+ } else {
+ ulElem.parentNode.style.height = Math.abs(this.viewHeight + getYScroll()
+ - this.getPos(ulElem.parentNode).y
+ - ulElem.sCfg.downImg.offsetHeight
+ - Math.abs(this.shadowDivInitTop)) + "px"; }
+ },
+
+ 
+ addEvents : function (el) {
+
+ var elType = ""; if (el) { elType = el.nodeName.toLowerCase(); }
+
+ 
+ if (elType === "div") {
+ 
+ ptHover(el,this.onHover,this.onHover,
+  {threshold:7,compareWait:300,mouseOutWait:0,isFldr:false});  ptEvent.add(el,"mousedown",function() {
+ this.scrollFast = true;   if (typeof pthNav !== "undefined") {
+ pthNav.scrollFast = false; }
+ return false; }); ptEvent.add(el,"mouseup",function() {
+ this.scrollFast = false;   if (typeof pthNav !== "undefined") {
+ pthNav.scrollFast = true; }
+ return false; });  } else if (elType === "ul") {
+
+ if (!browserInfoObj2.isFF) {
+ ptEvent.add(el,"mousewheel",this.onMouseWheel); } else {
+ ptEvent.add(el,"DOMMouseScroll",this.onMouseWheel); }
+ }
+ },
+
+ 
+ removeAllEvents : function (el) {
+ if (el) { ptEvent.remove(el); }
+ },
+
+ 
+ onHover : function(e) {
+
+ if (e.type === "mouseout") {
+ if (vs.sInterval) {
+ clearInterval(vs.sInterval); vs.sInterval = null; }
+ return false; }
+
+ 
+ if (cfg.isNav && pthNav.lastHoveredId !== "") {
+ pthNav.fldr.closeAll(this.scrollUl.sCfg.scrollFlyout); }
+
+ var self = this; setTimeout(function(){vs.doScrollHover(self);},0); },
+
+ 
+ doScrollHover : function (scrollBtnImg) {
+
+ var scrollBtn = scrollBtnImg; var downBtn = ptUtil.isClassMember(scrollBtnImg,cfg.showDownBtnStyle); var sUl = scrollBtnImg.scrollUl.sCfg; var scrollHeight = parseFloat(ptUtil.getCSSValue(scrollBtnImg.scrollUl.parentNode,"height")); var scrollUl = scrollBtnImg.scrollUl; var doScroll = function () {
+
+ 
+ var scrollDistance = cfg.scrollDistance / 4;  var newTop; var currTop = scrollUl.offsetTop; var fast = scrollBtn.scrollFast ? 2 : 1;  if (downBtn) {
+
+ if ((scrollUl.offsetHeight + currTop) > scrollHeight) {
+ newTop = currTop - (scrollDistance * fast); if (!sUl.upImg.events) {
+ vs.addEvents(sUl.upImg); ptUtil.swapClass(sUl.upImg,cfg.hideUpBtnStyle,cfg.showUpBtnStyle); }
+
+ } else {
+ newTop = scrollHeight - scrollUl.offsetHeight; } 
+
+ } else {
+ if (currTop < 0) {
+ newTop = currTop + (scrollDistance * fast); if (!sUl.downImg.events) {
+ vs.addEvents(sUl.downImg); sUl.downImg.className = "" + cfg.showDownBtnStyle; }
+
+ } else {
+ newTop = 0; }
+ }
+
+ scrollUl.style.top = newTop + "px";  if (newTop === 0) {
+ 
+ ptUtil.swapClass(sUl.upImg,cfg.showUpBtnStyle,cfg.hideUpBtnStyle); vs.removeAllEvents(sUl.upImg); sUl.upImg.clearMouseOut(); sUl.upImg.scrollFast = false; clearInterval(vs.sInterval); vs.sInterval = null; } else if ((scrollUl.offsetHeight + newTop) <= scrollHeight) {
+
+ 
+ 
+ 
+ if (sUl.displayDown) {
+ sUl.downImg.className = "" + cfg.hideDownBtnStyle; } else {
+ sUl.downImg.className = "" + cfg.noBtnImgStyle; }
+
+ vs.removeAllEvents(sUl.downImg); sUl.downImg.clearMouseOut(); sUl.downImg.scrollFast = false; clearInterval(vs.sInterval); vs.sInterval = null; }
+ }; this.sInterval = setInterval(doScroll,50); },
+
+ 
+ onMouseWheel : function (e) {
+
+ 
+ var delay = 0; if (cfg.isNav && pthNav.lastHoveredId !== "") {
+ delay = pthNav.fldr.closeAll(this.sCfg.scrollFlyout) * 100; }
+
+ var delta;  if (e.wheelDelta) {
+ delta = e.wheelDelta/120;  } else {
+ delta = -e.detail/3; }
+
+ var self = this; setTimeout(function(){vs.doMouseWheel(self,delta);},delay); return false; },
+
+ doMouseWheel : function (ulElem,delta) {
+
+ var scrollUl = ulElem; var sUl = ulElem.sCfg; var scrollHeight = parseFloat(ptUtil.getCSSValue(scrollUl.parentNode,"height"));  var scrollDistance = cfg.scrollDistance; var newTop; var currTop = scrollUl.offsetTop; var fast = 1;  if (delta < 0) {
+ if ((scrollUl.offsetHeight + currTop) > scrollHeight) {
+
+ newTop = currTop - (scrollDistance * fast); if (!sUl.upImg.events) {
+ this.addEvents(sUl.upImg); ptUtil.swapClass(sUl.upImg,cfg.hideUpBtnStyle,cfg.showUpBtnStyle); }
+
+ } else {
+ newTop = scrollHeight - scrollUl.offsetHeight; } 
+
+ } else {
+ if (currTop < 0) {
+ newTop = currTop + (scrollDistance * fast); if (!sUl.downImg.events) {
+ this.addEvents(sUl.downImg); sUl.downImg.className = "" + cfg.showDownBtnStyle; }
+
+ } else {
+ newTop = 0; }
+ }
+
+ scrollUl.style.top = newTop + "px";  if (newTop === 0) {
+ 
+
+ 
+ 
+ ptUtil.swapClass(sUl.upImg,cfg.showUpBtnStyle,cfg.hideUpBtnStyle);    if (sUl.upImg.events) {
+ this.removeAllEvents(sUl.upImg); sUl.upImg.clearMouseOut(); sUl.upImg.scrollFast = false; }
+ clearInterval(this.sInterval); this.sInterval = null; } else if ((scrollUl.offsetHeight + newTop) <= scrollHeight) {
+
+ 
+ 
+ 
+ if (sUl.displayDown) {
+ sUl.downImg.className = "" + cfg.hideDownBtnStyle; } else {
+ sUl.downImg.className = "" + cfg.noBtnImgStyle; }
+ this.removeAllEvents(sUl.downImg);  sUl.downImg.clearMouseOut();  sUl.downImg.scrollFast = false; clearInterval(this.sInterval); this.sInterval = null; }
+ return false; }
+ };  this.check = function (ulElem,isFldr) { vs.configure(ulElem,isFldr); }
+ this.addEvents = function (el) { vs.addEvents(el); }
+ this.removeEvents = function (el) { vs.removeAllEvents(el); }
+ this.getPos = function (el) { return vs.getPos(el); }
+
+ 
+ this.props = function () {
+ return { viewHeight : vs.viewHeight,viewWidth : vs.viewWidth,
+ viewTop : vs.viewTop,shadowDivInitTop : vs.shadowDivInitTop,
+ shadowDivInitLeft : vs.shadowDivInitLeft
+ }; }
+ vs.init();}; var ptHScroller = function (cCfg) {
+ var cfg = {
+ viewStartEl  : null, 
+ container  : null, 
+ scrollDistance  : 36,  
+ sideOffset  : 18,  
+ showPrevBtnStyle : "pthnavscrollprevshow",
+ hidePrevBtnStyle : "pthnavscrollprev", 
+ showNextBtnStyle : "pthnavscrollnextshow",
+ hideNextBtnStyle : "pthnavscrollnext",
+ initScrollEnd : true 
+ }; var hs = {
+ firstTime : true, 
+ viewWidth : 0,  
+ nextImgMinWidth : 14, 
+ sInterval : null, 
+ IEquirksMode : browserInfoObj2.isIE && document.compatMode != "CSS1Compat", 
+
+ init : function () {
+ if (cCfg) {
+ cfg.viewStartEl = cCfg.viewStartEl; cfg.showPrevBtnStyle = cCfg.showPrevBtnStyle;  cfg.hidePrevBtnStyle = cCfg.hidePrevBtnStyle; cfg.showNextBtnStyle = cCfg.showNextBtnStyle; cfg.hideNextBtnStyle = cCfg.hideNextBtnStyle; cfg.container = (typeof cCfg.container === "undefined") ? null : cCfg.container; cfg.scrollDistance = (typeof cCfg.scrollDistance === "undefined") ? 18 : cCfg.scrollDistance; cfg.sideOffset = (typeof cCfg.sideOffset === "undefined") ? 18 : cCfg.sideOffset; cfg.initScrollEnd = (typeof cCfg.initScrollEnd === "undefined") ? true : cCfg.initScrollEnd;  }
+
+ hs.setViewPort(); ptEvent.add(window,"resize",function(){hs.setViewPort();}); },
+
+ setViewPort : function () {
+ this.viewWidth = ptUtil.winSize().width - cfg.sideOffset; },
+
+ getPos : function (el) {
+ var x = y = 0;  var e = el; while (e) {
+ x += e.offsetLeft || 0; y += e.offsetTop || 0; e = e.offsetParent; }
+ return {x:x, y:y}; },
+
+ configure : function (ulElem) {
+ if (!ulElem) { return; }
+
+ ulElem.parentNode.style.width = (ptUtil.winSize().width - 300) + "px"; if (this.firstTime) {
+ this.firstTime = false; this.viewLeft = this.getPos(cfg.viewStartEl).x + cfg.viewStartEl.offsetWidth + cfg.sideOffset; }
+
+ var scroll = false; var container; if (!cfg.container) 
+ container = ulElem.parentNode; else 
+ container = cfg.container; var xLeft, xWidth, nextWidth, prevWidth, index = 0; xLeft = this.getPos(ulElem).x; if ("ltr" === "ltr")
+  nextWidth = xLeft + ulElem.offsetWidth + this.nextImgMinWidth; else
+  nextWidth = ulElem.offsetWidth + this.nextImgMinWidth;  if (nextWidth > this.viewWidth) 
+ scroll = true; if (!scroll) {
+ ulElem.parentNode.style.width = (this.viewWidth - xLeft-20) + "px"; return scroll;  }
+
+ if (this.IEquirksMode)
+ ulElem.parentNode.style.zoom = "normal"; ulElem.sCfg = {}; var sibling = ptUtil.getNextSibling(ulElem.parentNode,"div",""); ulElem.sCfg.nextImg = sibling; sibling.scrollUl = ulElem; sibling = ptUtil.getPrevSibling(ulElem.parentNode,"div",""); ulElem.sCfg.prevImg = sibling; sibling.scrollUl = ulElem; this.addEvents(ulElem); ulElem.sCfg.isScroll = true;  var divScrollWidth = 0; if ("ltr" === "ltr")
+ divScrollWidth = (this.viewWidth - this.getPos(ulElem.parentNode).x - 20) + 7; else {
+ var parentOffset = ptUtil.winSize().width - this.getPos(ulElem.parentNode).x - ulElem.parentNode.offsetWidth; divScrollWidth = (this.viewWidth - parentOffset - 20) + 7; }
+
+ ulElem.parentNode.style.width = divScrollWidth + "px"; ulElem.sCfg.nextImg.style.left=(divScrollWidth+24)+ "px"; if (!cfg.initScrollEnd){
+ ulElem.sCfg.displayNext = true; ulElem.sCfg.nextImg.className = "" + cfg.showNextBtnStyle; this.addEvents(ulElem.sCfg.nextImg); }else {
+ ulElem.sCfg.prevImg.className = "" + cfg.showPrevBtnStyle; this.addEvents(ulElem.sCfg.prevImg);   if ("ltr" === "ltr")
+ ulElem.style.left = ((divScrollWidth) - ulElem.offsetWidth) + "px"; else
+ ulElem.style.right = "0px"; }
+ return scroll; },
+
+ 
+ 
+ scrollToBeg : function(ulElem){
+ var prevBtn = ulElem.sCfg.prevImg; ptUtil.swapClass(prevBtn,cfg.showPrevBtnStyle,cfg.hidePrevBtnStyle); hs.removeAllEvents(prevBtn);  if ("ltr" === "rtl")
+ ulElem.style.right = Number(0 - (ulElem.firstChild.offsetLeft - ulElem.parentNode.offsetWidth + 20)) + "px"; else
+ ulElem.style.left = "0px"; var nextBtn = ulElem.sCfg.nextImg; if (!nextBtn.events) {
+ hs.addEvents(nextBtn); nextBtn.className = "" + cfg.showNextBtnStyle; }
+ },
+
+
+ addEvents : function (el) {
+ var elType = ""; if (el) 
+ elType = el.nodeName.toLowerCase(); if (elType === "div") {
+ ptEvent.add(el,"mousedown", this.goScroll); ptEvent.add(el,"mouseup",function() {
+ this.scrollFast = false; if (hs.sInterval) {
+ clearInterval(hs.sInterval); hs.sInterval = null; }
+ return false; }); } else if (elType === "ul") {
+ if (!browserInfoObj2.isFF) 
+ ptEvent.add(el,"mousewheel",this.onMouseWheel); else 
+ ptEvent.add(el,"DOMMouseScroll",this.onMouseWheel); }
+ },
+
+ removeAllEvents : function (el) {
+ if (el) { ptEvent.remove(el); }
+ },
+
+ goScroll : function(e) {
+ if (pthNav.selectedBC != "") {
+ 
+ var selBCElem = ptUtil.id(pthNav.selectedBC);  if (pthNav.lastHoveredId !== "")
+ pthNav.fldr.closeAll(selBCElem);  pthNav.hideBCDropDown(selBCElem);  pthNav.isNavOpen = false;  pthNav.selectedBC = ""; }
+ var self = this; if ("ltr" === "ltr") 
+  setTimeout(function(){hs.doScrolling(self);},0); else
+  setTimeout(function(){hs.doRTLScrolling(self);},0); },
+
+
+ doScrolling : function (scrollBtnImg) {
+ var scrollBtn = scrollBtnImg; var nextBtn = ptUtil.isClassMember(scrollBtnImg,cfg.showNextBtnStyle); var sUl = scrollBtnImg.scrollUl.sCfg; var scrollWidth = scrollBtnImg.scrollUl.parentNode.offsetWidth; ; var scrollUl = scrollBtnImg.scrollUl; var scrollDistance = cfg.scrollDistance / 4;  var fast = 2; var doScroll = function () {
+ var currLeft = scrollUl.offsetLeft; if (nextBtn) {
+ if ((scrollUl.offsetWidth + currLeft) > scrollWidth) { 
+ newLeft = currLeft - (scrollDistance * fast); if (!sUl.prevImg.events) {
+ hs.addEvents(sUl.prevImg); ptUtil.swapClass(sUl.prevImg,cfg.hidePrevBtnStyle,cfg.showPrevBtnStyle); }
+ } else {
+ newLeft = scrollWidth - scrollUl.offsetWidth; } 
+ } else {
+ if (currLeft < 0) {
+ newLeft = currLeft + (scrollDistance * fast); if (!sUl.nextImg.events) {
+ hs.addEvents(sUl.nextImg); sUl.nextImg.className = "" + cfg.showNextBtnStyle; }
+ } else {
+ newLeft = 0; }
+ }
+ 
+ scrollUl.style.left = newLeft + "px";  if (newLeft === 0) {
+ ptUtil.swapClass(sUl.prevImg,cfg.showPrevBtnStyle,cfg.hidePrevBtnStyle); hs.removeAllEvents(sUl.prevImg); sUl.prevImg.scrollFast = false; clearInterval(hs.sInterval); hs.sInterval = null; } else if ((scrollUl.offsetWidth + newLeft) <= scrollWidth) { 
+ sUl.nextImg.className = "" + cfg.hideNextBtnStyle; hs.removeAllEvents(sUl.nextImg); sUl.nextImg.scrollFast = false; clearInterval(hs.sInterval); hs.sInterval = null; }
+ }; this.sInterval = setInterval(doScroll,50); },
+
+
+ 
+ doRTLScrolling : function (scrollBtnImg) {
+ var scrollBtn = scrollBtnImg; var nextBtn = ptUtil.isClassMember(scrollBtnImg,cfg.showNextBtnStyle); var sUl = scrollBtnImg.scrollUl.sCfg; var scrollWidth = scrollBtnImg.scrollUl.parentNode.offsetWidth; var scrollUl = scrollBtnImg.scrollUl; var initialOffLeft = scrollUl.offsetLeft; var scrollDistance = cfg.scrollDistance / 4;  var fast = 2; var size = 0 - (scrollUl.offsetWidth - scrollUl.offsetParent.offsetWidth); var doRTLScroll = function () {
+ var currLeft = scrollUl.offsetLeft; if (nextBtn) {
+ if ((currLeft + (scrollDistance * fast)) < 0) { 
+ 
+ newLeft = currLeft + (scrollDistance * fast); if (!sUl.prevImg.events) {
+ hs.addEvents(sUl.prevImg); ptUtil.swapClass(sUl.prevImg,cfg.hidePrevBtnStyle,cfg.showPrevBtnStyle); }
+ } else {
+ newLeft = 0; } 
+ } else {
+ if (currLeft <= 0) {
+ 
+ newLeft = currLeft - (scrollDistance * fast); if (!sUl.nextImg.events) {
+ hs.addEvents(sUl.nextImg); sUl.nextImg.className = "" + cfg.showNextBtnStyle; }
+ } else {
+ newLeft = initialOffLeft; }
+ }
+ 
+ scrollUl.style.right = newLeft + "px"; if (newLeft <= size) {
+ 
+ ptUtil.swapClass(sUl.prevImg,cfg.showPrevBtnStyle,cfg.hidePrevBtnStyle); hs.removeAllEvents(sUl.prevImg); sUl.prevImg.scrollFast = false; clearInterval(hs.sInterval); hs.sInterval = null; } else if (newLeft >= 0) {
+ 
+ sUl.nextImg.className = "" + cfg.hideNextBtnStyle; hs.removeAllEvents(sUl.nextImg); sUl.nextImg.scrollFast = false; clearInterval(hs.sInterval); hs.sInterval = null; }
+ }; this.sInterval = setInterval(doRTLScroll,50); },
+
+ doRTLMouseWheel : function (ulElem,delta) {
+ var scrollUl = ulElem; var sUl = ulElem.sCfg; var scrollWidth = scrollUl.parentNode.offsetWidth; var scrollDistance = cfg.scrollDistance; var newLeft; var currLeft = scrollUl.offsetLeft; var fast = 1; var size = 0 - (scrollUl.offsetWidth - scrollUl.offsetParent.offsetWidth); if (delta < 0) {
+ if (!sUl.nextImg.events) 
+ return; if ((currLeft + (scrollDistance * fast)) < 0) { 
+ 
+ newLeft = currLeft + (scrollDistance * fast); if (!sUl.prevImg.events) {
+ hs.addEvents(sUl.prevImg); ptUtil.swapClass(sUl.prevImg,cfg.hidePrevBtnStyle,cfg.showPrevBtnStyle); }
+ } else {
+ newLeft = 0; } 
+ } else {
+ if (!sUl.prevImg.events) 
+ return; if (currLeft <= 0) {
+ 
+ newLeft = currLeft - (scrollDistance * fast); if (!sUl.nextImg.events) {
+ hs.addEvents(sUl.nextImg); sUl.nextImg.className = "" + cfg.showNextBtnStyle; }
+ } else {
+ newLeft = initialOffLeft; }
+ }
+ 
+ scrollUl.style.right = newLeft + "px"; if (newLeft <= size) {
+ ptUtil.swapClass(sUl.prevImg,cfg.showPrevBtnStyle,cfg.hidePrevBtnStyle); if (sUl.prevImg.events) {
+ this.removeAllEvents(sUl.prevImg); sUl.prevImg.scrollFast = false; }
+ clearInterval(this.sInterval); this.sInterval = null; } else if (newLeft >= 0) {
+ sUl.nextImg.className = "" + cfg.hideNextBtnStyle; this.removeAllEvents(sUl.nextImg); sUl.nextImg.scrollFast = false; clearInterval(this.sInterval); this.sInterval = null; }
+
+ return false; },
+
+ onMouseWheel : function (e) {
+ var delay = 0; if (pthNav.selectedBC != "") {
+ 
+  var selBCElem = ptUtil.id(pthNav.selectedBC);  if (pthNav.lastHoveredId !== "")
+ pthNav.fldr.closeAll(selBCElem); pthNav.hideBCDropDown(selBCElem); pthNav.isNavOpen = false;  pthNav.selectedBC = ""; }
+
+ var delta; if (e.wheelDelta) 
+ delta = e.wheelDelta/120; else 
+ delta = -e.detail/3; var self = this; if ("ltr" === "ltr") 
+  setTimeout(function(){hs.doMouseWheel(self,delta);},delay); else
+ setTimeout(function(){hs.doRTLMouseWheel(self,delta);},delay); return false; },
+
+ doMouseWheel : function (ulElem,delta) {
+ var scrollUl = ulElem; var sUl = ulElem.sCfg; var scrollWidth = parseFloat(ptUtil.getCSSValue(scrollUl.parentNode,"width")); var scrollDistance = cfg.scrollDistance; var newLeft; var currLeft = scrollUl.offsetLeft; var fast = 1;  if (delta < 0) {
+ if (!sUl.nextImg.events) 
+ return; if ((scrollUl.offsetWidth + currLeft) > scrollWidth) { 
+ newLeft = currLeft - (scrollDistance * fast); if (!sUl.prevImg.events) {
+ this.addEvents(sUl.prevImg); ptUtil.swapClass(sUl.prevImg,cfg.hidePrevBtnStyle,cfg.showPrevBtnStyle); }
+ } else {
+ newLeft = scrollWidth - scrollUl.offsetWidth; } 
+ } else {
+ if (!sUl.prevImg.events) 
+ return; if (currLeft < 0) {
+ newLeft = currLeft + (scrollDistance * fast); if (!sUl.nextImg.events) {
+ this.addEvents(sUl.nextImg); sUl.nextImg.className = "" + cfg.showNextBtnStyle; }
+ } else {
+ newLeft = 0; }
+ }
+ 
+ scrollUl.style.left = newLeft + "px"; if (newLeft === 0) {
+ ptUtil.swapClass(sUl.prevImg,cfg.showPrevBtnStyle,cfg.hidePrevBtnStyle); if (sUl.prevImg.events) {
+ this.removeAllEvents(sUl.prevImg); sUl.prevImg.scrollFast = false; }
+ clearInterval(this.sInterval); this.sInterval = null; } else if ((scrollUl.offsetWidth + newLeft) <= scrollWidth) {
+ sUl.nextImg.className = "" + cfg.hideNextBtnStyle; this.removeAllEvents(sUl.nextImg); sUl.nextImg.scrollFast = false; clearInterval(this.sInterval); this.sInterval = null; }
+ return false; }
+ };  this.check = function (ulElem) { return hs.configure(ulElem); }
+ this.addEvents = function (el) { hs.addEvents(el); }
+ this.removeEvents = function (el) { hs.removeAllEvents(el); }
+ this.getPos = function (el) { return hs.getPos(el); }
+ this.scrollToBeg = function (ulElem) { return hs.scrollToBeg(ulElem); }
+ hs.init();}; 

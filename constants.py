@@ -5,10 +5,13 @@ Hard Coded Constants to find the attributes
 NOTE: probably will have to be changed every semester
 
 """
+_VAR = str(1)
+#_VAR = str(3)
+
+
 # For pruning just schedule
 MAIN_TAG = 'div'
-#MAIN_CLASS = 'ng-tns-c3-0 ng-star-inserted'
-MAIN_CLASS = 'ng-tns-c1-0 ng-star-inserted'
+MAIN_CLASS = 'ng-tns-c' + _VAR + '-0 ng-star-inserted'
 
 # For pruning a list of the semester HTML
 SEMESTER_TAG = 'div'
@@ -16,14 +19,12 @@ SEMESTER_CLASS = 'rounded-s bd-1 mb-3 overflow-hidden bd-ucs ng-star-inserted'
 
 # For pruning just the Courses
 COURSE_TAG = 'div'
-#COURSE_CLASS = 'rounded-s bd-1 mb-3 overflow-hidden bd-gray ng-tns-c3-0 ng-star-inserted'
-COURSE_CLASS = 'rounded-s bd-1 mb-3 overflow-hidden bd-gray ng-tns-c1-0 ng-star-inserted'
+COURSE_CLASS = 'rounded-s bd-1 mb-3 overflow-hidden bd-gray ng-tns-c' + _VAR + '-0 ng-star-inserted'
 
 # For getting just the Course Name
 #TODO: rename CID_TAG
 CN_TAG = 'strong'
-#CN_CLASS = 'ng-tns-c3-0'
-CN_CLASS = 'ng-tns-c1-0'
+CN_CLASS = 'ng-tns-c' + _VAR + '-0'
 
 
 THEORY = "TEO"

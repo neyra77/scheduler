@@ -1,5 +1,8 @@
 #coding: utf-8
 import os
+import random
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from shutil import rmtree
 
@@ -17,9 +20,11 @@ input_files = []
 dirname = os.getcwd() + "/results"
 for f in os.listdir(dirname):
     input_files.append(f)
-    print(f)
+    #print(f)
+random.shuffle(input_files)
 
-print(input_files)
+
+#print(input_files)
 
 dname = "images"
 if os.path.exists(dname):
@@ -36,14 +41,22 @@ for input_file in input_files:
 
     relative_path = "results/" + input_file
     for line in open(relative_path, 'r'):
-    #for line in open(input_file, 'r'):
         data=line.split()
 
-        event=data[-1]
-        data=list(map(float, data[:-1]))
+        eventCID = data[-3]
+        event = eventCID 
+        eventSection = data[-2] 
+        eventType = data[-1]
+ 
+        data=list(map(float, data[:-3]))
 
-        if event not in courseList:
-            courseList.append(event)
+        # Only first 5 letters
+        if len(event) > 5:
+            event = event[:5] 
+        event = event + " " + eventSection + " " + eventType 
+
+        if eventCID not in courseList:
+            courseList.append(eventCID)
 
         room=data[0]-0.48
         start=data[1]+data[2]/60
@@ -51,15 +64,15 @@ for input_file in input_files:
         end=data[3] + data[4]/60
         
 
-	# plot event
-        #plt.fill_between([room, room+0.96], [start, start], [end,end], color=colors[int(data[0]-1)], edgecolor='k', linewidth=0.5)
-        plt.fill_between([room, room+0.96], [start, start], [end,end], color=colors[courseList.index(event)-1], edgecolor='k', linewidth=0.5)
-        # plot beginning time & end time
-        #plt.text(room+0.02, start+0.05 ,'{0}:{1:0>2}'.format(int(data[1]),int(data[2])), va='top', fontsize=7)
+        plt.fill_between([room, room+0.96], [start, start], 
+                        [end,end], color=colors[courseList.index(eventCID)-1], 
+                        edgecolor='k', linewidth=0.5)
         
-        plt.text(room+0.02, start+0.05 ,'{0}:{1:0>2} - {2}:{3:0>2}'.format(int(data[1]),int(data[2]), int(data[3]), int(data[4])), va='top', fontsize=7)
-        # plot event name
-        plt.text(room+0.48, (start+end)*0.5, event, ha='center', va='center', fontsize=11)
+        plt.text(room+0.02, start+0.05 ,'{0}:{1:0>2} - {2}:{3:0>2}'.format(int(data[1]),
+                        int(data[2]), int(data[3]), int(data[4])), va='top', fontsize=7)
+        
+	# plot event name
+        plt.text(room+0.48, (start+end)*0.5, event, ha='center', va='center', fontsize=9)
 
     # Set Axis
     ax=fig.add_subplot(111)
@@ -77,15 +90,10 @@ for input_file in input_files:
     ax2.set_xticks(ax.get_xticks())
     ax2.set_xticklabels(rooms)
     ax2.set_ylabel('Time')
-
-
-    #plt.title(day_label,y=1.07)
-    #plt.show()
-    #input("Press enter to continue")
-    #plt.savefig('{0}.png'.format(day_label), dpi=200)
     
     save_name = input_file + ".png"
-    plt.savefig(dname + "/" + save_name, dpi=200)
+    plt.savefig(dname + "/" + save_name, dpi=150)
+    plt.close(fig)
     print("Saved: " + save_name)
 
 

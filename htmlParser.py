@@ -48,6 +48,10 @@ def getRawCourseList(semesterHTMLList):
 			, {'class': constants.COURSE_CLASS})
 		for courseHTML in courseHTMLList:
 			rawCourse = RawCourse(courseHTML)
+
+
+			#NOTE: putting the filter here for now
+
 			rawCourseList.append(rawCourse)
 	return rawCourseList
 
@@ -67,6 +71,7 @@ def parseRawSection(sectionsDict, rs):
 	sid = rs.findSID()
 	timeObj = rs.createTimeObj() 
 
+		
 	if rs.isTheory():
 		if sid not in sectionsDict:
 			#TODO: look at constructor with NONE if(pacman.py has some) 
@@ -80,7 +85,7 @@ def parseRawSection(sectionsDict, rs):
 		# Update Time
 		sectionsDict[sid].theoryTimes.append(timeObj)
 
-
+	#Labs are added Here
 	else:	
 		labID = rs.getFullID()
 		sectionsDict[sid].getLabs()[labID].append(timeObj)

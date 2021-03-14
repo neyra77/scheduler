@@ -43,7 +43,7 @@ CID_REGEX = 'Curso:(.+?)-.*'
 HEADER_DICT = {'TIPO': 0, 'SECCIÓN': 1, 'DÍA':2, 'AULA - LOCAL':3, 
 	'FECHA INICIO': 4, 'HORA INICIO': 5, 'HORA FIN': 6, 'DOCENTE': 7}
 
-
+#NOTE: Needs change if table changes
 TYPE_INDEX = 0
 SECTION_INDEX = 1
 DAY_INDEX = 2

@@ -33,6 +33,7 @@ def prune(soup):
 	#Keep only the part where the schedule is
 	return soup.find(constants.MAIN_TAG
 		, attrs = {'class': constants.MAIN_CLASS})
+
 	
 
 def splitSemesters(prunedSoup):
@@ -48,7 +49,6 @@ def getRawCourseList(semesterHTMLList):
 			, {'class': constants.COURSE_CLASS})
 		for courseHTML in courseHTMLList:
 			rawCourse = RawCourse(courseHTML)
-
 
 			#NOTE: putting the filter here for now
 
@@ -66,7 +66,7 @@ def printSectionsDict(sd):
 
 
 
-#Fills section dictionary for each rawSectiong(i.e. row)
+#Fills section dictionary for each rawSection (i.e. row)
 def parseRawSection(sectionsDict, rs):
 	sid = rs.findSID()
 	timeObj = rs.createTimeObj() 
@@ -78,7 +78,7 @@ def parseRawSection(sectionsDict, rs):
 			section = Section(sid, [], defaultdict(list))
 			sectionsDict[sid] = section
 		
-		# Update the sid if necessary 
+		# Update the sid if necessary (Used when PRA came before TEO) 
 		if not sectionsDict[sid].getSID():
 			sectionsDict[sid].sid = sid
 
@@ -92,7 +92,7 @@ def parseRawSection(sectionsDict, rs):
 
 
 
-
+# Returns a list of Section Objects to fill Course with. 
 def fillSections(rawCourse):
 	sectionsDict = defaultdict(Section) 
 	
@@ -135,7 +135,6 @@ class RawSection:
 			fullID = self.columns[constants.SECTION_INDEX]
 		return fullID
 
-
 	def findSID(self):
 		sid = self.columns[constants.SECTION_INDEX]
 		if not self.isTheory():
@@ -143,10 +142,8 @@ class RawSection:
 			sid = regex_search.group(1)
 		return sid
 	
-				 
-
 	def __string__(self):
-		print(self.columns) 
+		return self.columns
 
 
 
@@ -191,21 +188,21 @@ class RawCourse:
 
 
 
-def getCourseDict(htmlCourseList):
+def getCourseDict(rawCourseList):
 	courseList = defaultdict(Course)
 	
 	# For each course
-	for rc in htmlCourseList:
+	for rc in rawCourseList:
 		courseID = rc.findCID() 
 		semester = rc.findSemester()  
 		sections = fillSections(rc)
 		
 		course = Course(courseID, semester, sections)
 		courseList[courseID] = course
-	
+		
 		#NOTE: take this out when 	
 		#break
-	
+
 	return courseList
 
 

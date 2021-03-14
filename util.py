@@ -112,7 +112,9 @@ class TimeObj:
 	
 	def getEndTime(self):
 		return self._endTime
-	
+
+	# Creates a tuple with a (start, end) corresponding to 5 min
+	# 	interval within a week 	
 	def _transformDateStr(self):
 		dayBonus = DAYS.index(self._day) * 24 * 60 / 5
 

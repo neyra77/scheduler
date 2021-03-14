@@ -488,7 +488,8 @@ def main():
 
 	print("Catalogo de cursos 2020-1:\n")
 	request_list = getrequestlist(catalog)
-	(good_counter, bad_counter, viable_list) = findCombinations (request_list, catalog, courseDict, coursetimeMap)
+	(good_counter, bad_counter, viable_list) = 
+		findCombinations (request_list, catalog, courseDict, coursetimeMap)
 	printCombinations(good_counter, bad_counter, viable_list, catalog, coursetimeMap) 
 
 

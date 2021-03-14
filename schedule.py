@@ -67,97 +67,8 @@ def findAllSchedComb(requestList, catalog, courseDict):
 			if not section.labs: 
 				courseCombinations.append((cid, sid, None))
 			for labid in section.labs:
-				#NOTE: example of how to EXCLUDE
-				#if not ((cid == " TERAPEUTICA " and labid == "9A1") or\
-				#		(cid == " TERAPEUTICA " and labid == "9C1")):
-				#	courseCombinations.append((cid, sid, labid))	
-		
-				#NOTE: example of how to only INCLUDE these 
-				#if not ((cid == cids[3] and labid != "2G2") and\
-				#		(cid == cids[3] and labid != "2H2") and\
-				#		(cid == cids[3] and labid != "2I1") and\
-				#		(cid == cids[3] and labid != "2B2")):
-				#	courseCombinations.append((cid, sid, labid))	
-			
-				#NOTE: how to EXCLUDE(PsiCol 6D)  and INCLUDE (TERAP 9A1)  
-				#if not ((cid == " PSICOL APLICADA A LA MEDICINA " and labid == "9A1") or\
-				#		(cid == " TERAPEUTICA " and labid != "9A1")):
-				#	courseCombinations.append((cid, sid, labid))	
-			 	#" ATENCIÓN PRIMARIA DE SALUD "
-				#" PARASITOLOGÍA "
-				#" MORFOFISIOLOGÍA DEL SIS. NERVI "	
-			 	#" MICROBIOLOGÍA E INMUNOLOGÍA "
-
-				#INCLUDE => Exclude
-				if not (	
-						# NOTE: only consider these
-						(((cid == cids[0] and labid != "3G1") and\
-						(cid == cids[0] and labid != "3G2")) or\
-						#((cid == cids[1] and labid != "4E2") and\
-						#(cid == cids[1] and labid != "4E1")) or\
-						((cid == cids[1] and labid != "4G1") and\
-						(cid == cids[1] and labid != "4H1") and\
-						(cid == cids[1] and labid != "4H2")) or\
-						((cid == cids[3] and labid != "4C2") and\
-						(cid == cids[3] and labid != "4D2") and\
-						(cid == cids[3] and labid != "4E1") and\
-						(cid == cids[3] and labid != "4E2"))) or\
-						#NOTE: Exclude beyond this point
-						((cid == cids[2] and labid == "4B1") or\
-						(cid == cids[2] and labid == "4C1") or\
-						(cid == cids[2] and labid == "4C2") or\
-						(cid == cids[2] and labid == "4D1") or\
-						(cid == cids[2] and labid == "4F1") or\
-						(cid == cids[2] and labid == "4F2") or\
-						(cid == cids[4] and labid == "4B1") or\
-						(cid == cids[4] and labid == "4C2") or\
-						(cid == cids[4] and labid == "4D1"))):
-						#(cid == cids[4] and labid == "4A1") or\
-						#(cid == cids[4] and labid == "4B1") or\
-						#(cid == cids[4] and labid == "4C1") or\
-						#(cid == cids[4] and labid == "4C2") or\
-						#(cid == cids[4] and labid == "4D1") or\
-						#(cid == cids[4] and labid == "4D2") or\
-						#(cid == cids[4] and labid == "4F1") or\
-						#(cid == cids[4] and labid == "4F2"))):
-						#(cid == cids[3] and labid == "4B1") or\
-						#(cid == cids[3] and labid == "4F1") or\
-						#(cid == cids[3] and labid == "4C1") or\
-						#(cid == cids[3] and labid == "4C2") or\
-						#(cid == cids[4] and labid == "4A1") or\
-						#(cid == cids[4] and labid == "4A2") or\
-						#(cid == cids[4] and labid == "4B1") or\
-						#(cid == cids[4] and labid == "4D1") or\
-						#(cid == cids[5] and labid == "4C1") or\
-						#(cid == cids[5] and labid == "4D1") or\
-						#(cid == cids[5] and labid == "4D2") or\
-						#(cid == cids[5] and labid == "4F1") or\
-						#(cid == cids[5] and labid == "4F2")):
-					courseCombinations.append((cid, sid, labid))
-					cOpen.append("%s %s" %(cid, labid)) 	
-
-				else:
-					closed.append("%s %s" %(cid, labid))
-					
-                                #courseCombinations.append((cid, sid, labid))	
-
-
-	
-			#	#INCLUDE and exclude	
-			#	if not (((cid == " FISIOPATOLOGÍA " and labid != "4C1") and\
-			#			(cid == " FISIOPATOLOGÍA " and labid != "4C2")) or\
-			#		((cid == " MORFOFISIOLOGÍA DEL SIS. NERVI " and labid == "4B1") or\
-					       #(cid == " MORFOFISIOLOGÍA DEL SIS. NERVI " and labid == "4A1"))):
-					#courseCombinations.append((cid, sid, labid))
-				#courseCombinations.append((cid, sid, labid))	
-
-
-				#if not ((cid == " MICROBIOLOGÍA E INMUNOLOGÍA " and labid == "4C1") or\
-                                #		(cid == " MICROBIOLOGÍA E INMUNOLOGÍA " and labid == "4C2")):
-                                #	courseCombinations.append((cid, sid, labid))	
-                                #courseCombinations.append((cid, sid, labid))	
-
-		results.append(courseCombinations)	
+				courseCombinations.append((cid, sid, labid))	
+		results.append(courseCombinations)
 
 	print("\n\n$$$$$$$$$$$$$$$$$$$$  Cerradas $$$$$$$$$$$$$$$$$$$$$")
 	closed.sort()
@@ -301,24 +212,31 @@ def printDaysWithoutDict(missingDaysDict):
 
 def findViableSchedules(requestList, catalog, courseDict):
 	viable = []
+
+	#NOTE: can make the removal of unwanted or closed courses here or below
+	#		after checking for tiIntersects 
 	possible = findAllSchedComb(requestList, catalog, courseDict)
 	
 	goodCounter = 0
 	badCounter = 0		
 
 
-	#NOTE: counts the  days this schedule doesn't have
+	# Creates a count for number of possible schedules w/ certain days 
 	missingDaysDict = defaultdict(int)
 	
-	#TODO: make this an item too instead of a tubple?	
+	#TODO: make this an item too instead of a tuple?	
 	for sched in possible:
 		#print(sched)
 		schedTI = getTimeIntervals(courseDict, sched) 
 		schedTI.sort(key=lambda tup:tup[0])
 	
 		if not tiIntersects(schedTI):
+			# TODO: make it multiply iteratable probably by saving this result
+			# 	or see the note above 
 			daysWithout = findDaysWithout(schedTI)
 			missingDaysDict[daysWithout] += 1	
+
+			# Here is where the filter for days is done. 
 			if not tempHasBadDay(schedTI):
 				goodCounter += 1
 				viable.append(sched)
@@ -328,6 +246,7 @@ def findViableSchedules(requestList, catalog, courseDict):
 			badCounter += 1
 
 	printDaysWithoutDict(missingDaysDict)	
+	#NOTE: might add conditionallyViable along with viable to tuple result
 	return (goodCounter, badCounter, viable)	
 
 
@@ -400,7 +319,7 @@ def printSchedules(courseDict, resultTuple):
 		rmtree(dname) #shutil.rmtree
 	os.makedirs(dname)
 	
-	MAXTOPRINT = 10000
+	MAXTOPRINT = 15
 	counter = 1
 	
 	#TODO: revise everything after this, I have just copied 
@@ -434,12 +353,10 @@ def printSchedules(courseDict, resultTuple):
 def main():
 	# User inputs HTML file as option
 	htmlFile = os.getcwd() + "/" + sys.argv[1] 
-
-
 	
 	""" (1). Scrape, return a list of courses """
 	courseDict = parseHTML(htmlFile)
-	#_printCourseDict(courseDict)
+	_printCourseDict(courseDict)
 	
 	""" (2). Print catalogue & get User requests """
 	catalog = makeCatalog(courseDict)
@@ -448,9 +365,17 @@ def main():
 
 	""" (2b). Implement user constraints on schedule """
 	#TODO: eventually, rn just hack something otgether just like last time
+	#NOTE(3/6/20): look at the TODO after step 3 below, that seems like
+	# 			a better place to put the constraints.  
 
 	""" (3). Get the viable schedules """
 	resultTuple = findViableSchedules(requestList, catalog, courseDict)
+
+	#TODO: constraints can be here instead
+	# Benefits: can do a while loop for user constraints & printing Schedules
+	#						& don't have to redo calculation for further requests (closed/baddays)
+	# Negatives: Will need more calculation. 
+	# Final: This proably makes sence 
 
 	""" (4). Printing top (n) schedules + Store into File """
 	printSchedules(courseDict, resultTuple)	

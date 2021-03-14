@@ -11,7 +11,9 @@ Given a saved HTML file, the steps it takes are:
 from htmlParser import parseHTML 
 from itertools import product
 from collections import defaultdict#NOTE: remember right now code is not super clean
+from util import ComplexEncoder
 
+import json #NOTE: check the circularity of this, already imported in util
 import os
 import sys
 from shutil import rmtree 
@@ -348,7 +350,29 @@ def printSchedules(courseDict, resultTuple):
 		print("\t\t\t\t\t--------- %s horarios mas -----------\n\n\n\n\n"%
 			(str(goodCounter-counter + 1)))
 
-		
+
+# This function transforms the Course Dictionary into JSON
+def turnToJSON(courseDict):
+	j = json.dumps(courseDict, 
+								cls=ComplexEncoder, 
+								ensure_ascii=False, 
+								sort_keys=True,
+								indent=4).encode('utf-8') 
+	print(j.decode())	
+	
+	# Create the directory
+	dname = "JSONresults" #TODO: put into constants probably
+	if os.path.exists(dname): #TODO: fix this later cuase right now just erasing
+		rmtree(dname) #shutil.rmtree
+	os.makedirs(dname)
+
+	#Open file
+	with open(dname + "/medicinaJSON", 'w', encoding='utf8') as json_file:
+		json.dump(courseDict, 
+						cls=ComplexEncoder, 
+						ensure_ascii=False, 
+						sort_keys=True,
+						indent=4).encode('utf-8') 
 
 def main():
 	# User inputs HTML file as option
@@ -356,7 +380,10 @@ def main():
 	
 	""" (1). Scrape, return a list of courses """
 	courseDict = parseHTML(htmlFile)
-	_printCourseDict(courseDict)
+	#_printCourseDict(courseDict)
+
+	""" (1a). Transform the courseDict into JSON """  
+	courseDictJSON = turnToJSON(courseDict)	
 	
 	""" (2). Print catalogue & get User requests """
 	catalog = makeCatalog(courseDict)
@@ -374,7 +401,7 @@ def main():
 	#TODO: constraints can be here instead
 	# Benefits: can do a while loop for user constraints & printing Schedules
 	#						& don't have to redo calculation for further requests (closed/baddays)
-	# Negatives: Will need more calculation. 
+	# Negatives: Will need more calculation up front 
 	# Final: This proably makes sence 
 
 	""" (4). Printing top (n) schedules + Store into File """

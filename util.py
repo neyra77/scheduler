@@ -13,14 +13,14 @@
 				etc]
 			, etc]
 """
-
+import json
 from collections import defaultdict
 
 
 # Information about a course:
 # - self.courseID: course ID/name (e.g., BIOQUIMICA)
 # - self.semester: semester number in which course is in (e.g., [Ciclo] 4)
-# - self.sections: list of Section Objects for Course (Sections are 3A, 3B, etc) 
+# - self.sections: defaultdict of Section Objects for Course (Sections are 3A, 3B, etc) 
 class Course:
 	def __init__(self, courseID="", semester="", sections=[]):
 		self.courseID = courseID
@@ -35,6 +35,12 @@ class Course:
 	
 	def getSections(self):
 		return self.sections 
+
+	# JSON serializing method
+	def reprJSON(self):
+		return dict(CourseID = self.courseID, 
+								semester = self.semester,
+								sections = self.sections)
 
 	def __str__(self):
 		sectionStr = "CourseID: %s  \nsemester: %s\n\n" % (self.courseID, self.semester) 
@@ -60,6 +66,12 @@ class Section:
 	def getLabs(self):
 		return self.labs
 
+	# JSON serializing method
+	def reprJSON(self):
+		return dict(SectionID = self.sid,
+								theoryTimes = self.theoryTimes,
+								labTimes = self.labs) 
+	
 	def __str__(self):
 		res = "SID: %s\n" %(self.sid)
 		res += "\tTheory Times:\n"
@@ -76,6 +88,16 @@ class Section:
 			res += "\t\t]\n" 
 
 		return res
+
+# JSON Complex Encoder:
+# This will serialize the nested courseDictionary in scheduly.py
+class ComplexEncoder(json.JSONEncoder):
+	def default(self, obj):
+		#import pdb; pdb.set_trace();
+		if hasattr(obj, 'reprJSON'):
+			return obj.reprJSON()
+		else:
+			return json.JSONEncoder.default(self, obj)
 
 
 
@@ -129,12 +151,22 @@ class TimeObj:
 		return (int(start5min), int(end5min))
 		#NOTE: will I need end5min + 1? or not
 
+	# JSON serializing method
+	def reprJSON(self):
+		return dict(dateTuple = self.dateTuple)
+		#NOTE: We only need to store DateTumple in the JSON but if we want to save 
+		#			 some calculation maybe theres a way to put the rest
+								#Day = self._day,
+								#startTime = self._startTime,
+								#endTime = self._endTime,
+								#timeInterval = self._timeInterval)
+								
 	
 	def __str__(self):	
 		return "Day: %s\n\
 			Start: %s\n\
 			End: %s\n\
 			Time Interval: %s\n" % (self._day, 
-			self._startTime, 
-			self._endTime, 
-			self._timeInterval)
+															self._startTime, 
+															self._endTime, 
+															self._timeInterval)

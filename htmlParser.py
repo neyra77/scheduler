@@ -92,7 +92,7 @@ def parseRawSection(sectionsDict, rs):
 
 
 
-# Returns a list of Section Objects to fill Course with. 
+# Returns a defaultdict of Section Objects to fill Course with. 
 def fillSections(rawCourse):
 	sectionsDict = defaultdict(Section) 
 	

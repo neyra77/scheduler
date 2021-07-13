@@ -1,0 +1,753 @@
+{
+    " AGROFORESTERÍA CAMPO II ": {
+        "CourseID": " AGROFORESTERÍA CAMPO II ",
+        "sections": {
+            "null": {
+                "SectionID": null,
+                "labTimes": {
+                    "10A1": [
+                        [
+                            "MAR",
+                            "09:10",
+                            "13:00"
+                        ],
+                        [
+                            "MIE",
+                            "17:10",
+                            "19:00"
+                        ],
+                        [
+                            "JUE",
+                            "08:10",
+                            "13:00"
+                        ],
+                        [
+                            "VIE",
+                            "08:10",
+                            "13:00"
+                        ]
+                    ]
+                },
+                "theoryTimes": []
+            }
+        },
+        "semester": 10
+    },
+    " BOTÁNICA ECONÓMICA ": {
+        "CourseID": " BOTÁNICA ECONÓMICA ",
+        "sections": {
+            "3A": {
+                "SectionID": "3A",
+                "labTimes": {
+                    "3A1": [
+                        [
+                            "MIE",
+                            "11:10",
+                            "13:00"
+                        ]
+                    ]
+                },
+                "theoryTimes": [
+                    [
+                        "MIE",
+                        "09:10",
+                        "11:00"
+                    ]
+                ]
+            }
+        },
+        "semester": 3
+    },
+    " CARTOGRAF Y SISTEM D INFO GEOG ": {
+        "CourseID": " CARTOGRAF Y SISTEM D INFO GEOG ",
+        "sections": {
+            "4A": {
+                "SectionID": "4A",
+                "labTimes": {
+                    "4A1": [
+                        [
+                            "MIE",
+                            "09:10",
+                            "11:00"
+                        ]
+                    ],
+                    "4A2": [
+                        [
+                            "MIE",
+                            "13:10",
+                            "15:00"
+                        ]
+                    ]
+                },
+                "theoryTimes": [
+                    [
+                        "MAR",
+                        "11:10",
+                        "13:00"
+                    ]
+                ]
+            },
+            "4B": {
+                "SectionID": "4B",
+                "labTimes": {
+                    "4B1": [
+                        [
+                            "MIE",
+                            "07:10",
+                            "09:00"
+                        ]
+                    ]
+                },
+                "theoryTimes": [
+                    [
+                        "MAR",
+                        "09:10",
+                        "11:00"
+                    ]
+                ]
+            }
+        },
+        "semester": 4
+    },
+    " EDAFOLOGÍA ": {
+        "CourseID": " EDAFOLOGÍA ",
+        "sections": {
+            "3B": {
+                "SectionID": "3B",
+                "labTimes": {
+                    "3B1": [
+                        [
+                            "JUE",
+                            "14:10",
+                            "16:00"
+                        ]
+                    ],
+                    "3B2": [
+                        [
+                            "JUE",
+                            "16:10",
+                            "18:00"
+                        ]
+                    ]
+                },
+                "theoryTimes": [
+                    [
+                        "LUN",
+                        "07:10",
+                        "10:00"
+                    ]
+                ]
+            },
+            "4A": {
+                "SectionID": "4A",
+                "labTimes": {
+                    "4A1": [
+                        [
+                            "MAR",
+                            "07:10",
+                            "09:00"
+                        ]
+                    ],
+                    "4A2": [
+                        [
+                            "MAR",
+                            "09:10",
+                            "11:00"
+                        ]
+                    ]
+                },
+                "theoryTimes": [
+                    [
+                        "LUN",
+                        "15:10",
+                        "18:00"
+                    ]
+                ]
+            }
+        },
+        "semester": 3
+    },
+    " ESTAD APLICADA A LA INGENIERÍA ": {
+        "CourseID": " ESTAD APLICADA A LA INGENIERÍA ",
+        "sections": {
+            "4C": {
+                "SectionID": "4C",
+                "labTimes": {
+                    "4C1": [
+                        [
+                            "VIE",
+                            "11:10",
+                            "13:00"
+                        ]
+                    ]
+                },
+                "theoryTimes": [
+                    [
+                        "MIE",
+                        "14:10",
+                        "17:00"
+                    ]
+                ]
+            },
+            "5A": {
+                "SectionID": "5A",
+                "labTimes": {
+                    "5A1": [
+                        [
+                            "JUE",
+                            "08:10",
+                            "10:00"
+                        ]
+                    ]
+                },
+                "theoryTimes": [
+                    [
+                        "LUN",
+                        "08:10",
+                        "11:00"
+                    ]
+                ]
+            },
+            "5B": {
+                "SectionID": "5B",
+                "labTimes": {
+                    "5B1": [
+                        [
+                            "JUE",
+                            "10:10",
+                            "12:00"
+                        ]
+                    ]
+                },
+                "theoryTimes": [
+                    [
+                        "MAR",
+                        "08:10",
+                        "11:00"
+                    ]
+                ]
+            }
+        },
+        "semester": 4
+    },
+    " FISIOLOGÍA VEGETAL ": {
+        "CourseID": " FISIOLOGÍA VEGETAL ",
+        "sections": {
+            "4A": {
+                "SectionID": "4A",
+                "labTimes": {
+                    "4A1": [
+                        [
+                            "VIE",
+                            "09:10",
+                            "11:00"
+                        ]
+                    ]
+                },
+                "theoryTimes": [
+                    [
+                        "MIE",
+                        "09:10",
+                        "12:00"
+                    ]
+                ]
+            },
+            "4B": {
+                "SectionID": "4B",
+                "labTimes": {
+                    "4B1": [
+                        [
+                            "VIE",
+                            "11:10",
+                            "13:00"
+                        ]
+                    ]
+                },
+                "theoryTimes": [
+                    [
+                        "JUE",
+                        "09:10",
+                        "12:00"
+                    ]
+                ]
+            }
+        },
+        "semester": 4
+    },
+    " FÍSICA ": {
+        "CourseID": " FÍSICA ",
+        "sections": {
+            "2B": {
+                "SectionID": "2B",
+                "labTimes": {
+                    "2B1": [
+                        [
+                            "JUE",
+                            "07:10",
+                            "09:00"
+                        ]
+                    ],
+                    "2B2": [
+                        [
+                            "JUE",
+                            "10:10",
+                            "12:00"
+                        ]
+                    ]
+                },
+                "theoryTimes": [
+                    [
+                        "MAR",
+                        "08:10",
+                        "11:00"
+                    ]
+                ]
+            },
+            "3A": {
+                "SectionID": "3A",
+                "labTimes": {
+                    "3A1": [
+                        [
+                            "MIE",
+                            "07:10",
+                            "09:00"
+                        ]
+                    ],
+                    "3A2": [
+                        [
+                            "MIE",
+                            "10:10",
+                            "12:00"
+                        ]
+                    ]
+                },
+                "theoryTimes": [
+                    [
+                        "LUN",
+                        "07:10",
+                        "10:00"
+                    ]
+                ]
+            }
+        },
+        "semester": 2
+    },
+    " INGLÉS ": {
+        "CourseID": " INGLÉS ",
+        "sections": {
+            "10A": {
+                "SectionID": "10A",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "LUN",
+                        "12:10",
+                        "14:00"
+                    ]
+                ]
+            },
+            "10B": {
+                "SectionID": "10B",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "MAR",
+                        "13:10",
+                        "15:00"
+                    ]
+                ]
+            },
+            "10C": {
+                "SectionID": "10C",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "LUN",
+                        "10:10",
+                        "12:00"
+                    ]
+                ]
+            },
+            "10D": {
+                "SectionID": "10D",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "LUN",
+                        "15:10",
+                        "17:00"
+                    ]
+                ]
+            },
+            "10E": {
+                "SectionID": "10E",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "LUN",
+                        "17:10",
+                        "19:00"
+                    ]
+                ]
+            },
+            "10F": {
+                "SectionID": "10F",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "MAR",
+                        "15:10",
+                        "17:00"
+                    ]
+                ]
+            },
+            "10G": {
+                "SectionID": "10G",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "MAR",
+                        "17:10",
+                        "19:00"
+                    ]
+                ]
+            },
+            "10H": {
+                "SectionID": "10H",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "JUE",
+                        "15:10",
+                        "17:00"
+                    ]
+                ]
+            },
+            "10I": {
+                "SectionID": "10I",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "JUE",
+                        "17:10",
+                        "19:00"
+                    ]
+                ]
+            },
+            "10J": {
+                "SectionID": "10J",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "VIE",
+                        "08:10",
+                        "10:00"
+                    ]
+                ]
+            },
+            "10K": {
+                "SectionID": "10K",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "VIE",
+                        "10:10",
+                        "12:00"
+                    ]
+                ]
+            },
+            "10L": {
+                "SectionID": "10L",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "SAB",
+                        "08:10",
+                        "10:00"
+                    ]
+                ]
+            },
+            "10M": {
+                "SectionID": "10M",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "SAB",
+                        "10:10",
+                        "12:00"
+                    ]
+                ]
+            },
+            "10N": {
+                "SectionID": "10N",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "LUN",
+                        "07:10",
+                        "09:00"
+                    ]
+                ]
+            },
+            "10O": {
+                "SectionID": "10O",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "LUN",
+                        "09:10",
+                        "11:00"
+                    ]
+                ]
+            },
+            "10P": {
+                "SectionID": "10P",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "LUN",
+                        "11:10",
+                        "13:00"
+                    ]
+                ]
+            },
+            "10Q": {
+                "SectionID": "10Q",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "LUN",
+                        "15:10",
+                        "17:00"
+                    ]
+                ]
+            },
+            "10R": {
+                "SectionID": "10R",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "MAR",
+                        "07:10",
+                        "09:00"
+                    ]
+                ]
+            },
+            "10S": {
+                "SectionID": "10S",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "MAR",
+                        "09:10",
+                        "11:00"
+                    ]
+                ]
+            },
+            "10T": {
+                "SectionID": "10T",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "MAR",
+                        "14:10",
+                        "16:00"
+                    ]
+                ]
+            },
+            "10U": {
+                "SectionID": "10U",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "MAR",
+                        "16:10",
+                        "18:00"
+                    ]
+                ]
+            },
+            "10V": {
+                "SectionID": "10V",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "MIE",
+                        "07:10",
+                        "09:00"
+                    ]
+                ]
+            },
+            "10W": {
+                "SectionID": "10W",
+                "labTimes": {},
+                "theoryTimes": [
+                    [
+                        "MIE",
+                        "09:10",
+                        "11:00"
+                    ]
+                ]
+            }
+        },
+        "semester": 10
+    },
+    " INVEST. DE LA ING.  AGROF II ": {
+        "CourseID": " INVEST. DE LA ING.  AGROF II ",
+        "sections": {
+            "null": {
+                "SectionID": null,
+                "labTimes": {
+                    "10A1": [
+                        [
+                            "MAR",
+                            "09:10",
+                            "13:00"
+                        ],
+                        [
+                            "MIE",
+                            "17:10",
+                            "19:00"
+                        ],
+                        [
+                            "JUE",
+                            "08:10",
+                            "13:00"
+                        ],
+                        [
+                            "VIE",
+                            "08:10",
+                            "13:00"
+                        ]
+                    ]
+                },
+                "theoryTimes": []
+            }
+        },
+        "semester": 10
+    },
+    " MANEJO INTEGRADO DE PLAGAS ": {
+        "CourseID": " MANEJO INTEGRADO DE PLAGAS ",
+        "sections": {
+            "4A": {
+                "SectionID": "4A",
+                "labTimes": {
+                    "4A1": [
+                        [
+                            "JUE",
+                            "11:10",
+                            "13:00"
+                        ]
+                    ]
+                },
+                "theoryTimes": [
+                    [
+                        "JUE",
+                        "09:10",
+                        "11:00"
+                    ]
+                ]
+            }
+        },
+        "semester": 4
+    },
+    " MANEJO INTEGRADO FAUNA SILVEST ": {
+        "CourseID": " MANEJO INTEGRADO FAUNA SILVEST ",
+        "sections": {
+            "4A": {
+                "SectionID": "4A",
+                "labTimes": {
+                    "4A1": [
+                        [
+                            "LUN",
+                            "10:10",
+                            "12:00"
+                        ]
+                    ]
+                },
+                "theoryTimes": [
+                    [
+                        "LUN",
+                        "08:10",
+                        "10:00"
+                    ]
+                ]
+            }
+        },
+        "semester": 4
+    },
+    " QUÍMICA DE RECURSOS NATURALES ": {
+        "CourseID": " QUÍMICA DE RECURSOS NATURALES ",
+        "sections": {
+            "4A": {
+                "SectionID": "4A",
+                "labTimes": {
+                    "4A1": [
+                        [
+                            "MAR",
+                            "14:10",
+                            "16:00"
+                        ]
+                    ]
+                },
+                "theoryTimes": [
+                    [
+                        "MAR",
+                        "11:10",
+                        "14:00"
+                    ]
+                ]
+            }
+        },
+        "semester": 4
+    },
+    " VALORAC D BIEN Y SERV D BOSQUE ": {
+        "CourseID": " VALORAC D BIEN Y SERV D BOSQUE ",
+        "sections": {
+            "10A": {
+                "SectionID": "10A",
+                "labTimes": {
+                    "10A1": [
+                        [
+                            "VIE",
+                            "15:10",
+                            "19:00"
+                        ]
+                    ]
+                },
+                "theoryTimes": [
+                    [
+                        "MAR",
+                        "15:10",
+                        "18:00"
+                    ]
+                ]
+            }
+        },
+        "semester": 10
+    },
+    " ZOOLOGÍA ECONÓMICA ": {
+        "CourseID": " ZOOLOGÍA ECONÓMICA ",
+        "sections": {
+            "3A": {
+                "SectionID": "3A",
+                "labTimes": {
+                    "3A1": [
+                        [
+                            "JUE",
+                            "10:10",
+                            "12:00"
+                        ]
+                    ]
+                },
+                "theoryTimes": [
+                    [
+                        "JUE",
+                        "08:10",
+                        "10:00"
+                    ]
+                ]
+            }
+        },
+        "semester": 3
+    }
+}

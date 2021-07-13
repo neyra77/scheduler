@@ -37,7 +37,7 @@ class Course:
 		return self.sections 
 
 	# JSON serializing method
-	def reprJSON(self):
+	def toJSON(self):
 		return dict(CourseID = self.courseID, 
 								semester = self.semester,
 								sections = self.sections)
@@ -62,12 +62,15 @@ class Section:
 
 	def getSID(self):
 		return self.sid
+
+	def getTheoryTimes(self):
+		return self.theoryTimes
 	
 	def getLabs(self):
 		return self.labs
 
 	# JSON serializing method
-	def reprJSON(self):
+	def toJSON(self):
 		return dict(SectionID = self.sid,
 								theoryTimes = self.theoryTimes,
 								labTimes = self.labs) 
@@ -94,8 +97,8 @@ class Section:
 class ComplexEncoder(json.JSONEncoder):
 	def default(self, obj):
 		#import pdb; pdb.set_trace();
-		if hasattr(obj, 'reprJSON'):
-			return obj.reprJSON()
+		if hasattr(obj, 'toJSON'):
+			return obj.toJSON()
 		else:
 			return json.JSONEncoder.default(self, obj)
 
@@ -106,7 +109,9 @@ class ComplexEncoder(json.JSONEncoder):
         for classes and such
 """
 
-DAYS = ["LUN", "MAR", "MIE", "JUE", "VIE", "SAB"]
+#DAYS = ["LUN", "MAR", "MIE", "JUE", "VIE", "SAB"]
+#NOTE: This is for 2021-2 version
+DAYS = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado"]
 
 
 class TimeObj:
@@ -122,6 +127,9 @@ class TimeObj:
 		self._startTime = dateTuple[1]
 		self._endTime = dateTuple[2]
 		self._timeInterval = self._transformDateStr()
+
+	def __eq__(self, other):
+		return self.dateTuple == other.dateTuple
 
 	def getTimeInterval(self):
 		return self._timeInterval
@@ -141,26 +149,21 @@ class TimeObj:
 		dayBonus = DAYS.index(self._day) * 24 * 60 / 5
 
 		startHour = int(self._startTime[:2])
-		startMinute = int(self._startTime[3:])
+		#print("start hour", str(startHour))
+		#NOTE: used to be self._startTime[3:] but they added seconds for some reason
+		startMinute = int(self._startTime[3:5])
 		start5min = startHour * 60/5 + startMinute/5 + dayBonus
 		
 		endHour = int(self._endTime[:2])
-		endMinute = int(self._endTime[3:])
+		endMinute = int(self._endTime[3:5])
 		end5min = endHour * 60/5 + endMinute/5 + dayBonus
 
 		return (int(start5min), int(end5min))
 		#NOTE: will I need end5min + 1? or not
 
 	# JSON serializing method
-	def reprJSON(self):
-		return dict(dateTuple = self.dateTuple)
-		#NOTE: We only need to store DateTumple in the JSON but if we want to save 
-		#			 some calculation maybe theres a way to put the rest
-								#Day = self._day,
-								#startTime = self._startTime,
-								#endTime = self._endTime,
-								#timeInterval = self._timeInterval)
-								
+	def toJSON(self):
+		return self.dateTuple  
 	
 	def __str__(self):	
 		return "Day: %s\n\
@@ -170,3 +173,6 @@ class TimeObj:
 															self._startTime, 
 															self._endTime, 
 															self._timeInterval)
+
+
+

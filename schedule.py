@@ -9,6 +9,7 @@ Given a saved HTML file, the steps it takes are:
 
 """
 from htmlParser import parseHTML 
+from htmlParser import parseJSON 
 from itertools import product
 from collections import defaultdict#NOTE: remember right now code is not super clean
 from util import ComplexEncoder
@@ -16,44 +17,65 @@ from util import ComplexEncoder
 import json #NOTE: check the circularity of this, already imported in util
 import os
 import sys
+import argparse
+#import errno
 from shutil import rmtree 
 
 def makeCatalog(courseDict):
-	courses = []
+	catalog = defaultdict(list)
 	for (k,v) in courseDict.items():
-		courses.append(v.getCourseID())		
+		catalog[v.getSemester()].append(v.getCourseID())
 
-	courses.sort()
-	catalog = list(enumerate(courses))
+	# Sort it to maintain Uniformity
+	for k in catalog:
+		catalog[k].sort()
+
 	return catalog
 
 
+# Outputs the catalog nicely onto console
 def printCatalog(catalog):
-	print("Cursos en su horario 2020-2: \n")
-	for c in catalog:
-		print(c)
+	print("\nCursos en su horario 2021-1: \n")
 
+	counter = 0
+	for c in catalog:
+		ciclo = str(c) if c > 0 else "Electivo"  
+		ciclo = "\t\t\t--- Ciclo " + ciclo + " --- "
+		print(ciclo)
+
+		#NOTE: not sorted yet
+		for co in catalog[c]:
+			space = "" if counter >= 10 else " "
+			print("\t" + str(counter) + space + "  => " + co)
+			counter += 1
+		print()
 
 def getRequestList(catalog):
 	print("\n\nIngresa los digitos de los cursos que quieres: ")
 	numbers = list(filter(None, input().split(" ")))
 	numbers = list(map(int, numbers))
 
-	print("\n\nEscogistes: ")
+	allCourses = []
+	for (k, v) in catalog.items():
+		for e in v:
+			allCourses.append(e)
+
+	print("\nEscogistes: ")
 	print("----------------")
+
+	reqCourses = []
 	for n in numbers:
-		print(str(catalog[n][0]) + ":" + catalog[n][1])
+		print(str(n) + ":" + allCourses[n])
+		reqCourses.append(allCourses[n])	
 
-	return numbers
+	return reqCourses
 
 
-def findAllSchedComb(requestList, catalog, courseDict):
+def findAllSchedComb(requestList, courseDict):
 	results = []
 	#Create a list of (cid, sid, labid) for each course
 	#TODO: maybe make a courseMap so that only numbers are stored not the entire cid  
-	cids = [catalog[cn][1] for cn in requestList]
-	#print(cids)
-	
+	cids = [cn for cn in requestList]	
 
 	# List for closed section in the request courses
 	closed = []
@@ -72,12 +94,12 @@ def findAllSchedComb(requestList, catalog, courseDict):
 				courseCombinations.append((cid, sid, labid))	
 		results.append(courseCombinations)
 
-	print("\n\n$$$$$$$$$$$$$$$$$$$$  Cerradas $$$$$$$$$$$$$$$$$$$$$")
+	#print("\n\n$$$$$$$$$$$$$$$$$$$$  Cerradas $$$$$$$$$$$$$$$$$$$$$")
 	closed.sort()
 	for p in closed:
 		print(p)
 
-	print("\n\n$$$$$$$$$$$$$$$$$$$$  Abiertas $$$$$$$$$$$$$$$$$$$$$")
+	#print("\n\n$$$$$$$$$$$$$$$$$$$$  Abiertas $$$$$$$$$$$$$$$$$$$$$")
 	cOpen.sort()
 	for p in cOpen:
 		print(p)
@@ -177,79 +199,117 @@ def findDaysWithout(schedTI):
 
 
 def printDaysWithoutDict(missingDaysDict):
-	print("\nHorarios posibles con 'n' dias de clase:")
 	tracker = defaultdict(int)
 
 	for dw in missingDaysDict:
 		ndays = len(DAYS) - int(len(dw)/3) 
-		tracker[ndays] += missingDaysDict[dw]
+		tracker[ndays] += len(missingDaysDict[dw])
 
-	resList = []
-	for d in range(6, -1, -1):
-		res = "\t" + str(d) + " dias: "
-		if d not in tracker:
-			res += "0"
-		else:
-			res += str(tracker[d]) 
-		print(res)
+	#print("\nHorarios posibles con 'n' dias de clase:")
+	#resList = []
+	#for d in range(6, -1, -1):
+	#	res = "\t" + str(d) + " dias: "
+	#	if d not in tracker:
+	#		res += "0"
+	#	else:
+	#		res += str(tracker[d]) 
+	#	print(res)
 
 	#print("\n# Horarios sin dia:")
 	#for d in missingDaysDict:
 	#	print("\t%s\t: %s"%(d, missingDaysDict[d]))
 
-	print("\n# Total de Horarios con dias:\n")
-	for d in missingDaysDict:
-		dayList = d.split()
+	#print("\n# Horarios con dias de semana:\n")
+
+	print("\nEscoge cual horarios ver: \n")
+	counter = 0
+	for k, v in sorted(missingDaysDict.items(), key=lambda x: x[0]):
+		dayList = k.split()
 		#TODO: print out day if in dayList else leave a space
-		weekStr = "\t"
+		weekStr = "\t" + str(counter) + ")\t"
 		for day in DAYS:
 			if day not in dayList:
 				weekStr += day
 			else:
 				weekStr += "---"
 			weekStr += "|"
-		weekStr += "    ->\t" + str(missingDaysDict[d]) + "\n"
+		weekStr += "    ->\t" + str(len(v)) + "\n"
+		counter += 1
 		print(weekStr)
+
+# This function is where user requests for specific 
+def passFilter(sched):
+	avoid = {
+				
+			}
+	requested = {
+			"Medicina Legal": ["10C1"],
+			"Psiquiatría Clínica": ["8D1"],
+			"Medicina I": ["6B1"], 
+			"Anatomía Patológica II": ["6B3"],
+			"Imagenología Médica": ["6A1"],
+			"Diagnóstico por Laboratorio": ["7C1"]
+			}
+
+	#NOTE, if the requested doesn't have a lab, this doesn't work
+	for sec in sched:
+		(cid, sid, labid) = sec
+		if cid in requested and labid not in requested[cid]:
+			return False
+		if cid in avoid and labid in avoid[cid]:
+			return False	
+	return True	
  
 
-def findViableSchedules(requestList, catalog, courseDict):
+def findViableSchedules(requestList, courseDict):
 	viable = []
 
 	#NOTE: can make the removal of unwanted or closed courses here or below
 	#		after checking for tiIntersects 
-	possible = findAllSchedComb(requestList, catalog, courseDict)
+	possible = findAllSchedComb(requestList, courseDict)
 	
 	goodCounter = 0
 	badCounter = 0		
 
 
 	# Creates a count for number of possible schedules w/ certain days 
-	missingDaysDict = defaultdict(int)
+	# 3/16 Now adding the actual schedules too
+	missingDaysDict = defaultdict(list)
 	
 	#TODO: make this an item too instead of a tuple?	
 	for sched in possible:
-		#print(sched)
+	
+		# TODO NOTE: putting filter here for the moment	
+		if not passFilter(sched):
+			continue
+
+		#print("sched")	
+		#print(sched)				
+			
 		schedTI = getTimeIntervals(courseDict, sched) 
 		schedTI.sort(key=lambda tup:tup[0])
-	
+
+		# If the schedule is viable	
 		if not tiIntersects(schedTI):
 			# TODO: make it multiply iteratable probably by saving this result
 			# 	or see the note above 
 			daysWithout = findDaysWithout(schedTI)
-			missingDaysDict[daysWithout] += 1	
+			missingDaysDict[daysWithout].append(sched)	
 
 			# Here is where the filter for days is done. 
-			if not tempHasBadDay(schedTI):
-				goodCounter += 1
-				viable.append(sched)
-			else:
-				badCounter += 1
+			#if not tempHasBadDay(schedTI):
+			goodCounter += 1
+			viable.append(sched)
+			#else:
+			#	badCounter += 1
 		else:
+			#print(schedTI)
 			badCounter += 1
 
-	printDaysWithoutDict(missingDaysDict)	
+
+	#printDaysWithoutDict(missingDaysDict)	
 	#NOTE: might add conditionallyViable along with viable to tuple result
-	return (goodCounter, badCounter, viable)	
+	return (goodCounter, badCounter, viable, missingDaysDict)	
 
 
 def getFileSched(day, startTime, endTime):
@@ -263,19 +323,24 @@ def getFileSched(day, startTime, endTime):
 
 
 #TODO: packge this DAYS somewhere 
-DAYS = ["LUN", "MAR", "MIE", "JUE", "VIE", "SAB"]	
+#DAYS = ["LUN", "MAR", "MIE", "JUE", "VIE", "SAB"]	
+#NOTE: This is for 2021-2 version
+DAYS = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado"]
+
 # Print human readable schedule
 def getSchedString(courseDict, coursetuple, course_counter):
+	#print(coursetuple)
 	(cid, sid, labid) = coursetuple
 
-	# Section might not have labtimes
+	# Section might not have labtimes or even theotimes thus no sid
 	if not labid:
 		labid = ""
+	if not sid:
+		sid = "" #TODO prob regex is better
 	
 	print("\tCurso " + str(course_counter) + ".\t------------- " +
 		cid + " [" + sid +
-		"|" + labid + "] -------------")
-	
+		"|" + labid + "]")	
 	sections = courseDict[cid].sections
 	section = sections[sid]	
 	theoryTimes = []
@@ -309,81 +374,108 @@ def getSchedString(courseDict, coursetuple, course_counter):
 
 
 def printSchedules(courseDict, resultTuple):
-	(goodCounter, badCounter, viable) = resultTuple
+	(goodCounter, badCounter, viable, missingDaysDict) = resultTuple
 	total = goodCounter + badCounter
-	print("\n\nBuscando combinaciones viables entre " + str(total) + " posibilidades...........")
-	print ("\nHorarios viables: " + str(goodCounter))
-	print("Horarios NO viables: " + str(badCounter))
-	
-	# Create the directory
-	dname = "results"
-	if os.path.exists(dname):
-		rmtree(dname) #shutil.rmtree
-	os.makedirs(dname)
-	
-	MAXTOPRINT = 15
-	counter = 1
-	
-	#TODO: revise everything after this, I have just copied 
-	for v in viable:
-		if counter > MAXTOPRINT: break
+	print("\n\n\nBuscando combinaciones viables entre " + str(total) + " posibilidades...........")
+	print ("\tHorarios viables: " + str(goodCounter))
+	print("\tHorarios NO viables: " + str(badCounter))
+	print()	
+	printDaysWithoutDict(missingDaysDict)
+
+	#NOTE: temporary put into while loop	
+	while(True):	
+		#NOTE: package better later
+		dayChoice = int(input()) # Ask for specific schedules
+		# Create the directory
+		dname = "results"
+		if os.path.exists(dname):
+			rmtree(dname) #shutil.rmtree
+		os.makedirs(dname)
 		
-		print("\n\nHorario Final: " + str(counter) + "/" + str(goodCounter))
-		course_counter = 1
+		MAXTOPRINT = 400
+		counter = 1
 		
-		# Open a file
-		f_name = dname + "/horario" + str(counter) + "de" + str(goodCounter)
-		f = open(f_name, "w+")
-		data_string = ""
-		for coursetuple in v:
-			data_string += getSchedString(courseDict, coursetuple, course_counter)
-			course_counter += 1
-			f.write(data_string)
-		f.close()
+		#TODO: revise everything after this, I have just copied 
 		
-		counter += 1
+		keys = missingDaysDict.keys()
+		keys = sorted(keys)
+		newViable = missingDaysDict[keys[dayChoice]]
+
+		for v in newViable: 
+		#for v in viable:
+			if counter > MAXTOPRINT: break
+			
+			print("\n\nHorario Final: " + str(counter) + "/" + str(goodCounter))
+			course_counter = 1
+			
+			# Open a file
+			f_name = dname + "/horario" + str(counter) + "de" + str(goodCounter)
+			f = open(f_name, "w+")
+			data_string = ""
+			for coursetuple in v:
+				data_string += getSchedString(courseDict, coursetuple, course_counter)
+				course_counter += 1
+				f.write(data_string)
+			f.close()
+			
+			counter += 1
+	#		print("\n")
 		print("\n")
-	print("\n")
 
-	# Write ellipsis if there are more courses
-	if counter < goodCounter:
-		print("\t\t\t\t\t--------- %s horarios mas -----------\n\n\n\n\n"%
-			(str(goodCounter-counter + 1)))
+		#NOTE: fix later, saying confusing stuff
+		# Write ellipsis if there are more courses
+		#if counter < goodCounter:
+		#	print("\t\t\t\t\t--------- %s horarios mas -----------\n\n\n\n\n"%
+		#		(str(goodCounter-counter + 1)))
 
 
-# This function transforms the Course Dictionary into JSON
-def turnToJSON(courseDict):
-	j = json.dumps(courseDict, 
-								cls=ComplexEncoder, 
-								ensure_ascii=False, 
-								sort_keys=True,
-								indent=4).encode('utf-8') 
-	print(j.decode())	
-	
-	# Create the directory
-	dname = "JSONresults" #TODO: put into constants probably
-	if os.path.exists(dname): #TODO: fix this later cuase right now just erasing
-		rmtree(dname) #shutil.rmtree
-	os.makedirs(dname)
-
+# This function transforms the final Course Dictionary into JSON
+def turnToJSON(courseDict, jsonFile):
+	#dname = constants.JSON_DIRECTORY 	
+	dname = "JSON"
 	#Open file
-	with open(dname + "/medicinaJSON", 'w', encoding='utf8') as json_file:
+	with open(dname + "/" + jsonFile, 'w', encoding='utf8') as json_file:
 		json.dump(courseDict, 
+						json_file,
 						cls=ComplexEncoder, 
 						ensure_ascii=False, 
 						sort_keys=True,
-						indent=4).encode('utf-8') 
+						indent=4)
 
-def main():
-	# User inputs HTML file as option
-	htmlFile = os.getcwd() + "/" + sys.argv[1] 
+
+# Reads Command line Arguments and creates the Course Dictionary from them
+def createCourseDict():
+	parser = argparse.ArgumentParser(description="Find the schedules")
+	parser.add_argument('-H', '--htmlFile', type=str, help="Name of HTML schedule File")
+	parser.add_argument('-J', '--jsonFile', type=str, help="Name of JSON schedule File",
+											required=True)	
+	args = parser.parse_args()
+
+	courseDict = None	
+	if args.htmlFile:
+		htmlFile = os.getcwd() + "/" + args.htmlFile
+		jsonFile = os.getcwd() + "/JSON/" + args.jsonFile
+		cDictH = parseHTML(htmlFile)
+		cDictJ = {}
+		if os.path.isfile(jsonFile):	
+			cDictJ = parseJSON(jsonFile) 
+		cDictH.update(cDictJ) 
+		courseDict = cDictH	
+	else: 	
+		jsonFile = os.getcwd() + "/JSON/" + args.jsonFile
+		courseDict = parseJSON(jsonFile)
 	
-	""" (1). Scrape, return a list of courses """
-	courseDict = parseHTML(htmlFile)
-	#_printCourseDict(courseDict)
+	""" Save the courseDict to JSON """  
+	turnToJSON(courseDict, args.jsonFile)	
+	return courseDict
 
-	""" (1a). Transform the courseDict into JSON """  
-	courseDictJSON = turnToJSON(courseDict)	
+
+
+def main():	
+
+	""" (1). Scrape, return a dict of courses (also updates the JSON) """
+	courseDict = createCourseDict()		
+	#_printCourseDict(courseDict)
 	
 	""" (2). Print catalogue & get User requests """
 	catalog = makeCatalog(courseDict)
@@ -396,8 +488,9 @@ def main():
 	# 			a better place to put the constraints.  
 
 	""" (3). Get the viable schedules """
-	resultTuple = findViableSchedules(requestList, catalog, courseDict)
+	resultTuple = findViableSchedules(requestList, courseDict)
 
+	""" (3b). Implement user constraints on Viable Schedules """
 	#TODO: constraints can be here instead
 	# Benefits: can do a while loop for user constraints & printing Schedules
 	#						& don't have to redo calculation for further requests (closed/baddays)

@@ -22,3 +22,4 @@ The program then does the following
      The reason for this is that next time we won't have to scrape the HTML again but can just read the course info from the JSON file. 
 3. Requests the user to input the classes they want this semester. 
 4. Creates schedules (in text) and stores them into ./result directory. 
+5. We then can run the command 'python3 plot.py' which uses the text schedules from the ./results directory and stores the schedule images into a ./images directory
